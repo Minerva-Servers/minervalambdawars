@@ -5,6 +5,7 @@ Minerva Lambda Wars is a modded version of the original Lambda Wars which balanc
 Download the github repository and navigate to the Lambda Wars Directory (Steam/steamapps/common/Lambda Wars/lambdawars), create an addon folder called "addons" if there isn't. Open the repository files and drag the VPK file into the addons folder, keep in mind Lambda Wars must not be started during this procedure.
 
 Your addons folder should look like this.
+
 ![image](https://github.com/Minerva-Servers/minerva-lambdawars/assets/49407096/e458bb2b-4c09-4ec1-8ea7-b96174462931)
 
 # Multi-Player
