@@ -1109,7 +1109,7 @@ class StriderInfo(UnitInfo):
     techrequirements = ['build_comb_tech_center']
     health = 2300
     maxspeed = 200.0
-    turnspeed = 10.0
+    turnspeed = 15.0
     unitenergy = 100
     unitenergy_initial = -1
     population = 7

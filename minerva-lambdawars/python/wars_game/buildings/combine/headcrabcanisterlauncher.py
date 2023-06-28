@@ -99,10 +99,10 @@ class OverrunHeadcrabCanisterLauncherInfo(WarsBuildingInfo):
     workactivity = 'ACT_WORK'
     explodeactivity = 'ACT_EXPLODE'
     techrequirements = ['or_tier3_research']
-    costs = [('kills', 60)]
-    health = 400
-    buildtime = 60.0
-    scale = 1.0
+    costs = [('requisition', 150), ('power', 150)]
+    health = 200
+    buildtime = 120
+    scale = 2
     abilities = {
         0: 'overrun_launch_headcrabcanister',
         1: 'overrun_launch_headcrabcanister_fasttype',
@@ -128,11 +128,11 @@ class HeadcrabCanisterLauncherInfo(PoweredBuildingInfo):
     constructionactivity = 'ACT_CONSTRUCTION'
     workactivity = 'ACT_WORK'
     explodeactivity = 'ACT_EXPLODE'
-    techrequirements = ['build_comb_armory']
-    costs = [('requisition', 50), ('power', 75)]
-    health = 400
-    buildtime = 84.0
-    scale = 1.0
+    techrequirements = ['build_comb_armory', 'build_comb_mech_factory', 'build_comb_synthfactory']
+    costs = [('requisition', 150), ('power', 150)]
+    health = 200
+    buildtime = 120
+    scale = 2
     abilities = {
         0: 'launch_headcrabcanister',
         1: 'launch_headcrabcanister_fasttype',

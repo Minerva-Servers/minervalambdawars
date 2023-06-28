@@ -55,6 +55,28 @@ class FactionAntlionInfo(WarsFactionInfo):
         # Spawn a start unit
         if info.startunit:
             CreateUnitFancy(info.startunit, startspot.GetAbsOrigin()+Vector(270, 0, 48), owner_number=ownernumber, angles=startspot.GetAbsAngles())
+
+class FactionAntlionInfo(WarsFactionInfo):
+    name = 'zombies'
+    displayname = 'Zombies'
+    hud_name = 'classic_hud'
+    startbuilding = 'build_zomb_hq'
+    startunit = 'unit_zombie'
+    resources = ['requisition']
+    color = Vector(0.2, 0, 0) 
+    victoryparticleffect = 'pg_reb_victory'
+    defeatparticleffect = 'pg_reb_defeat'
+
+class FactionAntlionInfo(WarsFactionInfo):
+    name = 'racex'
+    displayname = 'Race X'
+    hud_name = 'classic_hud'
+    startbuilding = 'build_racex_hq'
+    startunit = 'unit_shocktrooper'
+    resources = ['requisition']
+    color = Vector(0.58, 0.34, 83) 
+    victoryparticleffect = 'pg_reb_victory'
+    defeatparticleffect = 'pg_reb_defeat'
         
 class FactionCombineInfo(WarsFactionInfo):
     name = 'combine'

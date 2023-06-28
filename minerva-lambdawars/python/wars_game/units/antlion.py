@@ -965,37 +965,37 @@ class AntlionInfoShared(UnitInfo):
     regeneration = False
 
 
-    maxspeed = 354.90
-    turnspeed = 300.0
+    maxspeed = 350
+    turnspeed = 75
     
     scrapdropchance=0.0
     
     # Antlion melee attack
     class AttackMelee(UnitInfo.AttackMelee):
-        damage = 25
+        damage = 15
         damagetype = DMG_SLASH
         attackspeed = 1.5
 
     class AttackSlash(AttackMelee):
-        damage = 25
+        damage = 15
         damagetype = DMG_SLASH
         attackspeed = 1.0
 
     # Worker acid attack
     class AttackRange(UnitInfo.AttackRange):
-        damage = 20
+        damage = 25
         damagetype = DMG_ACID
-        attackspeed = 1.6
-        maxrange = 704.0
+        attackspeed = 2
+        maxrange = 1024
         
     # Antlion jump attack
     class AttackLeap(UnitInfo.AttackBase):
-        cone = 0.7
+        cone = 0.8
         damage = 25
         damagetype = DMG_SLASH
         attackspeed = 2.0
-        minrange = 256.0
-        maxrange = 720.0
+        minrange = 384.0
+        maxrange = 1024.0
         requiresmovement = True
         
         nextattacktime = 0.0
@@ -1010,14 +1010,14 @@ class AntlionInfoShared(UnitInfo):
             return unit.CanRangeAttack(enemy)
 
         def Attack(self, enemy, action):
-            self.nextattacktime = gpGlobals.curtime + 6.0
+            self.nextattacktime = gpGlobals.curtime + 5.0
             return self.unit.StartLeapAttack()
         
     attacks = ['AttackMelee']
 
     class AttackFly(AttackLeap):
-        damage = 20
-        minrange = 256
+        damage = 25
+        minrange = 384
         maxrange = 1024
 
 class AntlionInfo(AntlionInfoShared):
@@ -1033,7 +1033,7 @@ class AntlionInfo(AntlionInfoShared):
     portrait = 'resource/portraits/antlionPortrait.bik'
     costs = [[('requisition', 10)], [('grubs', 1)]]
     buildtime = 12
-    health = 100
+    health = 50
     displayname = '#Antlion_Name'
     description = '#Antlion_Description'
     modelname = 'models/antlion.mdl'
@@ -1058,7 +1058,7 @@ class AntlionWorkerInfo(AntlionInfoShared):
     costs = [('grubs', 1)]
     population = 2
     buildtime = 22
-    health = 120
+    health = 65
     displayname = '#AntlionWorker_Name'
     description = '#AntlionWorker_Description' 
     modelname = 'models/antlion_worker.mdl'
@@ -1102,14 +1102,13 @@ class SmallAntlion(AntlionInfoShared):
     image_name = 'vgui/antlions/units/unit_ant_antlion.vmt'
     portrait = 'resource/portraits/antlionPortrait.bik'
     scrapdropchance = 0.0
-    health = 50
-    viewdistance = 512
-    sensedistance = 1024
-    scale = 0.7
-    displayname = '#Antlion_Name'
-    description = '#Antlion_Description'
+    health = 20
+    scale = 0.75
+    buildtime = 9
+    displayname = 'Small Antlion'
+    description = 'A Smaller variant of the regular Antlion.'
     modelname = 'models/antlion.mdl'
-    attacks = ['AttackSlash', 'AttackFly']
+    attacks = ['AttackSlash']
     population = 1
     #tier = 1
     regeneration = True

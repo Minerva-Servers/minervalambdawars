@@ -29,18 +29,20 @@ class Annihilation(WarsBaseGameRules):
             ownernumber = data['ownernumber']
 
             # count important buildings, including the HQ
-            countunitscombhq = len([b for b in constructedlistpertype[ownernumber]['build_comb_hq'] if b.IsAlive()])
-            countunitsrebhq = len([b for b in constructedlistpertype[ownernumber]['build_reb_hq'] if b.IsAlive()])
+            countunitsantcolony = len([b for b in constructedlistpertype[ownernumber]['build_ant_colony'] if b.IsAlive()])
+            countunitsantminihive = len([b for b in constructedlistpertype[ownernumber]['build_ant_minihive'] if b.IsAlive()])
             countunitscombgar = len([b for b in constructedlistpertype[ownernumber]['build_comb_garrison'] if b.IsAlive()])
-            countunitsrebbar = len([b for b in constructedlistpertype[ownernumber]['build_reb_barracks'] if b.IsAlive()])
+            countunitscombhq = len([b for b in constructedlistpertype[ownernumber]['build_comb_hq'] if b.IsAlive()])
             countunitscombmech = len([b for b in constructedlistpertype[ownernumber]['build_comb_mech_factory'] if b.IsAlive()])
-            countunitsrebspecops = len([b for b in constructedlistpertype[ownernumber]['build_reb_specialops'] if b.IsAlive()])
             countunitscombspecops = len([b for b in constructedlistpertype[ownernumber]['build_comb_specialops'] if b.IsAlive()])
-            countunitsrebvortden = len([b for b in constructedlistpertype[ownernumber]['build_reb_vortigauntden'] if b.IsAlive()])
             countunitscombsynth = len([b for b in constructedlistpertype[ownernumber]['build_comb_synthfactory'] if b.IsAlive()])
+            countunitsrebbar = len([b for b in constructedlistpertype[ownernumber]['build_reb_barracks'] if b.IsAlive()])
+            countunitsrebhq = len([b for b in constructedlistpertype[ownernumber]['build_reb_hq'] if b.IsAlive()])
             countunitsrebscrapyard = len([b for b in constructedlistpertype[ownernumber]['build_reb_junkyard'] if b.IsAlive()])
+            countunitsrebspecops = len([b for b in constructedlistpertype[ownernumber]['build_reb_specialops'] if b.IsAlive()])
+            countunitsrebvortden = len([b for b in constructedlistpertype[ownernumber]['build_reb_vortigauntden'] if b.IsAlive()])
             squadwarsbase = len([b for b in constructedlistpertype[ownernumber]['build_sw_beacon'] if b.IsAlive()])
-            countunits = countunitscombhq + countunitsrebhq + countunitscombgar + countunitsrebbar + countunitscombmech + countunitsrebspecops + countunitscombspecops + countunitsrebvortden + countunitscombsynth + countunitsrebscrapyard + squadwarsbase
+            countunits = countunitscombhq + countunitsrebhq + countunitscombgar + countunitsrebbar + countunitscombmech + countunitsrebspecops + countunitscombspecops + countunitsrebvortden + countunitscombsynth + countunitsrebscrapyard + squadwarsbase + countunitsantcolony + countunitsantminihive
             #countunits = len([b for b in priobuildinglist[ownernumber] if b.IsAlive()])
             if not countunits:
                 self.PlayerDefeated(data)
@@ -149,7 +151,7 @@ class AnnihilationInfo(GamerulesInfo):
     cls = Annihilation
     supportcpu = True
     mappattern = '^hlw_.*$'
-    factionpattern = '^(rebels|combine|antlion)$'
+    factionpattern = '^(rebels|combine|antlions|zombies|racex)$'
     minplayers = 2
     allowallsameteam = False
     huds = GamerulesInfo.huds + [

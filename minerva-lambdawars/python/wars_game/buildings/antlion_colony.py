@@ -43,12 +43,14 @@ class AntlionColonyInfo(WarsBuildingInfo):
     portrait = 'resource/portraits/antlionHive.bik'
     abilities   = {
         1 : 'unit_antlionworker',
+        2 : 'unit_antlionguard',
+        3 : 'unit_antlionguardcavern',
     }
     health = 4000
     modelname = 'models/props_wasteland/antlionhill.mdl'
     displayname = '#AntlionColony_Name'
     description = '#AntlionColony_Description'
-    providespopulation = 20
+    providespopulation = 7
     costs = [('grubs', 20)]
     
 class Tier2UpgradeInfo(AbilityUpgrade):

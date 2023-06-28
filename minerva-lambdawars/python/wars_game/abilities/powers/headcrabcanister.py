@@ -17,9 +17,9 @@ class AbilityCanister(AbilityTarget):
     displayname = "#AbilityLaunchHeadcrabCanister_Name"
     description = "#AbilityLaunchHeadcrabCanister_Description"
     image_name = 'vgui/combine/abilities/combine_launch_headcrab'
-    rechargetime = 12.0
+    rechargetime = 30.0
     maxrange = FloatField(value=8192.0)
-    costs = [('requisition', 10), ('power', 5)]
+    costs = [('requisition', 20), ('power', 20)]
     overrunmode = False
     headcrabtype = StringField(value='unit_headcrab')
     headcrabcount = IntegerField(value=5)
@@ -138,9 +138,9 @@ class AbilityCanister(AbilityTarget):
 class AbilityCanisterFastType(AbilityCanister):
     name = 'launch_headcrabcanister_fasttype'
     headcrabtype = 'unit_headcrab_fast'
-    headcrabcount = 4
+    headcrabcount = 2
     #maxrange = FloatField(value=5120.0)
-    costs = [('requisition', 15), ('power', 5)]
+    costs = [('requisition', 55), ('power', 55)]
     image_name = 'vgui/combine/abilities/combine_launch_fast_headcrab'
     displayname = "#AbilityLaunchHeadcrabFastCanister_Name"
     description = "#AbilityLaunchHeadcrabFastCanister_Description"
@@ -150,7 +150,7 @@ class AbilityCanisterPoisonType(AbilityCanister):
     headcrabtype = 'unit_headcrab_poison'
     headcrabcount = 6
     #maxrange = FloatField(value=5120.0)
-    costs = [('requisition', 10), ('power', 10)]
+    costs = [('requisition', 60), ('power', 60)]
     image_name = 'vgui/combine/abilities/combine_launch_poison_headcrab'
     displayname = "#AbilityLaunchHeadcrabPoisonCanister_Name"
     description = "#AbilityLaunchHeadcrabPoisonCanister_Description"
@@ -164,7 +164,7 @@ class AbilityCanisterPoisonBossType(AbilityCanister):
 class AbilityCanisterEmptyType (AbilityCanister):
     name = 'launch_headcrabcanister_emptytype'
     headcrabcount = 0
-    costs = [('requisition', 5), ('power', 5)]
+    costs = [('requisition', 30), ('power', 30)]
     #costs = [('power', 5)]
     #maxrange = FloatField(value=7680.0)
     image_name = 'vgui/combine/abilities/combine_launch_empty_shell'

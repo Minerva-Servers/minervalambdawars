@@ -671,7 +671,7 @@ class AntlionGuardInfo(AntlionGuardSharedInfo):
     image_dis_name = 'vgui/units/unit_antlionguard_dis.vmt'
     portrait = 'resource/portraits/antlionGuardPortrait.bik'
     costs = [('grubs', 25)]
-    population = 8
+    population = 12
     buildtime = 120.0
     techrequirements = ['tier3_research']    
     abilities   = {
@@ -690,7 +690,7 @@ class AntlionGuardCavernInfo(AntlionGuardSharedInfo):
     image_dis_name = 'vgui/units/unit_antlionguard_dis.vmt'
     portrait = 'resource/portraits/antlionGuardBreed.bik'
     costs = [('grubs', 35)]
-    population = 8
+    population = 18
     buildtime = 180.0
     techrequirements = ['tier3_research']    
     selectionpriority = 2

@@ -251,6 +251,7 @@ class RebelShared(UnitInfo):
     sound_flamer_ignited = 'unit_rebel_flamer_ignited'
     sound_hurt = 'unit_rebel_hurt'
     cantakecover = True
+    canshootmove = True
     sai_hint = set(['sai_unit_combat'])
 
 class RebelScoutInfo(RebelShared):
@@ -962,7 +963,7 @@ class RebelVeteranUnlock(AbilityUpgrade):
 
 @entity ('unit_rebel_veteran', networked=True)
 class UnitCitizenBase(UnitCitizen):
-    canshootmove = False
+    canshootmove = True
     insteadyposition = BooleanField(value=False, networked=True)
 
     def OnInCoverChanged(self):

@@ -16,13 +16,14 @@ class AntlionMiniHiveInfo(WarsBuildingInfo):
     cls_name    = "build_ant_minihive"   
     image_name  = "vgui/units/minihive.vmt"  
     abilities   = {                      
-        0 : 'unit_antlion',
+        0 : 'unit_antlion_small',
+        1 : 'unit_antlion',
     }
     health = 350
     modelname = 'models/props_wasteland/rockcliff05a.mdl'
     displayname = "#AntlionMiniHive_Name"
     description = "#AntlionMiniHive_Description"
     costs = [('grubs', 5)]
-    providespopulation = 15
+    providespopulation = 9
     buildtime = 50
-    scale = 2
+    scale = 1

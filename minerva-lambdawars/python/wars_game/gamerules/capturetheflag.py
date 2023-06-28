@@ -73,8 +73,7 @@ class CaptureTheFlag(WarsBaseGameRules):
         
     CAPTURE_TIME = 2.0 * 60.0
     SAVEOLDTIME = False
-    
-'''
+
 class CaptureTheFlagInfo(GamerulesInfo):
     name = 'capturetheflag'
     displayname = '#CaptureTheFlag_Name'
@@ -86,5 +85,3 @@ class CaptureTheFlagInfo(GamerulesInfo):
         'core.hud.HudCaptureTheFlag',
         'core.hud.HudPlayerNames',
     ]
-'''
-    
