@@ -660,15 +660,15 @@ class RollerMineInfo(UnitInfo):
     oncreatedroptofloor = False
     placeatmins = True
     maxspeed = 1200.0  # More like the angular speed
-    health = 220
+    health = 120
     population = 2
     buildtime = 18.0
     viewdistance = 640
     attributes = ['metal', 'mechanic']
-    costs = [[('requisition', 10), ('power', 15)], [('kills', 1)]]
+    costs = [[('requisition', 20), ('power', 20)], [('kills', 1)]]
     techrequirements = ['build_comb_armory']
-    unitenergy = 200
-    #sai_hint = set(['sai_unit_support'])
+    unitenergy = 100
+    sai_hint = set(['sai_unit_support'])
 
     class AttackMelee(UnitInfo.AttackMelee):
         maxrange = 0.0

@@ -1,0 +1,13 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/structures/combine/SpecOps_sheet"
+	"$surfaceprop" "MetalPanel"
+	"$model"	1
+	"$teamcolormap" "models/structures/combine/SpecOps_color"
+        "Proxies"
+       	 {
+                	"TeamColor"
+              	 	{
+                	}
+       	 }
+}

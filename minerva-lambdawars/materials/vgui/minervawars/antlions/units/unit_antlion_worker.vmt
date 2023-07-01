@@ -1,0 +1,8 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui\minervawars\antlions\units\unit_antlion_worker"
+	"$translucent" "1"
+	"$ignorez"     "1"
+	"$vertexalpha" "1"
+	"$no_fullbright" "1"
+}

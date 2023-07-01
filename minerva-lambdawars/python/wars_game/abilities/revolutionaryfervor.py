@@ -7,7 +7,7 @@ class AbilityRevolutionaryFervor(AbilityBase):
     description = "#RebRevFervor_Description"
     image_name = 'vgui/rebels/abilities/revolutionaryfervor'
     hidden = True # Hidden from abilitypanel
-    accuracybonus = 0.1
+    accuracybonus = 0.5
     
     @classmethod
     def SetupOnUnit(info, unit):

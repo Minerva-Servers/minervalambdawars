@@ -643,6 +643,7 @@ class UnitAntlionGuard(BaseClass):
 # Register unit
 class AntlionGuardSharedInfo(UnitInfo):
     cls_name    ='unit_antlionguard'
+    image_name  = "vgui/minervawars/antlions/units/unit_antlionguard.vmt"  
     maxspeed = 272.0
     attributes = ['heavy']
     abilities   = {
@@ -656,24 +657,24 @@ class AntlionGuardSharedInfo(UnitInfo):
     sound_death = 'NPC_AntlionGuard.Die'
     modelname = 'models/antlion_guard.mdl'
     hulltype = 'HULL_LARGE'
+    sai_hint = set(['sai_unit_combat'])
     
     class AttackMelee(UnitInfo.AttackMelee):
-        damage = 250
+        damage = 300
         damagetype = DMG_SLASH
         maxrange = 128.0
-        attackspeed = 1.4
-        cone = 0.99
+        attackspeed = 0.9
+        cone = 1.2
     attacks = 'AttackMelee'
     
 class AntlionGuardInfo(AntlionGuardSharedInfo):
     name        ='unit_antlionguard'
-    image_name = 'vgui/units/unit_antlionguard.vmt'
-    image_dis_name = 'vgui/units/unit_antlionguard_dis.vmt'
+    image_name  = "vgui/minervawars/antlions/units/unit_antlionguard.vmt"
     portrait = 'resource/portraits/antlionGuardPortrait.bik'
     costs = [('grubs', 25)]
     population = 12
-    buildtime = 120.0
-    techrequirements = ['tier3_research']    
+    buildtime = 90.0
+    techrequirements = ['tier2_research']
     abilities   = {
         0 : 'charge',
         8 : 'attackmove',
@@ -682,22 +683,25 @@ class AntlionGuardInfo(AntlionGuardSharedInfo):
     selectionpriority = 1
     displayname = '#AntlionGuard_Name'
     description = '#AntlionGuard_Description'
-    health = 2000
+    health = 2500
+    scale = 1.25
+    regeneration = True
 
 class AntlionGuardCavernInfo(AntlionGuardSharedInfo):
     name = 'unit_antlionguardcavern'
-    image_name = 'vgui/units/unit_antlionguardcavern.vmt'
-    image_dis_name = 'vgui/units/unit_antlionguard_dis.vmt'
-    portrait = 'resource/portraits/antlionGuardBreed.bik'
-    costs = [('grubs', 35)]
+    image_name  = "vgui/minervawars/antlions/units/unit_antlionguardcavern.vmt"  
+    costs = [('grubs', 45)]
     population = 18
-    buildtime = 180.0
-    techrequirements = ['tier3_research']    
+    buildtime = 140.0
+    techrequirements = ['tier3_research']
     selectionpriority = 2
     displayname = '#AntlionGuardCavern_Name'
     description = '#AntlionGuardCavern_Description'
     keyvalues = {'cavernbreed' : '1' }
-    health = 3000
+    health = 3500
+    scale = 1.25
+    skin = 1.5
+    regeneration = True
     
 class AntlionGuardCavernBossInfo(AntlionGuardCavernInfo):
     name = 'unit_antlionguardcavernboss'

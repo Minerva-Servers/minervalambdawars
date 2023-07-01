@@ -223,6 +223,8 @@ class UnitRebelMedic(UnitRebel):
     maxhealth = UpgradeField(abilityname='rebel_hp_upgrade', cppimplemented=True)
     health = UpgradeField(abilityname='rebel_hp_upgrade', cppimplemented=True)
 
+    canshootmove = True
+
 
 class RebelShared(UnitInfo):
     cls_name = 'unit_rebel'
@@ -502,6 +504,8 @@ class RebelInfo(RebelShared):
         10: 'patrol',
         -1: 'garrison',
     }
+
+    canshootmove = True
 
 
 class DestroyHQRebelInfo(RebelInfo):

@@ -82,6 +82,7 @@ class TechCenterInfo(PoweredBuildingInfo):
         1 : 'combinemine_upgrade',
         2 : 'mortarsynth_upgrade',
         3 : 'stridercannon_unlock',
+        4 : 'combine_grenade_upgrade',
         #5 : 'weaponar2_comb_unlock',
         #6 : 'combineball_unlock',
         8 : 'cancel',

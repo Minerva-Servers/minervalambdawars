@@ -42,8 +42,7 @@ class DestroyHQ(WarsBaseGameRules):
             countunitsrebvortden = len([b for b in constructedlistpertype[ownernumber]['build_reb_vortigauntden'] if b.IsAlive()])
             countunitscombsynth = len([b for b in constructedlistpertype[ownernumber]['build_comb_synthfactory'] if b.IsAlive()])
             countunitsrebscrapyard = len([b for b in constructedlistpertype[ownernumber]['build_reb_junkyard'] if b.IsAlive()])
-            squadwarsbase = len([b for b in constructedlistpertype[ownernumber]['build_sw_beacon'] if b.IsAlive()])
-            countunits = countunitscombhq + countunitsrebhq + countunitscombgar + countunitsrebbar + countunitscombmech + countunitsrebspecops + countunitscombspecops + countunitsrebvortden + countunitscombsynth + countunitsrebscrapyard + squadwarsbase
+            countunits = countunitscombhq + countunitsrebhq + countunitscombgar + countunitsrebbar + countunitscombmech + countunitsrebspecops + countunitscombspecops + countunitsrebvortden + countunitscombsynth + countunitsrebscrapyard
             #countunits = len([b for b in priobuildinglist[ownernumber] if b.IsAlive()])
             if not countunits:
                 self.PlayerDefeated(data)
@@ -77,8 +76,8 @@ class DestroyHQ(WarsBaseGameRules):
         if self.GetPlayerGameData(steamid=playersteamid, gameplayers=winners) is not None:
             stats.destroyhq_wins += 1
 
-
 class DestroyHQInfo(GamerulesInfo):
+    hidden = True
     name = 'destroyhq'
     displayname = '#Destroy_HQ_Name'
     description = '#Destroy_HQ_Description'

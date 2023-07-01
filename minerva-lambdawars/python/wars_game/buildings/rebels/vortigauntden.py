@@ -25,7 +25,7 @@ class VortigauntDenInfo(WarsBuildingInfo):
     techrequirements = ['build_reb_triagecenter']
     abilities   = {
         0 : 'unit_vortigaunt',
-        #1 : 'unit_antlion', # -> Use bugbait ability of Vortigaunt instead
+        1 : 'unit_antlion_small',
         4 : 'larvalextract_unlock',
         8 : 'cancel',
     }

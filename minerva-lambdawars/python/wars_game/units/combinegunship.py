@@ -767,15 +767,15 @@ class UnitCombineGunship(BaseClass):
     SF_GUNSHIP_USE_CHOPPER_MODEL = ( 1 << 13 )
     
 class CombineGunshipInfo(UnitInfo):
-    name = 'unit_combinegunship'
-    cls_name = 'unit_combinegunship'
+    name = 'unit_combine_gunship'
+    cls_name = 'unit_combine_gunship'
     displayname = '#CombGunship_Name'
     description = '#CombGunship_Description'
     #image_name = 'vgui/combine/units/unit_combinegunship'
     costs = [('requisition', 150), ('power', 180)]
     buildtime = 120.0
     zoffset = 128.0
-    scale = 0.75
+    scale = 1
     modelname = 'models/gunship.mdl'
     hulltype = 'HULL_LARGE_CENTERED'
     health = 2000
@@ -784,8 +784,9 @@ class CombineGunshipInfo(UnitInfo):
     population = 6
     attributes = ['synth', 'pulse']
     abilities = {
-        8 : 'attackmove',
-        9 : 'holdposition',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
     }
     class AttackRange(UnitInfo.AttackRange):
         damage = 12
@@ -796,8 +797,27 @@ class CombineGunshipInfo(UnitInfo):
     attacks = 'AttackRange'
     
 class CombineHelicopterInfo(CombineGunshipInfo):
-    name = 'unit_combinehelicopter'
+    name = 'unit_combine_helicopter'
+    image_name  = "vgui/minervawars/combine/units/unit_combine_helicopter.vmt"
     modelname = 'models/combine_helicopter.mdl'
     keyvalues = {'spawnflags' : str(UnitCombineGunship.SF_GUNSHIP_USE_CHOPPER_MODEL)}
-    scale = 0.75
+        
+    def Ping(self):
+        return
+
+    def InitializeRotorSound(self):
+        controller = CSoundEnvelopeController.GetController()
+        
+        filter = CPASAttenuationFilter(self)
+
+        self.cannonsound = controller.SoundCreate( filter, self.entindex(), "NPC_CombineGunship.CannonSound" )
+        self.rotorsound = controller.SoundCreate( filter, self.entindex(), "NPC_AttackHelicopter.Rotors" )
+        self.airexhaustsound = controller.SoundCreate( filter, self.entindex(), "NPC_AttackHelicopter.RotorsLoud" )
+        self.airblastsound = controller.SoundCreate( filter, self.entindex(), "NPC_AttackHelicopter.RotorBlast" )
+        
+        controller.Play( self.cannonsound, 0.0, 100 )
+        controller.Play( self.airexhaustsound, 0.0, 100 )
+        controller.Play( self.airblastsound, 0.0, 100 )
+
+        super().InitializeRotorSound()
     
