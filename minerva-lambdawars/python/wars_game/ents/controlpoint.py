@@ -88,7 +88,8 @@ class AbilityFortifyControlPointLvl1Reb(AbilityFortifyControlPoint):  #scrap to 
 	displayname = '#RebFortifyControlPointLvl1_Name'
 	description = '#RebFortifyControlPointLvl1_Description'
 	upgradetime = 50.0
-	costs = [[('scrap', 50), ('requisition', 75)], [('power', 50), ('requisition', 75)]]
+	costs = [('requisition', 75), ('scrap', 50)]
+	#costs = [[('scrap', 15), ('requisition', 25)], [('power', 15), ('requisition', 25)]]
 	targetupgradelevel = 1
 
 
@@ -98,7 +99,8 @@ class AbilityAltFortifyControlPointLvl1Reb(AbilityFortifyControlPoint):    #powe
 	displayname = '#RebFortifyControlPointLvl1_Name'
 	description = '#RebFortifyControlPointLvl1_Description'
 	upgradetime = 50.0
-	costs = [[('scrap', 50), ('requisition', 75)], [('power', 50), ('requisition', 75)]]
+	costs = [('requisition', 75), ('power', 50)]
+	#costs = [[('scrap', 15), ('requisition', 25)], [('power', 15), ('requisition', 25)]]
 	targetupgradelevel = 1
 
 
@@ -108,7 +110,8 @@ class AbilityFortifyControlPointLvl2Reb(AbilityFortifyControlPoint):    #scrap t
 	displayname = '#RebFortifyControlPointLvl2_Name'
 	description = '#RebFortifyControlPointLvl2_Description'
 	upgradetime = 50.0
-	costs = [[('scrap', 150), ('requisition', 175)], [('power', 150), ('requisition', 175)]]
+	costs = [('requisition', 175), ('scrap', 150)]
+	#costs = [[('scrap', 30), ('requisition', 35)], [('power', 30), ('requisition', 35)]]
 	targetupgradelevel = 2
 
 # Comb flag upgrades
@@ -119,7 +122,8 @@ class AbilityFortifyControlPointLvl2Comb(AbilityFortifyControlPoint):   # power 
 	displayname = '#CombFortifyControlPointLvl2_Name'
 	description = '#CombFortifyControlPointLvl2_Description'
 	upgradetime = 50.0
-	costs = [[('scrap', 150), ('requisition', 175)], [('power', 150), ('requisition', 175)]]
+	costs = [('requisition', 175), ('power', 150)]
+	#costs = [[('scrap', 30), ('requisition', 35)], [('power', 30), ('requisition', 35)]]
 	targetupgradelevel = 2
 
 # Base definition for Control Point
@@ -183,7 +187,7 @@ class BaseControlPointInfo(WarsBuildingInfo, metaclass=ControlPointInfoMetaClass
     ]
     
     ability_0 = 'fortify_control_point_lvl1'
-    #ability_1 = 'fortify_control_point_lvl1_power'
+    ability_1 = 'fortify_control_point_lvl1_power'
     ability_8 = 'cancelupgrade'
 
 
