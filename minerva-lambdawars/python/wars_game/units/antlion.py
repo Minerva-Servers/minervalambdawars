@@ -1041,8 +1041,7 @@ class AntlionInfo(AntlionInfoShared):
         8 : 'attackmove',
         9 : 'holdposition',
     }
-    image_name = 'vgui/antlions/units/unit_ant_antlion.vmt'
-    portrait = 'resource/portraits/antlionPortrait.bik'
+    image_name  = "vgui/minervawars/antlions/units/unit_antlion.vmt"
     costs = [('requisition', 10)]
     buildtime = 8
     health = 100
@@ -1076,9 +1075,7 @@ class AntlionWorkerInfo(AntlionInfoShared):
         10 : 'construct',
         11 : 'salvage',
     }
-    image_name = 'vgui/units/unit_antlion_worker.vmt'
-    image_dis_name = 'vgui/units/unit_antlion_worker_dis.vmt'
-    portrait = 'resource/portraits/antlionWorkerPortrait.bik'
+    image_name  = "vgui/minervawars/antlions/units/unit_antlionworker.vmt"
     costs = [('requisition', 25), ('grubs', 1)]
     population = 2
     buildtime = 12
@@ -1125,8 +1122,7 @@ class SmallAntlion(AntlionInfoShared):
         8 : 'attackmove',
         9 : 'holdposition',
     }
-    image_name = 'vgui/antlions/units/unit_ant_antlion.vmt'
-    portrait = 'resource/portraits/antlionPortrait.bik'
+    image_name  = "vgui/minervawars/antlions/units/unit_antlion.vmt"
     scrapdropchance = 0.0
     health = 25
     scale = 0.75

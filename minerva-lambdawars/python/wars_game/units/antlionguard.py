@@ -644,7 +644,7 @@ class UnitAntlionGuard(BaseClass):
 class AntlionGuardSharedInfo(UnitInfo):
     cls_name    ='unit_antlionguard'
     image_name  = "vgui/minervawars/antlions/units/unit_antlionguard.vmt"  
-    maxspeed = 272.0
+    maxspeed = 384.0
     attributes = ['heavy']
     abilities   = {
         0 : 'charge',
@@ -683,7 +683,7 @@ class AntlionGuardInfo(AntlionGuardSharedInfo):
     selectionpriority = 1
     displayname = '#AntlionGuard_Name'
     description = '#AntlionGuard_Description'
-    health = 2500
+    health = 5000
     scale = 1.25
     regeneration = True
 
@@ -698,9 +698,9 @@ class AntlionGuardCavernInfo(AntlionGuardSharedInfo):
     displayname = '#AntlionGuardCavern_Name'
     description = '#AntlionGuardCavern_Description'
     keyvalues = {'cavernbreed' : '1' }
-    health = 3500
-    scale = 1.25
-    skin = 1.5
+    health = 7500
+    scale = 1.5
+    skin = 1
     regeneration = True
     
 class AntlionGuardCavernBossInfo(AntlionGuardCavernInfo):

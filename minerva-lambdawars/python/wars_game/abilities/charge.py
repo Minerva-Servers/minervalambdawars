@@ -14,13 +14,15 @@ class AbilityCharge(AbilityTargetGroup):
     maxchargedist = 1500
     startchargedist = maxchargedist * 0.85
     minfacingcone = 0.88
-    speedmod = 1.2 # Modifies the charge speed, which is based on the animation
+    speedmod = 1.5 # Modifies the charge speed, which is based on the animation
     speedoverride = 0 # Overrides animation defined speed
     yawturnspeed = 4 # Degrees per second
     
-    defaultautocast = True
+    defaultautocast = False
     autocastcheckonenemy = True
     
+    sai_hint = AbilityTarget.sai_hint | set(['sai_grenade'])
+
     # Ability
     if isserver:
         def DoAbility(self):
@@ -83,7 +85,6 @@ class AbilityChargeHunter(AbilityCharge):
     supportsautocast = True
     defaultautocast = False
     autocastcheckonenemy = True
-    sai_hint = AbilityTarget.sai_hint | set(['sai_grenade'])
     
 class AbilityChargeDog(AbilityCharge):
     # Info

@@ -139,9 +139,9 @@ class WeaponSniperRifle(WarsWeaponBase):
 
     class AttackPrimary(AttackAbilityAsAttack):
         abi_attack_name = 'marksmanshot'
-        maxrange = 1408.0
-        attackspeed = 2.25
-        damage = 20
+        maxrange = 1280.0
+        attackspeed = 1.5
+        damage = 50
         cone = UnitInfo.AttackRange.DOT_3DEGREE
         attributes = ['plasma']
 
@@ -179,7 +179,7 @@ class AbilityMarkmanshot(AbilityAsAttack):
     description = '#CombMarkmanShot_Description'
     image_name = 'vgui/combine/abilities/marksmanshot'
     hidden = True
-    rechargetime = 2.25
+    rechargetime = 1.5
 
     @classmethod
     def GetRequirements(info, player, unit):

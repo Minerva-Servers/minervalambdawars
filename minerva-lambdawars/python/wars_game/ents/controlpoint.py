@@ -160,7 +160,7 @@ class BaseControlPointInfo(WarsBuildingInfo, metaclass=ControlPointInfoMetaClass
     constructionactivity = 'ACT_CONSTRUCTION'
     explodeactivity = 'ACT_EXPLODE'
     minimapicon_name = 'hud_minimap_flag'
-    viewdistance = 640
+    viewdistance = 768
     generateresources = {'type': 'requisition', 'amount': 1, 'interval': 1}
     splitgeneratedresources = True
     reducesplittedresources = False
@@ -199,6 +199,7 @@ class RebControlPointLvl1Info(BaseControlPointInfo):
     health = 500
     viewdistance = 1024
     ability_0 = 'fortify_control_point_lvl2_reb_scrap'
+    ability_1 = None
     ability_8 = 'cancelupgrade'
     generateresources = {'type': 'requisition', 'amount': 2, 'interval': 1.0}
     modelname = 'models/pg_props/pg_buildings/other/pg_flagpole/pg_flagpole_rebels.mdl'
@@ -223,8 +224,8 @@ class RebControlPointLvl2Info(BaseControlPointInfo):
     name = "control_point_reb_lvl2"
     displayname = '#ControlPointFortL2_Name'
     description = '#ControlPointFortL2_Description'
-    health = 850
-    viewdistance = 1280
+    health = 1000
+    viewdistance = 1408
     ability_0 = None
     ability_1 = None
     generateresources = {'type': 'requisition', 'amount': 4.0, 'interval': 1.0}
@@ -253,6 +254,7 @@ class CombControlPointLvl1Info(BaseControlPointInfo):
     health = 500
     viewdistance = 1024
     ability_0 = 'fortify_control_point_lvl2_comb_power'
+    ability_1 = None
     ability_8 = 'cancelupgrade'
     generateresources = {'type': 'requisition', 'amount': 2, 'interval': 1.0}
     modelname = 'models/pg_props/pg_buildings/other/pg_flagpole/pg_flagpole_combine.mdl'

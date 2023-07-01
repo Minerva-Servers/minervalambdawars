@@ -612,7 +612,7 @@ class WeaponCrossbow(WarsWeaponBase):
             return super().Attack(enemy, action)
 
     class AttackExplosiveBolt(WarsWeaponBase.AttackRange):
-        damage = 200
+        damage = 250
         attributes = ['explosive']
 
 class AbilityCrossbowAttack(AbilityAsAttack):
@@ -620,7 +620,7 @@ class AbilityCrossbowAttack(AbilityAsAttack):
     displayname = '#RebCrossbowAttack_Name'
     description = '#RebCrossbowAttack_Description'
     image_name = 'vgui/rebels/abilities/crossbow_attack'
-    rechargetime = 1.50
+    rechargetime = 1.5
 
     @classmethod
     def GetRequirements(info, player, unit):
@@ -638,7 +638,7 @@ class AbilityCrossbowCharAttack(AbilityCrossbowAttack):
     displayname = '#RebCrossbowAttack_Name'
     description = '#RebCrossbowAttack_Description'
     image_name = 'vgui/rebels/abilities/crossbow_attack'
-    rechargetime = 1.99
+    rechargetime = 1.5
 
     @classmethod
     def GetRequirements(info, player, unit):
