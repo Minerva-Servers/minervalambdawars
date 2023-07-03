@@ -57,7 +57,6 @@ class UnitBuggyAnimState(UnitVehicleAnimState):
             outer.AimGunAt(targetpos, self.GetAnimTimeInterval())
         
 @entity('unit_buggy', networked=True)
-@entity('unit_combine_apc', networked=True)
 class UnitBuggy(BaseClass):
     hasgun = True
     
@@ -646,7 +645,7 @@ class BuggyInfo(BaseVehicleInfo):
     image_name  = "vgui/minervawars/rebels/units/unit_buggy.vmt"
     modelname = 'models/buggy.mdl'
     hulltype = 'HULL_LARGE'
-    health = 500
+    health = 1000
     maxspeed = 500
     turnspeed = 10.0
     costs = [('requisition', 50), ('scrap', 70)]
@@ -658,20 +657,10 @@ class BuggyInfo(BaseVehicleInfo):
         10: 'patrol',
     }
     
-class APCInfo(BaseVehicleInfo):
+class APCInfo(BuggyInfo):
     name = 'unit_combine_apc'
-    cls_name = 'unit_combine_apc'
     image_name  = "vgui/minervawars/combine/units/unit_combine_apc.vmt"
     modelname = 'models/combine_apc.mdl'
-    hulltype = 'HULL_LARGE'
-    health = 700
-    maxspeed = 700
-    turnspeed = 10.0
+    health = 1500
     costs = [('requisition', 50), ('power', 70)]
     techrequirements = ['build_comb_armory']
-    population = 2
-    abilities = {
-        8: 'attackmove',
-        9: 'holdposition',
-        10: 'patrol',
-    }

@@ -771,14 +771,14 @@ class CombineGunshipInfo(UnitInfo):
     cls_name = 'unit_combine_gunship'
     displayname = '#CombGunship_Name'
     description = '#CombGunship_Description'
-    #image_name = 'vgui/combine/units/unit_combinegunship'
+    image_name = 'vgui/combine/units/unit_combinegunship'
     costs = [('requisition', 150), ('power', 180)]
     buildtime = 120.0
     zoffset = 128.0
     scale = 1
     modelname = 'models/gunship.mdl'
     hulltype = 'HULL_LARGE_CENTERED'
-    health = 2000
+    health = 3000
     turnspeed = 10
     maxspeed = 450
     population = 6
@@ -801,23 +801,3 @@ class CombineHelicopterInfo(CombineGunshipInfo):
     image_name  = "vgui/minervawars/combine/units/unit_combine_helicopter.vmt"
     modelname = 'models/combine_helicopter.mdl'
     keyvalues = {'spawnflags' : str(UnitCombineGunship.SF_GUNSHIP_USE_CHOPPER_MODEL)}
-        
-    def Ping(self):
-        return
-
-    def InitializeRotorSound(self):
-        controller = CSoundEnvelopeController.GetController()
-        
-        filter = CPASAttenuationFilter(self)
-
-        self.cannonsound = controller.SoundCreate( filter, self.entindex(), "NPC_CombineGunship.CannonSound" )
-        self.rotorsound = controller.SoundCreate( filter, self.entindex(), "NPC_AttackHelicopter.Rotors" )
-        self.airexhaustsound = controller.SoundCreate( filter, self.entindex(), "NPC_AttackHelicopter.RotorsLoud" )
-        self.airblastsound = controller.SoundCreate( filter, self.entindex(), "NPC_AttackHelicopter.RotorBlast" )
-        
-        controller.Play( self.cannonsound, 0.0, 100 )
-        controller.Play( self.airexhaustsound, 0.0, 100 )
-        controller.Play( self.airblastsound, 0.0, 100 )
-
-        super().InitializeRotorSound()
-    

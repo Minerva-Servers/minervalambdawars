@@ -1,1 +1,0 @@
-This is just here for the smilies in news posts. Will be removed when we have a better solution.
