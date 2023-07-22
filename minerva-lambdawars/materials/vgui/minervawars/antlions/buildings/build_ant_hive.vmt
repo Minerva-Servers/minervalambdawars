@@ -1,8 +1,0 @@
-"UnlitGeneric"
-{
-	"$basetexture" "vgui\minervawars\antlions\buildings\build_ant_hive"
-	"$translucent" "1"
-	"$ignorez"     "1"
-	"$vertexalpha" "1"
-	"$no_fullbright" "1"
-}

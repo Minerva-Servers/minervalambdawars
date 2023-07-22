@@ -1,8 +1,0 @@
-"UnlitGeneric"
-{
-	"$basetexture" "vgui\minervawars\combine\units\unit_combine_helicopter"
-	"$translucent" "1"
-	"$ignorez"     "1"
-	"$vertexalpha" "1"
-	"$no_fullbright" "1"
-}
