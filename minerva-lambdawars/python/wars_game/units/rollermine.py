@@ -661,7 +661,7 @@ class RollerMineInfo(UnitInfo):
     placeatmins = True
     maxspeed = 1200.0  # More like the angular speed
     health = 120
-    population = 2
+    population = 1
     buildtime = 18.0
     viewdistance = 640
     attributes = ['metal', 'mechanic']

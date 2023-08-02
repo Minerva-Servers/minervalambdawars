@@ -21,7 +21,7 @@ class AbilityReinforcement(AbilityTarget):
     image_name = 'vgui/rebels/abilities/reinforcement'
     rechargetime = 360.0
     set_initial_recharge = True
-    population = 5
+    population = 1
     techrequirements = ['build_reb_barracks', 'build_reb_munitiondepot', 'build_reb_specialops', 'build_reb_vortigauntden', 'build_reb_triagecenter', 'build_reb_techcenter']
     
     costs = [('requisition', 100), ('scrap', 100)]
@@ -84,6 +84,6 @@ class OverrunAbilityReinforcement(AbilityReinforcement):
     techrequirements = []
     rechargetime = 60.0
     set_initial_recharge = False
-    population = 10
+    population = 1
     costs = [('kills', 20)]
     #costs = []

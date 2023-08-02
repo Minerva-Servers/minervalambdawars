@@ -903,7 +903,7 @@ class VortigauntInfo(UnitInfo):
     unitenergy = 200
     unitenergy_initial = -1
     selectionpriority = 5
-    population = 3
+    population = 1
     attributes = ['creature', 'shock']
     sound_select = 'unit_vortigaunt_select'
     sound_move = 'unit_vortigaunt_move'

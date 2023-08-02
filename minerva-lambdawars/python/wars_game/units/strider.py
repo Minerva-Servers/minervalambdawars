@@ -1107,15 +1107,15 @@ class StriderInfo(UnitInfo):
     modelname = 'models/combine_strider.mdl'
     hulltype = 'HULL_LARGE_CENTERED'
     techrequirements = ['build_comb_tech_center']
-    health = 2300
-    maxspeed = 200.0
-    turnspeed = 15.0
+    health = 4000
+    maxspeed = 220.0
+    turnspeed = 25.0
     unitenergy = 100
     unitenergy_initial = -1
-    population = 7
+    population = 1
     attributes = ['synth', 'large', 'pulse_cannon']
     sound_death = 'NPC_Strider.Death'
-    scale = 0.9
+    scale = 1
     selectionpriority = 5
     sound_select = 'unit_strider_select'
     sound_move = 'unit_strider_move'
@@ -1131,14 +1131,15 @@ class StriderInfo(UnitInfo):
     class AttackRange(UnitInfo.AttackRange):
         damage = 9
         minrange = 0.0
-        maxrange = 960.0
-        attackspeed = 0.14
+        maxrange = 900.0
+        attackspeed = 0.1
         usesbursts = True
         minburst = 20
-        maxburst = 20
-        minresttime = 1.5
-        maxresttime = 1.5
+        maxburst = 30
+        minresttime = 0.75
+        maxresttime = 0.75
     attacks = 'AttackRange'
+    
     sai_hint = set(['sai_unit_combat', 'sai_unit_super'])
 class OverrunStriderInfo(StriderInfo):
     name = 'overrun_unit_strider'

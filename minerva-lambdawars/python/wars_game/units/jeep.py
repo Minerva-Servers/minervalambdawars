@@ -650,7 +650,7 @@ class BuggyInfo(BaseVehicleInfo):
     turnspeed = 10.0
     costs = [('requisition', 50), ('scrap', 70)]
     techrequirements = ['build_reb_munitiondepot']
-    population = 2
+    population = 1
     abilities = {
         8: 'attackmove',
         9: 'holdposition',

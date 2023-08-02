@@ -672,7 +672,7 @@ class AntlionGuardInfo(AntlionGuardSharedInfo):
     image_name  = "vgui/minervawars/antlions/units/unit_antlionguard.vmt"
     portrait = 'resource/portraits/antlionGuardPortrait.bik'
     costs = [('grubs', 25)]
-    population = 12
+    population = 1
     buildtime = 90.0
     techrequirements = ['tier2_research']
     abilities   = {
@@ -691,7 +691,7 @@ class AntlionGuardCavernInfo(AntlionGuardSharedInfo):
     name = 'unit_antlionguardcavern'
     image_name  = "vgui/minervawars/antlions/units/unit_antlionguardcavern.vmt"  
     costs = [('grubs', 45)]
-    population = 18
+    population = 1
     buildtime = 140.0
     techrequirements = ['tier3_research']
     selectionpriority = 2
@@ -714,7 +714,7 @@ class MissionAntlionGuardInfo(AntlionGuardInfo):
     name ='mission_unit_antlionguard'
     costs = [('requisition', 70)]
     techrequirements = []
-    population = 4
+    population = 1
     buildtime = 40.0
     health = 750
     maxspeed = 344.0

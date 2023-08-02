@@ -553,9 +553,9 @@ class StalkerInfo(StalkerShared):
             3: 'build_comb_specialops',
             4: 'build_comb_synthfactory',
             5: 'build_comb_mech_factory',
-            6: 'build_comb_vehiclebay',
-            7: 'build_comb_armory',
-            8: 'build_comb_tech_center',
+            #6: 'build_comb_vehiclebay',
+            6: 'build_comb_armory',
+            7: 'build_comb_tech_center',
 
             11: 'menuup',
         } ),

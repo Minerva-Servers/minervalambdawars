@@ -371,7 +371,7 @@ class AbilityDogJump(AbilityJump):
     image_name = 'vgui/rebels/abilities/rebel_dog_jump'
     hidden = True
     rechargetime = 0
-    maxrange = 896
+    maxrange = 900
     energy = 15
     jumpstartsound = 'unit_rebel_dog_angry'
     jumpgravity = 1.2
@@ -389,12 +389,12 @@ class DogInfo(UnitInfo):
     displayname = '#Dog_Name'
     description = '#Dog_Description'
     image_name = 'vgui/rebels/units/unit_dog.vmt'
-    health = 2300
+    health = 3500
     maxspeed = 334
-    viewdistance = 896
-    turnspeed = 75.0
-    buildtime = 76.0
-    population = 5
+    viewdistance = 900
+    turnspeed = 45.0
+    buildtime = 96.0
+    population = 1
     unitenergy = 200
     unitenergy_initial = 50
     costs = [('requisition', 150), ('scrap', 150)]

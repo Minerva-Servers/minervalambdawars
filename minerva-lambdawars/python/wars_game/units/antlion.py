@@ -1077,7 +1077,7 @@ class AntlionWorkerInfo(AntlionInfoShared):
     }
     image_name  = "vgui/minervawars/antlions/units/unit_antlionworker.vmt"
     costs = [('requisition', 25), ('grubs', 1)]
-    population = 2
+    population = 1
     buildtime = 12
     health = 80
     displayname = '#AntlionWorker_Name'
@@ -1107,7 +1107,7 @@ class AntlionSuiciderInfo(AntlionInfoShared):
     health = 90
     maxspeed = 432
     techrequirements = ['tier2_research']
-    population = 3
+    population = 1
     displayname = '#AntlionSuicider_Name'
     description = '#AntlionSuicider_Description' 
     modelname = 'models/antlion_worker.mdl'

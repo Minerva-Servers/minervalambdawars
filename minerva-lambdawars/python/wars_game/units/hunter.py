@@ -964,7 +964,7 @@ class CombineHunterInfo(UnitInfo):
     buildtime = 45.0
     health = 500
     maxspeed = 380.0
-    population = 3
+    population = 1
     viewdistance = 896
     attributes = ['synth', 'flechette']
     modelname = 'models/hunter.mdl'

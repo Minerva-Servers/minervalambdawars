@@ -534,6 +534,7 @@ class PistolRebelInfo(RebelInfo):
         10: 'patrol',
         -1: 'garrison',
     }
+    canshootmove = True
 
 
 class RebelW1886Info(RebelInfo):
@@ -561,6 +562,7 @@ class RebelW1886Info(RebelInfo):
     viewdistance = 1024
     sensedistance = 1280
     population = 1
+    canshootmove = True
 
 class RebelSGInfo(RebelInfo):
     name = 'unit_rebel_sg'
@@ -586,6 +588,7 @@ class RebelSGInfo(RebelInfo):
     image_name = 'vgui/rebels/units/unit_rebel_sg'
     maxspeed = 260.0
     viewdistance = 768
+    canshootmove = True
 
 
 class DestroyHQRebelSGInfo(RebelSGInfo):
@@ -617,19 +620,20 @@ class RebelAR2Info(RebelInfo):
     sensedistance = 1024.0
     attributes = ['medium']
     image_name = 'vgui/rebels/units/unit_rebel_ar2'
+    canshootmove = True
 
 class RebelTacticalInfo(RebelInfo):
     name = 'unit_rebel_tactical'
     displayname = 'Tactical Rebel'
     description = ''
-    buildtime = 32.0
+    buildtime = 27.0
     maxspeed = 238
-    health = 275
+    health = 280
     viewdistance = 1024
-    costs = [[('requisition', 30), ('scrap', 15)], [('kills', 2)]]
+    costs = [[('requisition', 25), ('scrap', 15)], [('kills', 2)]]
     techrequirements = ['build_reb_techcenter','weaponar2_unlock']
     accuracy = 0.756
-    population = 3
+    population = 1
     selectionpriority = 4
     modelname = 'models/humans/minervawars/tactical_rebel.mdl'
     weapons = ['weapon_ar2']
@@ -645,6 +649,7 @@ class RebelTacticalInfo(RebelInfo):
     sensedistance = 1128.0
     attributes = ['medium']
     image_name = 'vgui/rebels/units/unit_rebel_ar2'
+    canshootmove = True
     
 class RebelTauInfo(RebelInfo):
     name = 'unit_rebel_tau'
@@ -658,7 +663,7 @@ class RebelTauInfo(RebelInfo):
     scale = 1.0
     costs = [[('requisition', 50), ('scrap', 40)], [('kills', 2)]]
     #accuracy = 5.0
-    population = 2
+    population = 1
     modelname = 'models/rebel_tau.mdl'
     #techrequirements = ['build_reb_techcenter']
     selectionpriority = 4
@@ -675,6 +680,7 @@ class RebelTauInfo(RebelInfo):
     attributes = ['heavy']
     image_name = 'vgui/rebels/units/unit_rebel_tau'
     infest_zombietype = ''
+    canshootmove = True
     
 class RebelHeavyInfo(RebelInfo):
     name = 'unit_rebel_heavy'
@@ -688,7 +694,7 @@ class RebelHeavyInfo(RebelInfo):
     scale = 1.10
     costs = [[('requisition', 60), ('scrap', 25)], [('kills', 2)]]
     #accuracy = 0.625
-    population = 2
+    population = 1
     modelname = 'models/rebel_heavy.mdl'
     techrequirements = ['build_reb_techcenter']
     weapons = ['weapon_rebel_heavy_gun']
@@ -705,6 +711,7 @@ class RebelHeavyInfo(RebelInfo):
     attributes = ['heavy']
     image_name = 'vgui/rebels/units/unit_rebel_heavy'
     infest_zombietype = ''
+    canshootmove = True
 
 
 class DestroyHQRebelAR2Info(RebelAR2Info):
@@ -952,8 +959,9 @@ class RebelRPGInfo(RebelShared):
     weapons = ['weapon_rpg']
     sensedistance = 1408.0
     techrequirements = ['build_reb_techcenter']
-    population = 2
+    population = 1
     attributes = ['medium', 'rpg']
+    canshootmove = False
 
 
 class RebelVeteranUnlock(AbilityUpgrade):
@@ -1026,8 +1034,9 @@ class RebelVeteran(RebelShared):
     weapons = ['weapon_crossbow']
     #techrequirements = ['rebel_veteran_unlock']
     #accuracy = 'high'
-    population = 2
+    population = 1
     cantakecover = True
+    canshootmove = False
 
 
 class DestroyHQRebelVeteran(RebelVeteran):

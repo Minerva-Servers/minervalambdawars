@@ -92,6 +92,7 @@ class CombineHQInfo(WarsBuildingInfo):
                    description='#AbilityHQCombineFactionMenu_Description',
                    image_name="VGUI/combine/abilities/combine_faction_abilities",
                    abilities={0: 'dropsoldiers',
+                              1: 'dropsoldiers_metrocops',
                               11: 'menuup',
                               }),
         8: 'cancel',

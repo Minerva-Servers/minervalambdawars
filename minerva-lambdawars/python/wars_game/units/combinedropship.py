@@ -564,6 +564,9 @@ class UnitCombineDropship(BaseClass):
             if gamerules.info.name == 'overrun':
                 for i in range(0, random.randint(2,8)):
                     CreateUnitFancy(random.choice(self.overrun_unitlist), deploypos, angles=deployangle, owner_number=self.GetOwnerNumber())
+            elif self.metrocops:
+                for i in range(0, random.randint(3,7)):
+                    CreateUnitFancy(random.choice(self.annihilation_metrocopunitlist), deploypos, angles=deployangle, owner_number=self.GetOwnerNumber())
             else:
                 for i in range(0, random.randint(3,7)):
                     CreateUnitFancy(random.choice(self.annihilation_unitlist), deploypos, angles=deployangle, owner_number=self.GetOwnerNumber())
@@ -583,6 +586,7 @@ class UnitCombineDropship(BaseClass):
                         'overrun_unit_hunter', 'overrun_unit_mortar_synth']
 
     annihilation_unitlist = ['unit_combine', 'unit_combine_sg', 'unit_combine_ar2', 'unit_combine_elite']
+    annihilation_metrocopunitlist = ['unit_metropolice_riot', 'unit_metropolice', 'unit_metropolice_smg1']
 
     lifetime = FloatField(value=0)
     enginethrust = 1.0
@@ -596,6 +600,7 @@ class UnitCombineDropship(BaseClass):
     container = None
     lasttrooptoleave = None
     t3units = False
+    metrocops = False
     
     attachmenttroopdeploy = -1
     attachmentdeploystart = -1
@@ -638,7 +643,7 @@ class CombineDropshipInfo(UnitInfo):
     modelname = 'models/combine_dropship.mdl'
     hulltype = 'HULL_LARGE_CENTERED'
     health = 800
-    population = 5
+    population = 1
     turnspeed = 10
     maxspeed = 450
     viewdistance = 0

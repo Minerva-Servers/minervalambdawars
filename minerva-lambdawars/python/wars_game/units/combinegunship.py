@@ -781,7 +781,7 @@ class CombineGunshipInfo(UnitInfo):
     health = 3000
     turnspeed = 10
     maxspeed = 450
-    population = 6
+    population = 1
     attributes = ['synth', 'pulse']
     abilities = {
         8: 'attackmove',

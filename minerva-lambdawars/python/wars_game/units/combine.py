@@ -507,7 +507,7 @@ class CombineEliteInfo(CombineSharedInfo):
     }
     weapons = ['weapon_shotgun', 'weapon_ar2']
     #accuracy = 'medium'
-    population = 2
+    population = 1
 
 class CombineHeavyInfo(CombineSharedInfo):
     name = 'unit_combine_heavy'
@@ -544,7 +544,7 @@ class CombineHeavyInfo(CombineSharedInfo):
     }
     weapons = ['weapon_pulse_shotgun']
     #accuracy = 'medium'
-    population = 2	
+    population = 1	
 
 
 class CombineSniperUnlock(AbilityUpgrade):
@@ -589,7 +589,7 @@ class CombineSniperInfo(CombineSharedInfo):
     }
     weapons = ['weapon_sniperrifle']
     #accuracy = 'high'
-    population = 2
+    population = 1
     cantakecover = True
     sniperenemy = False
 
@@ -646,7 +646,7 @@ class OverrunCombineHeavyInfo(CombineHeavyInfo):
     name = 'overrun_unit_combine_heavy'
     costs = [('kills', 12)]
     techrequirements = ['or_tier3_research']
-    #population = 3
+    #population = 1
     abilities = {
         0: 'overrun_stungrenade',
         7: 'mountturret',
