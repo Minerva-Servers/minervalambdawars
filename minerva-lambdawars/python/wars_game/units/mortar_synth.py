@@ -246,8 +246,8 @@ class UnitMortarSynth(BaseClass):
 class MortarSynthInfo(UnitInfo):
     name = 'unit_mortar_synth'
     cls_name = 'unit_mortar_synth'
-    displayname = '#CombMortarSynth_Name'
-    description = '#CombMortarSynth_Description'
+    displayname = 'Combine Mortar Synth'
+    description = ''
     image_name = 'vgui/combine/units/unit_mortar_synth'
     modelname = 'models/MortarSynth.mdl'
     health = 120
@@ -257,8 +257,8 @@ class MortarSynthInfo(UnitInfo):
     #maxspeed = 112
     hulltype = 'HULL_MEDIUM_TALL'
     turnspeed = 200
-    viewdistance = 768
-    sensedistance = 1792
+    viewdistance = 1024
+    sensedistance = 2048
     techrequirements = ['build_comb_tech_center']
     population = 1
     scalebounds = 0.70
@@ -277,7 +277,7 @@ class MortarSynthInfo(UnitInfo):
         damage = 300.0
         attackspeed = 7.0
         minrange = 128.0
-        maxrange = 1792.0
+        maxrange = 2048.0
         radiusdamage = 192
     attacks = ['AttackRange']
 class OverrunMortarSynthInfo(MortarSynthInfo):

@@ -370,8 +370,8 @@ class UnitCombineGrenadeUpgradeShared(UnitCombine):
 class CombineInfo(CombineSharedInfo):
     name = 'unit_combine'
     cls_name = 'unit_combine_grenade_upgrade' # adds grenade unlock per unit this also needs the rebel_grenade_upgrade ability
-    displayname = '#CombSMG_Name'
-    description = '#CombSMG_Description'
+    displayname = 'Combine Standard Soldier'
+    description = ''
     image_name = 'vgui/combine/units/unit_combine'
     portrait = 'resource/portraits/combineSMG.bik'
     costs = [[('requisition', 25)], [('kills', 1)]]
@@ -408,8 +408,8 @@ class UnlockCombTierMiddle(AbilityUpgrade):
 
 class CombineSGInfo(CombineInfo):
     name = 'unit_combine_sg'
-    displayname = '#CombSG_Name'
-    description = '#CombSG_Description'
+    displayname = 'Combine Shotgunner Soldier'
+    description = ''
     image_name = 'vgui/combine/units/unit_combine_sg'
     portrait = 'resource/portraits/combineShotgun.bik'
     costs = [[('requisition', 25), ('power', 5)], [('kills', 1)]]
@@ -437,8 +437,8 @@ class CombineSGInfo(CombineInfo):
 
 class CombineAR2Info(CombineInfo):
     name = 'unit_combine_ar2'
-    displayname = '#CombAR2_Name'
-    description = '#CombAR2_Description'
+    displayname = 'Combine Amplified Soldier'
+    description = ''
     image_name = 'vgui/combine/units/unit_combine_ar2'
     portrait = 'resource/portraits/combineAR2.bik'
     costs = [[('requisition', 25), ('power', 10)], [('kills', 2)]]
@@ -469,16 +469,16 @@ class CombineAR2Info(CombineInfo):
 
 class CombineEliteUnlock(AbilityUpgrade):
     name = 'combine_elite_unlock'
-    displayname = '#CombEliteUnlock_Name'
-    description = '#CombEliteUnlock_Description'
+    displayname = 'Combine Elite Soldier Unlock'
+    description = ''
     image_name = "vgui/combine/abilities/combine_elite_unlock"
     buildtime = 95.0
     costs = [[('requisition', 50)], [('kills', 5)]]
 
 class CombineEliteInfo(CombineSharedInfo):
     name = 'unit_combine_elite'
-    displayname = '#CombElite_Name'
-    description = '#CombElite_Description'
+    displayname = 'Combine Elite Soldier'
+    description = ''
     image_name = 'vgui/combine/units/unit_combine_elite'
     portrait = 'resource/portraits/combineAR2.bik'
     costs = [[('requisition', 60), ('power', 40)], [('kills', 4)]]
@@ -512,8 +512,8 @@ class CombineEliteInfo(CombineSharedInfo):
 class CombineHeavyInfo(CombineSharedInfo):
     name = 'unit_combine_heavy'
     cls_name = 'unit_combineheavy'
-    displayname = '#CombHeavy_Name'
-    description = '#CombHeavy_Description'
+    displayname = 'Combine Wallhammer Soldier'
+    description = ''
     image_name = 'vgui/combine/units/unit_combine_heavy'
     costs = [[('requisition', 55), ('power', 30)], [('kills', 4)]]
     buildtime = 32.0
@@ -549,7 +549,7 @@ class CombineHeavyInfo(CombineSharedInfo):
 
 class CombineSniperUnlock(AbilityUpgrade):
     name = 'combine_sniper_unlock'
-    displayname = '#CombSniperUnlock_Name'
+    displayname = 'Combine Sniper Soldier Unlock'
     description = '#CombSniperUnlock_Description'
     image_name = 'vgui/combine/abilities/combine_sniper_unlock'
     buildtime = 95.0
@@ -558,8 +558,8 @@ class CombineSniperUnlock(AbilityUpgrade):
 class CombineSniperInfo(CombineSharedInfo):
     name = 'unit_combine_sniper'
     cls_name = 'unit_combinesniper'
-    displayname = '#CombSniper_Name'
-    description = '#CombSniper_Description'
+    displayname = 'Combine Sniper Soldier'
+    description = ''
     image_name = 'vgui/combine/units/unit_combine_sniper'
     portrait = 'resource/portraits/combineSMG.bik'
     costs = [[('requisition', 50), ('power', 20)], [('kills', 4)]]

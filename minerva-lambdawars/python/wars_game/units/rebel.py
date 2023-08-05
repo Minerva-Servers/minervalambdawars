@@ -78,6 +78,7 @@ if isserver:
 
 @entity('unit_rebel', networked=True)
 class UnitRebel(UnitCitizen):
+    cantakecover = True
     canshootmove = True
     if isserver:
         def Precache(self):
@@ -92,7 +93,9 @@ class UnitRebel(UnitCitizen):
         return super().OnTakeDamage(dmginfo)
 @entity('unit_rebel_csm', networked=True)
 class UnitRebelCSM(UnitRebel):
+    cantakecover = True
     canshootmove = True
+    sai_hint = set(['sai_unit_combat'])
 
 # Rebel engineer
 @entity('unit_rebel_engineer', networked=True)
@@ -106,6 +109,8 @@ class UnitRebelEngineer(UnitRebel):
     activitylist.extend([
         'ACT_BUILDING',
     ])
+    cantakecover = True
+    canshootmove = True
 
 
 @entity('mission_unit_rebel_engineer', networked=True)
@@ -119,6 +124,8 @@ class MissionUnitRebelEngineer(UnitRebelEngineer):
     activitylist.extend([
         'ACT_BUILDING',
     ])
+    cantakecover = True
+    canshootmove = True
 
 
 #@entity('unit_rebel_flamer', networked=True)
@@ -222,7 +229,7 @@ class UnitRebelMedic(UnitRebel):
     maxenergy = UpgradeField(abilityname='medic_maxenergy_upgrade', cppimplemented=True)
     maxhealth = UpgradeField(abilityname='rebel_hp_upgrade', cppimplemented=True)
     health = UpgradeField(abilityname='rebel_hp_upgrade', cppimplemented=True)
-
+    cantakecover = True
     canshootmove = True
 
 
@@ -332,7 +339,7 @@ class RebelSaboteurInfo(RebelShared):
         -1: 'garrison',
     }
     weapons = ['weapon_pistol']
-    sai_hint = set([])
+    sai_hint = set(['sai_unit_scout'])
 
 
 @entity('unit_rebel_partisan', networked=True)
@@ -353,14 +360,14 @@ class RebelPartisanInfo(RebelShared):
     displayname = '#RebPartisan_Name'
     description = '#RebPartisan_Description'
     buildtime = 12.0
-    health = 75
+    health = 100
     population = 1
     maxspeed = 224.0
     viewdistance = 768
     scrapdropchance = 0.0
     #tier = 1
     modellist = GenerateModelList('DEFAULT')
-    costs = [[('requisition', 10)], [('kills', 1)]]
+    costs = [[('requisition', 15)], [('kills', 1)]]
     image_name = 'vgui/rebels/units/unit_rebel_partisan'
     attributes = ['light']
     abilities = {
@@ -380,14 +387,14 @@ class PistolRebelPartisanInfo(RebelPartisanInfo):
     displayname = 'Pistol Partisan'
     description = 'A Refugee armed with a 9mm pistol.'
     buildtime = 8.0
-    health = 75
+    health = 100
     population = 1
     maxspeed = 232.0
     viewdistance = 812
     scrapdropchance = 0.0
     #tier = 1
     modellist = GenerateModelList('DEFAULT')
-    costs = [[('requisition', 7)], [('kills', 1)]]
+    costs = [[('requisition', 5)], [('kills', 1)]]
     image_name = 'vgui/rebels/units/unit_rebel_partisan'
     attributes = ['light']
     abilities = {

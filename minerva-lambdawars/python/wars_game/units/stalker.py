@@ -480,8 +480,8 @@ class UnitStalker(BaseClass):
 
 class StalkerShared(UnitInfo):
     cls_name = 'unit_stalker'
-    displayname = '#CombStalker_Name'
-    description = '#CombStalker_Description'
+    displayname = 'Combine Stalker'
+    description = ''
     image_name = 'vgui/combine/units/unit_stalker.vmt'
     portrait = 'resource/portraits/combineStalker.bik'
     costs = [[('requisition', 15)], [('kills', 1)]]

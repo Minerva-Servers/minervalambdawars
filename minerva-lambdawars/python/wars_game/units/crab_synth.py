@@ -233,8 +233,8 @@ class UnitCrabSynth(BaseClass):
 class CrabSynthInfo(UnitInfo):
     name = 'unit_crab_synth'
     cls_name = 'unit_crab_synth'
-    displayname = '#CombCrabSynth_Name'
-    description = '#CombCrabSynth_Description'
+    displayname = 'Combine Crab Synth'
+    description = ''
     image_name = 'vgui/combine/units/unit_crab_synth' 
     modelname = 'models/synth_crab.mdl'
     hulltype = 'HULL_LARGE'

@@ -644,8 +644,8 @@ class UnitRollerMine(BaseClass):
 class RollerMineInfo(UnitInfo):
     name = 'unit_rollermine'
     cls_name = 'unit_rollermine'
-    displayname = '#CombRollermine_Name'
-    description = '#CombRollermine_Description' 
+    displayname = 'Combine Roller Mine'
+    description = '' 
     image_name = 'vgui/combine/units/unit_combine_roller'
     abilities = {
         0: 'rollermine_attackmode',

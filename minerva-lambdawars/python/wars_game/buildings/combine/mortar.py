@@ -285,7 +285,8 @@ class MortarInfo(PoweredBuildingInfo):
     viewdistance = 768.0
     health = 300
     buildtime = 30.0
-    scale = 1.2
+    scale = 1
+    attackpriority = -1
     abilities = {
         0: 'fire_mortar',
         8: 'cancel',

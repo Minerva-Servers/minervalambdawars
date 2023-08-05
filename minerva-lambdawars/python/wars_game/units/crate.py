@@ -182,7 +182,7 @@ class UnitCrate(BaseClass):
         elif type == 'explosivebarrel':
             self.SpawnExplosiveBarrel()
         elif type == 'requisition':
-            resourceamount = random.randint(30, 70)
+            resourceamount = random.randint(50, 150)
             try:
                 resourcetype = gamerules.GetMainResource()
             except:

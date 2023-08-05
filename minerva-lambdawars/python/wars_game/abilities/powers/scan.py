@@ -76,6 +76,7 @@ class AbilityScan(AbilityTarget):
     scanrange = FloatField(value=1024)
     activatesoundscript = 'ability_scan'
     maxrange = FloatField(value=8192.0)
+    sai_hint = AbilityTarget.sai_hint | set(['sai_deploy'])
     
     # For autocast
     supportsautocast = True

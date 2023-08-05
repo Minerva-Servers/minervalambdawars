@@ -769,35 +769,48 @@ class UnitCombineGunship(BaseClass):
 class CombineGunshipInfo(UnitInfo):
     name = 'unit_combine_gunship'
     cls_name = 'unit_combine_gunship'
-    displayname = '#CombGunship_Name'
-    description = '#CombGunship_Description'
+    displayname = 'Combine Gunship Synth'
+    description = ''
     image_name = 'vgui/combine/units/unit_combinegunship'
     costs = [('requisition', 150), ('power', 180)]
     buildtime = 120.0
-    zoffset = 128.0
+    zoffset = 96.0
     scale = 1
     modelname = 'models/gunship.mdl'
     hulltype = 'HULL_LARGE_CENTERED'
-    health = 3000
-    turnspeed = 10
+    health = 3500
+    turnspeed = 15
     maxspeed = 450
     population = 1
+    viewdistance = 896
+    sensedistance = 1024
     attributes = ['synth', 'pulse']
     abilities = {
         8: 'attackmove',
         9: 'holdposition',
         10: 'patrol',
     }
+    sai_hint = set(['sai_unit_combat'])
     class AttackRange(UnitInfo.AttackRange):
-        damage = 12
-        minrange = 320.0
-        maxrange = 1500.0
+        damage = 10
+        minrange = 256.0
+        maxrange = 1024.0
         attackspeed = 0.1
+        usesbursts = True
+        minburst = 25
+        maxburst = 50
+        minresttime = 0.5
+        maxresttime = 1.0
         cone = 0.8
     attacks = 'AttackRange'
     
 class CombineHelicopterInfo(CombineGunshipInfo):
     name = 'unit_combine_helicopter'
+    displayname = 'Combine Hunter Helicopter'
     image_name  = "vgui/minervawars/combine/units/unit_combine_helicopter.vmt"
     modelname = 'models/combine_helicopter.mdl'
+    attributes = ['pulse', 'metal', 'mechanic']
+    costs = [('requisition', 200), ('power', 180)]
+    health = 5000
     keyvalues = {'spawnflags' : str(UnitCombineGunship.SF_GUNSHIP_USE_CHOPPER_MODEL)}
+    sai_hint = set(['sai_unit_combat'])

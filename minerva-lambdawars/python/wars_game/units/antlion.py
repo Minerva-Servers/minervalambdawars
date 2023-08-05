@@ -768,6 +768,7 @@ class UnitAntlion(BaseClass):
     savedjump = Vector(vec3_origin)
     lastjumpattempt = Vector(vec3_origin)
     
+    viewdistance = 704
     burrowtexture = None
     burrowed = BooleanField(value=False, networked=True, clientchangecallback='OnBurrowedChanged', keyname='burrowed')
     
@@ -908,6 +909,7 @@ class UnitAntlion(BaseClass):
                         outer.DoAnimation(self.outer.ANIM_STARTBURROW)
                         outer.burrowed = True
                     outer.aimoving = True
+                    outer.viewdistance = 0
                     outer.AddSolidFlags(FSOLID_NOT_SOLID)
                     outer.SetCanBeSeen(False)
             
@@ -921,6 +923,7 @@ class UnitAntlion(BaseClass):
                     outer.takedamage = DAMAGE_YES
                     outer.aimoving = False
                     outer.burrowed = False
+                    outer.viewdistance = 704
                     #outer.RemoveEffects(EF_NODRAW)
                     outer.SetCanBeSeen(True)
                     
@@ -975,9 +978,8 @@ class AntlionInfoShared(UnitInfo):
     regenerationtime = 2
     regeneration = False
 
-
     maxspeed = 350
-    turnspeed = 75
+    turnspeed = 50
     
     scrapdropchance=0.0
     
@@ -1042,9 +1044,9 @@ class AntlionInfo(AntlionInfoShared):
         9 : 'holdposition',
     }
     image_name  = "vgui/minervawars/antlions/units/unit_antlion.vmt"
-    costs = [('requisition', 10)]
+    costs = [('requisition', 20)]
     buildtime = 8
-    health = 100
+    health = 150
     displayname = '#Antlion_Name'
     description = '#Antlion_Description'
     modelname = 'models/antlion.mdl'
@@ -1101,7 +1103,6 @@ class AntlionSuiciderInfo(AntlionInfoShared):
     image_dis_name = 'vgui/units/unit_antlion_worker_dis.vmt'
     portrait = 'resource/portraits/antlionWorkerPortrait.bik'
     costs = [('grubs', 1)]
-    viewdistance = 704
     buildtime = 22.0
     scale = 1.0
     health = 90
@@ -1124,9 +1125,9 @@ class SmallAntlion(AntlionInfoShared):
     }
     image_name  = "vgui/minervawars/antlions/units/unit_antlion.vmt"
     scrapdropchance = 0.0
-    health = 25
-    scale = 0.75
-    buildtime = 9
+    health = 50
+    scale = 0.8
+    buildtime = 8
     displayname = 'Small Antlion'
     description = 'A Smaller variant of the regular Antlion.'
     modelname = 'models/antlion.mdl'
@@ -1140,7 +1141,6 @@ class MissionAntlionWorker(AntlionWorkerInfo):
     name = 'mission_unit_antlionworker'
     hidden = True
     scrapdropchance = 0.0
-    viewdistance = 704
     engagedistance = 700
     health = 70
 

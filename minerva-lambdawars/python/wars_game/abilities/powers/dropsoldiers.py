@@ -87,6 +87,7 @@ class AbilityDropSoldiers(AbilityTarget):
     population = 1
     techrequirements = ['build_comb_garrison', 'build_comb_armory', 'build_comb_specialops', 'build_comb_mech_factory']
     costs = [('requisition', 250)]
+    sai_hint = AbilityTarget.sai_hint | set(['sai_deploy'])
 
     @classmethod
     def GetRequirements(info, player, unit):

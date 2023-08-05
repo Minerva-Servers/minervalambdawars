@@ -177,6 +177,7 @@ class PoweredGeneratorInfo(WarsBuildingInfo):
     buildtime = 10.0
     generateresources = {'type' : 'power', 'amount' : 0.5, 'interval' : 2.0}
     powerrange = 1024.0
+    attackpriority = -1
     infoparticles = ['power_radius']
     particleradius = powerrange
     particleoffset = Vector(0, 0, 16.0)
@@ -198,7 +199,6 @@ class PoweredGeneratorBigInfo(PoweredGeneratorInfo):
     scale = 2
     buildtime = 35.0
     powerrange = 2048.0
-    particleradius = powerrange
     costs = [('requisition', 40), ('power', 20)]
     techrequirements = ['build_comb_armory']
     sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_powergen'])

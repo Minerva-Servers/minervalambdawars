@@ -656,8 +656,8 @@ class MetroPoliceInfo(UnitInfo):
     name = 'unit_metropolice'
     cls_name = 'unit_metropolice'
     hulltype = 'HULL_HUMAN'
-    displayname = '#CombMetroPolice_Name'
-    description = '#CombMetroPolice_Description'
+    displayname = 'Civil Protection Force Officer'
+    description = ''
     image_name = 'vgui/combine/units/unit_metropolice'
     portrait = 'resource/portraits/combineSMG.bik'
     costs = [[('requisition', 10)], [('kills', 1)]]
@@ -688,12 +688,13 @@ class MetroPoliceInfo(UnitInfo):
     weapons = ['weapon_pistol']
     useshield = False
     cantakecover = True
+    sai_hint = set(['sai_unit_scout'])
 
 
 class MetroPoliceSMG1Info(MetroPoliceInfo):
     name = 'unit_metropolice_smg1'
-    displayname = '#CombMetroPoliceSMG1_Name'
-    description = '#CombMetroPoliceSMG1_Description'
+    displayname = 'Civil Protection Force Enforcement Operative'
+    description = ''
     image_name = 'vgui/combine/units/unit_metropolice_smg'
     weapons = ['weapon_smg1']
     costs = [[('requisition', 15)], [('kills', 1)]]
@@ -717,8 +718,8 @@ class MetroPoliceSMG1Info(MetroPoliceInfo):
 
 class MetroPoliceRiotInfo(MetroPoliceInfo):
     name = 'unit_metropolice_riot'
-    displayname = '#CombMetroPoliceRiot_Name'
-    description = '#CombMetroPoliceRiot_Description'
+    displayname = 'Civil Protection Force Riot Control Team'
+    description = ''
     image_name = 'vgui/combine/units/unit_riot_police'
     modelname = 'models/police_extended.mdl'
     #weapons = ['weapon_pistol', 'weapon_stunstick']

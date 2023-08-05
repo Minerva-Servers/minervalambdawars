@@ -1107,7 +1107,7 @@ class StriderInfo(UnitInfo):
     modelname = 'models/combine_strider.mdl'
     hulltype = 'HULL_LARGE_CENTERED'
     techrequirements = ['build_comb_tech_center']
-    health = 4000
+    health = 5000
     maxspeed = 220.0
     turnspeed = 25.0
     unitenergy = 100

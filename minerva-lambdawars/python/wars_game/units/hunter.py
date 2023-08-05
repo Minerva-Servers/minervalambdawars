@@ -943,7 +943,7 @@ class AbilityHunterJump(AbilityJumpGroup):
     hidden = True
     jumpgravity = 0.5
     jump_start_anim_speed = 5.0
-    maxrange = 768
+    maxrange = 1024
     jump_homing = True
     only_direct = False
     only_navmesh = True
@@ -957,8 +957,8 @@ class AbilityHunterJump(AbilityJumpGroup):
 class CombineHunterInfo(UnitInfo):
     name = 'unit_hunter'
     cls_name = 'unit_hunter'
-    displayname = '#CombHunter_Name'
-    description = '#CombHunter_Description'
+    displayname = 'Combine Hunter'
+    description = ''
     image_name = 'vgui/combine/units/unit_hunter'
     costs = [('requisition', 75), ('power', 60)]
     buildtime = 45.0
@@ -988,14 +988,14 @@ class CombineHunterInfo(UnitInfo):
         attackspeed = 1
     
     class AttackRange(UnitInfo.AttackRange):
-        damage = 21
+        damage = 20
         cone = 0.99
         minrange = 64.0
         maxrange = 512.0
         attackspeed = 0.1
         usesbursts = True
         minburst = 10
-        maxburst = 10
+        maxburst = 20
         minresttime = 0.5
         maxresttime = 1.0
     attacks = ['AttackMelee', 'AttackRange']
