@@ -1,5 +1,0 @@
-"VertexlitGeneric"
-{
-	"$basetexture" "models/structures/combine/synth_fac_lamp_sheet"
-	"$selfillum" 1
-}
