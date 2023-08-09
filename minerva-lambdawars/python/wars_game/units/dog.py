@@ -371,8 +371,8 @@ class AbilityDogJump(AbilityJump):
     image_name = 'vgui/rebels/abilities/rebel_dog_jump'
     hidden = True
     rechargetime = 0
-    maxrange = 900
-    energy = 15
+    maxrange = 896
+    energy = 25
     jumpstartsound = 'unit_rebel_dog_angry'
     jumpgravity = 1.2
     collision = True
@@ -389,12 +389,12 @@ class DogInfo(UnitInfo):
     displayname = '#Dog_Name'
     description = '#Dog_Description'
     image_name = 'vgui/rebels/units/unit_dog.vmt'
-    health = 3500
+    health = 1400
     maxspeed = 334
-    viewdistance = 900
-    turnspeed = 45.0
-    buildtime = 96.0
-    population = 1
+    viewdistance = 896
+    turnspeed = 75.0
+    buildtime = 76.0
+    population = 5
     unitenergy = 200
     unitenergy_initial = 50
     costs = [('requisition', 150), ('scrap', 150)]
@@ -411,7 +411,7 @@ class DogInfo(UnitInfo):
     abilities = {
         0: 'slamground',
         1: 'dogjump',
-        2: 'dogcharge',
+        #2: 'dogcharge',
         8: 'attackmove',
         9: 'holdposition',
         10: 'patrol',
@@ -419,7 +419,7 @@ class DogInfo(UnitInfo):
     class AttackMelee(UnitInfo.AttackMelee):
         damage = 80
         damagetype = DMG_SLASH
-        attackspeed = 0.9
+        attackspeed = 1.14
         maxrange = 90
     attacks = 'AttackMelee'
     sai_hint = set(['sai_unit_combat', 'sai_unit_super'])
@@ -461,7 +461,7 @@ class OverrunDogInfo(DogInfo):
     abilities = {
         0: 'slamground',
         1: 'dogjump',
-        2: 'dogcharge',
+        #2: 'dogcharge',
         8: 'attackmove',
         9: 'holdposition',
         10: 'patrol',

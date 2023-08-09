@@ -209,8 +209,8 @@ if isserver:
         
         GRENADE_MODEL = "models/Weapons/w_grenade.mdl"
         
-        DAMAGE = 150.0
-        DMGRADIUS = 384.0
+        DAMAGE = 200.0
+        DMGRADIUS = 320.0
     
         FRAG_GRENADE_BLIP_FREQUENCY = 1.0
         FRAG_GRENADE_BLIP_FAST_FREQUENCY = 0.3
@@ -254,7 +254,7 @@ if isserver:
                 
             fowblocker = CreateEntityByName('fow_blocker')
             if fowblocker:
-                radius = 256.0
+                radius = 220.0
                 fowblocker.SetName('smoke_fow_blocker')
                 fowblocker.SetAbsOrigin(origin)
                 DispatchSpawn(fowblocker)

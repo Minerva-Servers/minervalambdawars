@@ -480,8 +480,8 @@ class UnitStalker(BaseClass):
 
 class StalkerShared(UnitInfo):
     cls_name = 'unit_stalker'
-    displayname = 'Combine Stalker'
-    description = ''
+    displayname = '#CombStalker_Name'
+    description = '#CombStalker_Description'
     image_name = 'vgui/combine/units/unit_stalker.vmt'
     portrait = 'resource/portraits/combineStalker.bik'
     costs = [[('requisition', 15)], [('kills', 1)]]
@@ -536,26 +536,19 @@ class StalkerInfo(StalkerShared):
 			6: 'build_comb_regenerationpost',
             11: 'menuup',
         }),
-        7: SubMenu(name='stalker_menu', displayname='#CombMenu_Name', description='#CombMenu_Description',
-                image_name='vgui/abilities/building_menu.vmt', abilities={
-            0: SubMenu(name='stalker_utility',
-                    displayname='Combine Utility Structures', description='',
-                    image_name='vgui/abilities/building_defence_menu.vmt',
-                    abilities={
-                            0: 'build_comb_powergenerator',
-                            1: 'build_comb_powergenerator_big',
-                            2: 'build_comb_powergenerator_scrap',
-                            3: 'build_comb_energycell',
-                            11: 'menuup',
-                    }),
-            1: 'build_comb_hq',
-            2: 'build_comb_garrison',
-            3: 'build_comb_specialops',
-            4: 'build_comb_synthfactory',
-            5: 'build_comb_mech_factory',
-            #6: 'build_comb_vehiclebay',
-            6: 'build_comb_armory',
-            7: 'build_comb_tech_center',
+        7: SubMenu(name='stalker_menu',
+                     displayname='#CombMenu_Name', description='#CombMenu_Description',  image_name = 'vgui/abilities/building_menu.vmt', 
+                     abilities={
+            0: 'build_comb_hq',
+            1: 'build_comb_powergenerator',
+            2: 'build_comb_energycell',
+            3: 'build_comb_garrison',
+            4: 'build_comb_armory',
+            5: 'build_comb_synthfactory',
+            6: 'build_comb_specialops',
+            8: 'build_comb_powergenerator_scrap',
+            9: 'build_comb_mech_factory',
+            10: 'build_comb_tech_center',
 
             11: 'menuup',
         } ),
@@ -588,4 +581,30 @@ class StalkerOverrunInfo(StalkerShared):
         9: 'holdposition',
         10: 'patrol',
         11: 'construct',
+    }
+    
+class StalkerMinervaWarsInfo(StalkerShared):
+    name = 'minervawars_unit_comb_stalker'
+    abilities = {
+        0: 'combine_repair',
+        1: 'noattack',
+        2: 'allowattack',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
+        11: 'construct',
+        3: SubMenu(name='stalker_defensemenu',
+					displayname='Combine Defenses', description='', image_name = 'vgui/abilities/building_defence_menu.vmt', 
+					abilities={
+			0: 'build_comb_barricade',
+            11: 'menuup',
+        }),
+        7: SubMenu(name='stalker_menu',
+                     displayname='Combine Structures', description='', image_name = 'vgui/abilities/building_menu.vmt', 
+                     abilities={
+            0: 'minervawars_build_comb_hq',
+            1: 'minervawars_build_comb_powergenerator',
+            2: 'minervawars_build_comb_garrison',
+            11: 'menuup',
+        } ),
     }

@@ -74,8 +74,8 @@ class SynthFactoryInfo(PoweredBuildingInfo):
     explodeactivity = 'ACT_EXPLODE'
     techrequirements = ['build_comb_armory']
     costs = [('requisition', 100), ('power', 100)]
-    health = 1125
-    buildtime = 100
+    health = 1100
+    buildtime = 98.0
     abilities   = {
 		0 : 'unit_hunter',
 		1 : 'unit_strider',

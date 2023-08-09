@@ -71,7 +71,7 @@ if isserver:
             return best
             
         def FindNearestHQ(self): 
-            return self.FindNearestBuilding(['build_reb_hq', 'build_reb_junkyard', 'build_comb_hq', 'build_comb_factory', 'build_ant_colony', 'build_ant_minicolony'])
+            return self.FindNearestBuilding(['build_reb_hq', 'build_reb_junkyard', 'build_comb_hq', 'build_comb_factory'])
         def FindNearestScrapMarker(self, maxrange=None, mustbefree=False):
             origin = self.outer.GetAbsOrigin()
             fnfilter = lambda cur: (not mustbefree or len(cur.salvagingworkers) < cur.unitinfo.maxworkers) and (not maxrange or (origin - cur.GetAbsOrigin()).Length2D() < maxrange)

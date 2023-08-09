@@ -70,11 +70,11 @@ class AbilityMortarAttack(AbilityTarget):
     description = '#MortarSynthAttack_Description'
     image_name = 'VGUI/combine/abilities/mortar_synth_attack_icon.vmt'
     costs = [] 
-    rechargetime = 15
+    rechargetime = 7
     target = None
     supportsautocast = False
     defaultautocast = False
-    minrange = 384
+    minrange = 256
     # Ability
     if isserver:
             

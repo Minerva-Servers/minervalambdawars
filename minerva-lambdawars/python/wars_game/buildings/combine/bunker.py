@@ -17,7 +17,7 @@ class CombineBunker(UnitBaseGarrisonableBuilding):
     #customeyeoffset = Vector(0,0,150)
     rallylineenabled = False
     playerowned = False
-    maxpopulation = 16
+    maxpopulation = 8
 
     units_dmg_modifier = 0.20
     sense_distance = 1408
@@ -40,8 +40,9 @@ class CombineBunkerInfo(BunkerInfo):
     health = 1500
     garrisoned_attributes = ['bunker']
     attributes = ['defence']
-    buildtime = 35.0
+    buildtime = 30.0
     attackpriority = 0
+    #sense_distance = 2000
     techrequirements = ['build_comb_armory']
     costs = [[('requisition', 40), ('power', 10)], [('kills', 5)]]
     sound_select = 'build_comb_bunker'

@@ -1050,7 +1050,7 @@ class UnitStrider(BaseClass):
     aimpitch = 0
     
     # Settings
-    scaleprojectedtexture = 4
+    scaleprojectedtexture = 3.5
     selectionparticlename = 'unit_circle_ground'
     jumpheight = 0.0
     canshootmove = True
@@ -1091,7 +1091,7 @@ class StriderMaxEnergyUpgrade(AbilityUpgradeValue):
     buildtime = 56.0
     costs = [[('requisition', 30), ('power', 30)], [('kills', 50)]]
     techrequirements = []
-    upgradevalue = 225
+    upgradevalue = 150
     image_name = 'vgui/combine/abilities/combine_strider_energy_unlock'
     sai_hint = AbilityUpgradeValue.sai_hint | set(['sai_grenade_upgrade'])
     
@@ -1101,21 +1101,21 @@ class StriderInfo(UnitInfo):
     displayname = '#CombStrider_Name'
     description = '#CombStrider_Description'
     image_name = 'vgui/combine/units/unit_strider'
-    costs = [('requisition', 250), ('power', 250)]
-    buildtime = 130.0
+    costs = [('requisition', 180), ('power', 180)]
+    buildtime = 90.0
     viewdistance = 1024
     modelname = 'models/combine_strider.mdl'
     hulltype = 'HULL_LARGE_CENTERED'
     techrequirements = ['build_comb_tech_center']
-    health = 5000
-    maxspeed = 220.0
-    turnspeed = 25.0
-    unitenergy = 100
+    health = 1500
+    maxspeed = 144.0
+    turnspeed = 15.0
+    unitenergy = 75
     unitenergy_initial = -1
-    population = 1
+    population = 6
     attributes = ['synth', 'large', 'pulse_cannon']
     sound_death = 'NPC_Strider.Death'
-    scale = 1
+    scale = 0.75
     selectionpriority = 5
     sound_select = 'unit_strider_select'
     sound_move = 'unit_strider_move'
@@ -1129,17 +1129,16 @@ class StriderInfo(UnitInfo):
     ability_10 = 'patrol'
 
     class AttackRange(UnitInfo.AttackRange):
-        damage = 9
+        damage = 4
         minrange = 0.0
-        maxrange = 900.0
-        attackspeed = 0.1
+        maxrange = 896.0
+        attackspeed = 0.19
         usesbursts = True
-        minburst = 20
-        maxburst = 30
-        minresttime = 0.75
-        maxresttime = 0.75
+        minburst = 12
+        maxburst = 12
+        minresttime = 1.25
+        maxresttime = 1.25
     attacks = 'AttackRange'
-    
     sai_hint = set(['sai_unit_combat', 'sai_unit_super'])
 class OverrunStriderInfo(StriderInfo):
     name = 'overrun_unit_strider'

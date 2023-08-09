@@ -14,6 +14,6 @@ class WeaponPistol(WarsWeaponMachineGun):
     class AttackPrimary(WarsWeaponMachineGun.AttackPrimary):
         minrange = 24.0
         maxrange = 640.0
-        attackspeed = 0.45
+        attackspeed = 0.59
         cone = WarsWeaponMachineGun.AttackPrimary.DOT_3DEGREE
         attributes = ['bullet']

@@ -1,6 +1,0 @@
-"vertexlitgeneric"
-{
-	"$baseTexture" "models\player\ct_sas\ct_sas_glass"
-	"$envmap" 			"env_cubemap"
-	"$envmapmask" "models\gasmask\tac_rbe\ct_sas_glass_spec"
-}

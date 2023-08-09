@@ -59,7 +59,7 @@ class RebelBarInfo(WarsBuildingInfo):
     image_name = 'vgui/rebels/buildings/build_reb_barracks'
     modelname = 'models/pg_props/pg_buildings/pg_rebel_barracks.mdl'
     explodemodel = 'models/pg_props/pg_buildings/pg_rebel_barracks_des.mdl'
-    techrequirements = ['build_reb_junkyard']
+    techrequirements = ['build_reb_billet']
     explodemodel_lightingoffset = Vector(0, 0, 100)
     idleactivity = 'ACT_IDLE'
     explodeactivity = 'ACT_EXPLODE'
@@ -68,15 +68,13 @@ class RebelBarInfo(WarsBuildingInfo):
     zoffset = 0.0
     costs = [('requisition', 50)]
     health = 700
-    buildtime = 45.0
+    buildtime = 30.0
     abilities = {
         0: 'unit_rebel_partisan_molotov',
-        1: 'unit_rebel_partisan_pistol',
-        2: 'unit_rebel_partisan',
-        4: 'unit_rebel_pistol',
-        5: 'unit_rebel',
-        6: 'unit_rebel_sg',
-        7: 'unit_rebel_ar2',
+        1: 'unit_rebel_partisan',
+        4: 'unit_rebel',
+        5: 'unit_rebel_sg',
+        6: 'unit_rebel_ar2',
         8: 'unit_rebel_medic',
         9: 'unit_rebel_winchester',
         10: 'unit_rebel_veteran',
@@ -157,3 +155,24 @@ class DestroyHQRebelBarInfo(RebelBarInfo):
     explodeparticleeffect = 'pg_rebel_barracks_explosion'
     explodeshake = (2, 10, 2, 512)  # Amplitude, frequence, duration, radius
     sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_barracks'])
+
+class MinervaWarsRebelBarInfo(RebelBarInfo):
+    name = "minervawars_build_reb_garrison"
+    displayname = 'Rebel Garrison'
+    description = ''
+    techrequirements = ['minervawars_build_reb_hq']
+    costs = [('requisition', 50)]
+    health = 750
+    buildtime = 50.0
+    abilities = {
+        0: 'minervawars_unit_reb_refugee_molotov',
+        1: 'minervawars_unit_reb_refugee_usp',
+        2: 'minervawars_unit_reb_refugee_mp7',
+        
+        4: 'minervawars_unit_reb_usp',
+        5: 'minervawars_unit_reb_mp7',
+        6: 'minervawars_unit_reb_spas12',
+        7: 'minervawars_unit_reb_ar2',
+
+        11: 'cancel',
+    }

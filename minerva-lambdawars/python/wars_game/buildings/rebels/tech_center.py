@@ -30,7 +30,6 @@ class TechCenterInfo(WarsBuildingInfo):
     abilities = {
         0: 'fireexplosivebolt_unlock',
         1: 'tau_alt_fire_unlock',
-        2: 'rebel_grenade_upgrade',
         8: 'cancel',
     } 
     idleactivity = 'ACT_IDLE'

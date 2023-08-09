@@ -3,81 +3,62 @@ from core.gamerules import GamerulesInfo, WarsBaseGameRules
 from core.buildings.base import constructedlistpertype
 from core.resources import SetResource
 
-
-# You win if all the HQ buildings of the enemy are destroyed
 class DestroyHQ(WarsBaseGameRules):
     def __init__(self):
         super().__init__()
 
     def CheckGameOver(self):
-        if self.gameover:   # someone else quit the game already
-            # check to see if we should change levels now
+        if self.gameover:
             if self.intermissionendtime < gpGlobals.curtime:
-                self.ChangeToGamelobby()  # intermission is over
+                self.ChangeToGamelobby()
             return True
         return False
-        
+
     def MainThink(self):
         super().MainThink()
         if self.gameover:
             return
-          
 
-        # Check winning conditions (only one player or team left alive)
-        # Only check the gamelobby players
         counts = set()
         for data in self.gameplayers:
             if self.IsPlayerDefeated(data):
                 continue
             ownernumber = data['ownernumber']
 
-            # count important buildings, including the HQ
-            countunitscombhq = len([b for b in constructedlistpertype[ownernumber]['build_comb_hq'] if b.IsAlive()])
-            countunitsrebhq = len([b for b in constructedlistpertype[ownernumber]['build_reb_hq'] if b.IsAlive()])
-            countunitscombgar = len([b for b in constructedlistpertype[ownernumber]['build_comb_garrison'] if b.IsAlive()])
-            countunitsrebbar = len([b for b in constructedlistpertype[ownernumber]['build_reb_barracks'] if b.IsAlive()])
-            countunitscombmech = len([b for b in constructedlistpertype[ownernumber]['build_comb_mech_factory'] if b.IsAlive()])
-            countunitsrebspecops = len([b for b in constructedlistpertype[ownernumber]['build_reb_specialops'] if b.IsAlive()])
-            countunitscombspecops = len([b for b in constructedlistpertype[ownernumber]['build_comb_specialops'] if b.IsAlive()])
-            countunitsrebvortden = len([b for b in constructedlistpertype[ownernumber]['build_reb_vortigauntden'] if b.IsAlive()])
-            countunitscombsynth = len([b for b in constructedlistpertype[ownernumber]['build_comb_synthfactory'] if b.IsAlive()])
-            countunitsrebscrapyard = len([b for b in constructedlistpertype[ownernumber]['build_reb_junkyard'] if b.IsAlive()])
-            countunits = countunitscombhq + countunitsrebhq + countunitscombgar + countunitsrebbar + countunitscombmech + countunitsrebspecops + countunitscombspecops + countunitsrebvortden + countunitscombsynth + countunitsrebscrapyard
-            #countunits = len([b for b in priobuildinglist[ownernumber] if b.IsAlive()])
+            building_types = ['build_comb_hq', 'build_reb_hq', 'build_comb_garrison', 'build_reb_barracks', 
+                            'build_comb_mech_factory', 'build_reb_specialops', 'build_comb_specialops', 
+                            'build_reb_vortigauntden', 'build_comb_synthfactory', 'build_reb_junkyard',
+                            'minervawars_build_comb_hq',
+                            'minervawars_build_reb_hq']
+            
+            countunits = sum(len([b for b in constructedlistpertype[ownernumber][b_type] if b.IsAlive()]) for b_type in building_types)
+            
             if not countunits:
                 self.PlayerDefeated(data)
                 continue
-            if data['team'] is not TEAM_INVALID and data['team'] is not TEAM_UNASSIGNED and data['team'] is not TEAM_SPECTATOR:
+            if data['team'] not in (TEAM_INVALID, TEAM_UNASSIGNED, TEAM_SPECTATOR):
                 counts.add(data['team'])
             else:
-                counts.add(data) 
-                
+                counts.add(data)
+
         if len(counts) == 1:
-            # We got a winner!
-            winners, losers = self.CalculateWinnersAndLosers(list(counts)[0])
-            self.EndGame(winners, losers)
-                
-        if len(counts) == 1:
-            # We got a winner!
             winners, losers = self.CalculateWinnersAndLosers(list(counts)[0])
             self.EndGame(winners, losers)
 
     def StartGame(self):
         super().StartGame()
-        
+
         for data in self.gameplayers:
             SetResource(data['ownernumber'], self.GetMainResource(), 100)
-   
+
     def ClientUpdateEndGameStats(self, playersteamid, stats, winners, losers):
-        """ Update Destroy HQ game mode Steam stats. """
         super().ClientUpdateEndGameStats(playersteamid, stats, winners, losers)
-    
+
         stats.destroyhq_games += 1
         if self.GetPlayerGameData(steamid=playersteamid, gameplayers=winners) is not None:
             stats.destroyhq_wins += 1
 
 class DestroyHQInfo(GamerulesInfo):
-    hidden = True
     name = 'destroyhq'
     displayname = '#Destroy_HQ_Name'
     description = '#Destroy_HQ_Description'
@@ -113,6 +94,14 @@ class DestroyHQInfo(GamerulesInfo):
         'build_reb_barreltrap': 2,
         'build_comb_headcrabcanisterlauncher': 4,
         'build_comb_mortar': 2,
-        #'build_comb_hq': 1,
-        #'build_reb_hq': 1,
+    }
+
+class MinervaWarsInfo(DestroyHQInfo):
+    name = 'minervawars'
+    displayname = 'Minerva Wars'
+    description = 'A Rewritted Lambda Wars Destroy HQ, balanced to perfection.'
+    factionpattern = '^minervawars_.*$'
+    unit_limits = {
+        'unit_dog': 2,
+        'unit_strider': 2,
     }

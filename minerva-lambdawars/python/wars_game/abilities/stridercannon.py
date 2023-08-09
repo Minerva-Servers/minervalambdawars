@@ -90,12 +90,12 @@ class AbilityStriderCannon(AbilityTarget):
     displayname = '#CombStriderCannon_Name'
     description = '#CombStriderCannon_Description'
     image_name = 'vgui/combine/abilities/strider_cannon'
-    rechargetime = 30
+    rechargetime = 5.0
     damage = FloatField(value=400.0)
-    damageradius = FloatField(value=512.0)
-    techrequirements = ['stridercannon_unlock']
+    damageradius = FloatField(value=256.0)
+    #techrequirements = ['stridercannon_unlock']
     #costs = [[('power', 100)], [('kills', 10)]]
-    energy = 50
+    energy = 45
     sai_hint = AbilityTarget.sai_hint | set(['sai_grenade'])
     
     @serveronly
@@ -128,5 +128,5 @@ class AbilityStriderCannonUnlock(AbilityUpgrade):
     displayname = '#AbilityStriderCannonUnlock_Name'
     description = '#AbilityStriderCannonUnlock_Description'
     image_name = "vgui/combine/abilities/combine_strider_cannon_unlock.vmt"
-    buildtime = 60.0
+    buildtime = 45.0
     costs = [[('kills', 4)], [('requisition', 250), ('power', 400)]]

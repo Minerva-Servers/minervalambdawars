@@ -88,7 +88,7 @@ class AbilityFortifyControlPointLvl1Reb(AbilityFortifyControlPoint):  #scrap to 
 	displayname = '#RebFortifyControlPointLvl1_Name'
 	description = '#RebFortifyControlPointLvl1_Description'
 	upgradetime = 50.0
-	costs = [('requisition', 75), ('scrap', 50)]
+	costs = [('requisition', 50)]
 	#costs = [[('scrap', 15), ('requisition', 25)], [('power', 15), ('requisition', 25)]]
 	targetupgradelevel = 1
 
@@ -99,7 +99,7 @@ class AbilityAltFortifyControlPointLvl1Reb(AbilityFortifyControlPoint):    #powe
 	displayname = '#RebFortifyControlPointLvl1_Name'
 	description = '#RebFortifyControlPointLvl1_Description'
 	upgradetime = 50.0
-	costs = [('requisition', 75), ('power', 50)]
+	costs = [('requisition', 50)]
 	#costs = [[('scrap', 15), ('requisition', 25)], [('power', 15), ('requisition', 25)]]
 	targetupgradelevel = 1
 
@@ -110,7 +110,7 @@ class AbilityFortifyControlPointLvl2Reb(AbilityFortifyControlPoint):    #scrap t
 	displayname = '#RebFortifyControlPointLvl2_Name'
 	description = '#RebFortifyControlPointLvl2_Description'
 	upgradetime = 50.0
-	costs = [('requisition', 175), ('scrap', 150)]
+	costs = [('requisition', 100)]
 	#costs = [[('scrap', 30), ('requisition', 35)], [('power', 30), ('requisition', 35)]]
 	targetupgradelevel = 2
 
@@ -122,7 +122,7 @@ class AbilityFortifyControlPointLvl2Comb(AbilityFortifyControlPoint):   # power 
 	displayname = '#CombFortifyControlPointLvl2_Name'
 	description = '#CombFortifyControlPointLvl2_Description'
 	upgradetime = 50.0
-	costs = [('requisition', 175), ('power', 150)]
+	costs = [('requisition', 100)]
 	#costs = [[('scrap', 30), ('requisition', 35)], [('power', 30), ('requisition', 35)]]
 	targetupgradelevel = 2
 
@@ -142,7 +142,7 @@ class ControlPointInfoMetaClass(BuildingInfoMetaClass):
 
         return newcls
         
-CP_MAXGENERATE = 1000000
+CP_MAXGENERATE = 2000
 
 
 class BaseControlPointInfo(WarsBuildingInfo, metaclass=ControlPointInfoMetaClass):
@@ -160,8 +160,8 @@ class BaseControlPointInfo(WarsBuildingInfo, metaclass=ControlPointInfoMetaClass
     constructionactivity = 'ACT_CONSTRUCTION'
     explodeactivity = 'ACT_EXPLODE'
     minimapicon_name = 'hud_minimap_flag'
-    viewdistance = 768
-    generateresources = {'type': 'requisition', 'amount': 1, 'interval': 1}
+    viewdistance = 640
+    generateresources = {'type': 'requisition', 'amount': 1, 'interval': 4}
     splitgeneratedresources = True
     reducesplittedresources = False
     ispriobuilding = False # Excludes this building from Annihilation victory conditions
@@ -187,7 +187,7 @@ class BaseControlPointInfo(WarsBuildingInfo, metaclass=ControlPointInfoMetaClass
     ]
     
     ability_0 = 'fortify_control_point_lvl1'
-    ability_1 = 'fortify_control_point_lvl1_power'
+    #ability_1 = 'fortify_control_point_lvl1_power'
     ability_8 = 'cancelupgrade'
 
 
@@ -196,12 +196,11 @@ class RebControlPointLvl1Info(BaseControlPointInfo):
     name = "control_point_reb_lvl1"
     displayname = '#ControlPointFortL1_Name'
     description = '#ControlPointFortL1_Description'
-    health = 500
+    health = 400
     viewdistance = 1024
     ability_0 = 'fortify_control_point_lvl2_reb_scrap'
-    ability_1 = None
     ability_8 = 'cancelupgrade'
-    generateresources = {'type': 'requisition', 'amount': 2, 'interval': 1.0}
+    generateresources = {'type': 'requisition', 'amount': 1.0, 'interval': 1.0}
     modelname = 'models/pg_props/pg_buildings/other/pg_flagpole/pg_flagpole_rebels.mdl'
     dummies = [
         CreateDummy(
@@ -224,11 +223,11 @@ class RebControlPointLvl2Info(BaseControlPointInfo):
     name = "control_point_reb_lvl2"
     displayname = '#ControlPointFortL2_Name'
     description = '#ControlPointFortL2_Description'
-    health = 1000
-    viewdistance = 1408
+    health = 700
+    viewdistance = 1280
     ability_0 = None
     ability_1 = None
-    generateresources = {'type': 'requisition', 'amount': 4.0, 'interval': 1.0}
+    generateresources = {'type': 'requisition', 'amount': 2.0, 'interval': 1}
     modelname = 'models/pg_props/pg_buildings/other/pg_flagpole/pg_flagpole_rebels.mdl'
     dummies = [
         CreateDummy(
@@ -251,12 +250,11 @@ class CombControlPointLvl1Info(BaseControlPointInfo):
     name = "control_point_comb_lvl1"
     displayname = '#ControlPointFortL1_Name'
     description = '#ControlPointFortL1_Description'
-    health = 500
+    health = 400
     viewdistance = 1024
     ability_0 = 'fortify_control_point_lvl2_comb_power'
-    ability_1 = None
     ability_8 = 'cancelupgrade'
-    generateresources = {'type': 'requisition', 'amount': 2, 'interval': 1.0}
+    generateresources = {'type': 'requisition', 'amount': 1.0, 'interval': 1.0}
     modelname = 'models/pg_props/pg_buildings/other/pg_flagpole/pg_flagpole_combine.mdl'
     particles = [
         {'name': 'pg_combine_flag'},
@@ -266,11 +264,11 @@ class CombControlPointLvl2Info(BaseControlPointInfo):
     name = "control_point_comb_lvl2"
     displayname = '#ControlPointFortL2_Name'
     description = '#ControlPointFortL2_Description'
-    health = 850
+    health = 700
     viewdistance = 1280
     ability_0 = None
     ability_1 = None
-    generateresources = {'type': 'requisition', 'amount': 4.0, 'interval': 1.0}
+    generateresources = {'type': 'requisition', 'amount': 2.0, 'interval': 1}
     modelname = 'models/pg_props/pg_buildings/other/pg_flagpole/pg_flagpole_combine.mdl'
     dummies = [
         CreateDummy(
@@ -1007,3 +1005,48 @@ class ControlPoint(BaseControlPoint):
             MessageResourceIndicator(owners, origin, '+%.2f' % (self.generateresources[1]), resourcetype)
     
         self.SetNextThink(gpGlobals.curtime + self.generateresources[2], 'ResourceThink')'''
+
+# ======================================================================================================================
+# ================================================== Squad Wars Flags ==================================================
+# ======================================================================================================================
+
+class BaseControlPointCharInfo(BaseControlPointInfo):
+    name = "control_point_char"
+    cls_name = "control_point"
+    image_name = "vgui/units/unit_shotgun.vmt"
+    modelname = 'models/pg_props/pg_buildings/other/pg_flagpole/pg_flagpole_wood.mdl'
+    explodemodel = 'models/pg_props/pg_buildings/other/pg_flagpole/pg_flagpole_wood_des.mdl'
+    displayname = '#ControlPoint_Name'
+    description = '#ControlPoint_Description'
+    minimaphalfwide = 4
+    minimaphalftall = 4
+    minimaplayer = -1  # Draw earlier than units to avoid overlapping
+    idleactivity = 'ACT_IDLE'
+    constructionactivity = 'ACT_CONSTRUCTION'
+    explodeactivity = 'ACT_EXPLODE'
+    minimapicon_name = 'hud_minimap_flag'
+    viewdistance = 720
+    generateresources = {'type': 'power_sw', 'amount': 1.0, 'interval': 5.0}
+    splitgeneratedresources = True
+    reducesplittedresources = False
+    ispriobuilding = False  # Excludes this building from Annihilation victory conditions
+    #sai_hint = set(['sai_controlpoint'])
+    sound_select = 'unit_controlpoint_select'
+
+    mins = Vector(-55, -55, 0)
+    maxs = Vector(55, 55, 75)
+
+    dummies = [
+        CreateDummy(
+            modelname='models/pg_props/pg_buildings/other/pg_flagpole_base/pg_flagpole_wood_base_0.mdl',
+            offset=Vector(0, 0, 0),
+            decorative=True,
+        )
+    ]
+
+    particles = []
+
+    constructiondummy = None
+
+    ability_0 = None
+    ability_8 = None

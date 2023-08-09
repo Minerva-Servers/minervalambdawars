@@ -14,7 +14,6 @@ class ResKillsInfo(ResourceInfo):
     
 class ResGrubsInfo(ResourceInfo):
     name = 'grubs'
-    iconname = 'vgui/icons/icon_requisition'
     
     @classmethod
     def TakeResources(cls, ownernumber, amount):  
@@ -46,4 +45,13 @@ class ResScrapInfo(ResourceInfo):
     name = 'scrap'
     iconname = 'vgui/icons/icon_scrap'
     displayname = '#ResScrap_Name'
+
+# Resource for Squad Wars
+class ResPowerCharInfo(ResourceInfo):
+    name = 'power_sw'
+    iconname = 'vgui/icons/icon_energy'
+    iscapped = True
+    nocapoverflow = True
+    displayname = '#ResPower_Name'
+
     

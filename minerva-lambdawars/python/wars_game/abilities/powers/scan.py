@@ -57,7 +57,7 @@ class Scan(UnitBase):
 class UnitScanInfo(UnitInfo):
     name = 'unit_scan'
     cls_name = 'unit_scan'
-    viewdistance = 1024
+    viewdistance = 896.0
     health = 0
     minimaphalfwide = 0 # Don't draw on minimap
     population = 0
@@ -70,13 +70,12 @@ class AbilityScan(AbilityTarget):
     description = "#RebScan_Description"
     image_name = 'vgui/rebels/abilities/scan'
     hidden = True
-    energy = 7
+    energy = 15
     rechargetime = 2.0
     scanduration = FloatField(value=10.0)
-    scanrange = FloatField(value=1024)
+    scanrange = FloatField(value=896.0)
     activatesoundscript = 'ability_scan'
     maxrange = FloatField(value=8192.0)
-    sai_hint = AbilityTarget.sai_hint | set(['sai_deploy'])
     
     # For autocast
     supportsautocast = True

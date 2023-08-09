@@ -19,8 +19,8 @@ class C4ExplosiveInfo(UnitObjectInfo):
     viewdistance = 128.0
     
     class AttackExplode(UnitObjectInfo.AttackBase):
-        maxrange = 384.0
-        damage = 300.0
+        maxrange = 350.0
+        damage = 250.0
         damagetype = DMG_BLAST
         attackspeed = 0
     attacks = 'AttackExplode'

@@ -136,8 +136,8 @@ class RebelAbilitySteadyPosition(AbilitySteadyPosition):
     displayname = '#CombSteadyPosition_Name'
     description = '#CombSteadyPosition_Description'
     image_name = 'vgui/rebels/abilities/rebel_veteran_steady_position'
-    rechargetime = 1
-    steadytime = FloatField(value=1.0)
+    rechargetime = 1.99
+    steadytime = FloatField(value=2.00)
 
 class RebelAbilitySteadyCharPosition(AbilitySteadyPosition):
     name = 'rebel_steadyposition_char'

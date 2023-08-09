@@ -644,8 +644,8 @@ class UnitRollerMine(BaseClass):
 class RollerMineInfo(UnitInfo):
     name = 'unit_rollermine'
     cls_name = 'unit_rollermine'
-    displayname = 'Combine Roller Mine'
-    description = '' 
+    displayname = '#CombRollermine_Name'
+    description = '#CombRollermine_Description' 
     image_name = 'vgui/combine/units/unit_combine_roller'
     abilities = {
         0: 'rollermine_attackmode',
@@ -660,15 +660,15 @@ class RollerMineInfo(UnitInfo):
     oncreatedroptofloor = False
     placeatmins = True
     maxspeed = 1200.0  # More like the angular speed
-    health = 120
-    population = 1
+    health = 220
+    population = 2
     buildtime = 18.0
     viewdistance = 640
     attributes = ['metal', 'mechanic']
-    costs = [[('requisition', 20), ('power', 20)], [('kills', 1)]]
+    costs = [[('requisition', 10), ('power', 15)], [('kills', 1)]]
     techrequirements = ['build_comb_armory']
-    unitenergy = 100
-    sai_hint = set(['sai_unit_support'])
+    unitenergy = 200
+    #sai_hint = set(['sai_unit_support'])
 
     class AttackMelee(UnitInfo.AttackMelee):
         maxrange = 0.0

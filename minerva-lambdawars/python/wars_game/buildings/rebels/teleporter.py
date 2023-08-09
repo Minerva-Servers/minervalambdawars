@@ -268,8 +268,8 @@ class UnitTeleporterRiftInfo(UnitInfo):
     health = 0
     population = 0
     minimapicon_name = 'hud_minimap_rift'
-    minimaphalfwide = 10
-    minimaphalftall = 10
+    minimaphalfwide = 5
+    minimaphalftall = 5
     minimaplayer = -1  # Draw earlier than units to avoid overlapping
     viewdistance = 200.0
 

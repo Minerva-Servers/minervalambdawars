@@ -20,7 +20,7 @@ if isserver:
 
 import random
 
-class UnitBuggyAnimState(UnitVehicleAnimState):
+class UnitJeepAnimState(UnitVehicleAnimState):
     def OnNewModel(self):
         """ Setup pose parameters and other model related stuff """
         outer = self.outer
@@ -56,8 +56,8 @@ class UnitBuggyAnimState(UnitVehicleAnimState):
             targetpos = outer.enemy.BodyTarget(outer.GetAbsOrigin())
             outer.AimGunAt(targetpos, self.GetAnimTimeInterval())
         
-@entity('unit_buggy', networked=True)
-class UnitBuggy(BaseClass):
+@entity('unit_jeep', networked=True)
+class UnitJeep(BaseClass):
     hasgun = True
     
     enginelocked = False
@@ -620,7 +620,7 @@ class UnitBuggy(BaseClass):
                     # Will remove the unit after explode:
                     self.outer.PreDetonate()
     
-    AnimStateClass = UnitBuggyAnimState
+    AnimStateClass = UnitJeepAnimState
     nexthop = 0.0
     ROLLERMINE_HOP_DELAY = 2
     isprimed = False
@@ -639,28 +639,17 @@ class UnitBuggy(BaseClass):
     
     scaleprojectedtexture = 1.7
     
-class BuggyInfo(BaseVehicleInfo):
-    name = 'unit_buggy'
-    cls_name = 'unit_buggy'
-    image_name  = "vgui/minervawars/rebels/units/unit_buggy.vmt"
+class JeepInfo(BaseVehicleInfo):
+    name = 'unit_jeep'
+    cls_name = 'unit_jeep'
     modelname = 'models/buggy.mdl'
     hulltype = 'HULL_LARGE'
-    health = 1000
+    health = 500
     maxspeed = 500
-    turnspeed = 10.0
-    costs = [('requisition', 50), ('scrap', 70)]
-    techrequirements = ['build_reb_munitiondepot']
-    population = 1
-    abilities = {
-        8: 'attackmove',
-        9: 'holdposition',
-        10: 'patrol',
-    }
+    turnspeed = 6.0
+
+    """class AttackMelee(UnitInfo.AttackMelee):
+        damage = 200
+        damagetype = DMG_SLASH
+        attackspeed = 0.3"""
     
-class APCInfo(BuggyInfo):
-    name = 'unit_combine_apc'
-    image_name  = "vgui/minervawars/combine/units/unit_combine_apc.vmt"
-    modelname = 'models/combine_apc.mdl'
-    health = 1500
-    costs = [('requisition', 50), ('power', 70)]
-    techrequirements = ['build_comb_armory']

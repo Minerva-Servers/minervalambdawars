@@ -30,7 +30,6 @@ class AntlionColony(BaseClass, PheromoneMarkerBase):
         PheromoneMarkerBase.Event_Killed(self, info)
         
     # Settings     
-    autoconstruct = False
     buildtarget = Vector(0, -256, 96.0)
     buildangle = QAngle(0, 0, 0)
     generationtype = 1
@@ -40,39 +39,21 @@ class AntlionColony(BaseClass, PheromoneMarkerBase):
 class AntlionColonyInfo(WarsBuildingInfo):
     name        = 'build_ant_colony'
     cls_name    = 'build_ant_colony'
-    image_name  = "vgui/minervawars/antlions/buildings/build_ant_colony.vmt"
-    abilities   = {
-        0 : 'unit_antlionworker',
-        1 : 'unit_antlionguard',
-        2 : 'unit_antlionguardcavern',
-        3 : 'tier2_research',
+    image_name  = 'vgui/abilities/ability_rebelhq.vmt'
+    portrait = 'resource/portraits/antlionHive.bik'
+    abilities   = {                      
+        0 : 'unit_antlion',
+        1 : 'unit_antlionworker',
+        2 : 'unit_antlionsuicider',
+        3 : 'unit_antlionguard',   
+        11 : 'tier2_research',
     }
-    health = 4000
+    health = 3500
     modelname = 'models/props_wasteland/antlionhill.mdl'
-    displayname = 'Antlion Colony'
+    displayname = '#AntlionColony_Name'
     description = '#AntlionColony_Description'
-    providespopulation = 11
-    generateresources = {'type' : 'grubs', 'amount' : 1.0, 'interval' : 25}
-    costs = [('grubs', 100)]
-    sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_hq', 'sai_scrap_collection', 'sai_building_population'])
-    buildtime = 60
-
-class MiniAntlionColonyInfo(AntlionColonyInfo):
-    name        = 'build_ant_minicolony'
-    image_name  = "vgui/minervawars/antlions/buildings/build_ant_colony.vmt"
-    abilities   = {
-        0 : 'unit_antlionworker',
-    }
-    health = 1500
-    modelname = 'models/props_wasteland/antlionhill.mdl'
-    displayname = 'Antlion Mini-Colony'
-    description = ''
-    providespopulation = 8
-    generateresources = {'type' : 'grubs', 'amount' : 1.0, 'interval' : 50}
-    costs = [('grubs', 50)]
-    scale = 0.5
-    sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_barracks', 'sai_scrap_collection', 'sai_building_population'])
-    buildtime = 50
+    providespopulation = 20
+    costs = [('grubs', 20)]
     
 class Tier2UpgradeInfo(AbilityUpgrade):
     name = 'tier2_research'
@@ -80,7 +61,7 @@ class Tier2UpgradeInfo(AbilityUpgrade):
     image_name = 'vgui/abilities/tier2.vmt'
     description = '#AbilityTier2Research_Description'
     buildtime = 120.0
-    costs = [('requisition', 120), ('grubs', 25)]
+    costs = [('grubs', 10)]
     successorability = 'tier3_research'
     
 class Tier3UpgradeInfo(AbilityUpgrade):
@@ -89,7 +70,7 @@ class Tier3UpgradeInfo(AbilityUpgrade):
     displayname = '#AbilityTier3Research_Name'
     description = '#AbilityTier3Research_Description'
     buildtime = 180.0
-    costs = [('requisition', 180), ('grubs', 50)]
+    costs = [('grubs', 20)]
 
 class MissionAntlionColonyInfo(AntlionColonyInfo):
     name = 'mission_build_ant_colony'

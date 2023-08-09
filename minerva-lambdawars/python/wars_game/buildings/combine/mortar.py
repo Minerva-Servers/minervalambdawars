@@ -34,7 +34,7 @@ class CombineMortar(BaseClass):
     senses = None
 
     isfiringmortar = False
-    damage = 300.0
+    damage = 400.0
     dmgradius = 300.0
     fireposition = vec3_origin
     
@@ -137,7 +137,7 @@ class AbilityCombFireMortar(AbilityTarget):
     rechargetime = 5
     #costs = [('power', 20)]
     energy = 20
-    maxrange = FloatField(value=1536.0)
+    maxrange = FloatField(value=1280.0)
     supportsautocast = True
     defaultautocast = True
     overrunmode = False
@@ -226,7 +226,7 @@ class OverrunAbilityCombFireMortar(AbilityCombFireMortar):
     rechargetime = 6
     #costs = [('power', 20)]
     energy = 40
-    maxrange = FloatField(value=2048.0)
+    maxrange = FloatField(value=1920.0)
     supportsautocast = True
     defaultautocast = True
     overrunmode = True
@@ -251,9 +251,9 @@ class OverrunMortarInfo(WarsBuildingInfo):
     unitenergy_initial = -1
     techrequirements = ['or_tier3_research']
     viewdistance = 768.0
-    health = 300
-    buildtime = 30.0
-    scale = 1.2
+    health = 200
+    buildtime = 25.0
+    scale = 0.9
     abilities = {
         0: 'overrun_fire_mortar',
         8: 'cancel',
@@ -278,15 +278,14 @@ class MortarInfo(PoweredBuildingInfo):
     constructionactivity = 'ACT_CONSTRUCTION'
     explodemodel = 'models/pg_props/pg_buildings/combine/pg_combine_mortar_destruction.mdl'
     explodeactivity = 'ACT_EXPLODE'
-    costs = [('requisition', 100), ('power', 50)]
-    unitenergy = 100
-    unitenergy_initial = 30
+    costs = [('requisition', 50), ('power', 20)]
+    unitenergy = 80
+    unitenergy_initial = 40
     techrequirements = ['build_comb_armory']
     viewdistance = 768.0
-    health = 300
-    buildtime = 30.0
-    scale = 1
-    attackpriority = -1
+    health = 200
+    buildtime = 25.0
+    scale = 0.9
     abilities = {
         0: 'fire_mortar',
         8: 'cancel',

@@ -98,7 +98,7 @@ class ScrapMarker(BaseClass):
                 
     fowflags = FOWFLAG_BUILDINGS_NEUTRAL_MASK
     scrap = IntegerField(networked=True)
-    totalscrap = IntegerField(value=100000, networked=True)
+    totalscrap = IntegerField(value=4500, networked=True)
     spawn_constraint = PlayerField(value=0, keyname='SpawnConstraint',  helpstring='Scrap marker is removed from map if given player does not play. Neutral means it always stays')
     
     big_scrap_models = [
@@ -145,7 +145,7 @@ class ScrapMarker(BaseClass):
 @entity('scrap_marker_small')
 class ScrapMarkerSmall(ScrapMarker):
     """ Scrap marker Small. Also contains scrap. """
-    totalscrap = 100000
+    totalscrap = 900
 
 class ScrapMarkerInfo(WarsBuildingInfo):
     name = "scrap_marker"
@@ -158,7 +158,7 @@ class ScrapMarkerInfo(WarsBuildingInfo):
     minimaphalftall = 4
     minimaplayer = -1 # Draw earlier than units to avoid overlapping
     minimapicon_name = 'hud_minimap_scrap'
-    maxworkers = 100
+    maxworkers = IntegerField(value=5, helpstring='Maximum number of workers which can be salvaging at the same time from this scrap marker')
     
 class ScrapMarkerSmallInfo(ScrapMarkerInfo):
     name = "scrap_marker_small"
@@ -167,7 +167,7 @@ class ScrapMarkerSmallInfo(ScrapMarkerInfo):
     modellist = ['models/pg_props/pg_buildings/pg_scrap_pile_small.mdl']
     displayname = "#ScrapMarker_Name"
     description = "#ScrapMarker_Description"
-    maxworkers = 100
+    maxworkers = 2
 
 
 class ScrapEntityInfo(UnitInfo):

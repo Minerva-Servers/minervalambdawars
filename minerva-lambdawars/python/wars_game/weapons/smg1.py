@@ -33,7 +33,7 @@ class WeaponSmg1SW(WeaponSmg1):
         usesbursts = True
         minburst = 45
         maxburst = 45
-        attackspeed = 0.08
-        minresettime = 1.8
-        maxresettime = 2.4
+        attackspeed = 0.07
+        minresettime = 1.6
+        maxresettime = 2.1
         attributes = ['bullet']

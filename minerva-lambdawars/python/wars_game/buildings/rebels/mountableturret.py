@@ -68,7 +68,7 @@ class MountableTurretInfo(WarsDynMountTurretInfo):
     #customeyeoffset = Vector(0, 0, 12.0)
     #customyeoffset = Vector(0, 0, )
     sound_death = 'build_reb_mturret_explode'
-    viewdistance = 384
+    viewdistance = 192
 	
     abilities = {
         8: 'cancel',

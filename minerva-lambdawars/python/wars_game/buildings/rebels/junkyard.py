@@ -72,16 +72,15 @@ class JunkyardInfo(WarsBuildingInfo):
     image_name  = 'vgui/rebels/buildings/build_reb_junkyard'
     modelname = 'models/pg_props/pg_buildings/rebels/pg_junkyard.mdl'
     explodemodel = 'models/pg_props/pg_buildings/rebels/pg_junkyard_des.mdl'
-    costs = [('requisition', 50)]
+    costs = [('requisition', 40)]
     resource_category = 'economy'
     health = 350
     buildtime = 30.0
-    generateresources = {'type' : 'scrap', 'amount' : 0.5, 'interval' : 2.0} #so a junkyard can generate some scrap.
+    generateresources = {'type' : 'scrap', 'amount' : 1.0, 'interval' : 10.0} #so a junkyard can generate some scrap.
     techrequirements = ['build_reb_hq']
     abilities   = {
         0 : 'unit_rebel_engineer',
-        1 : 'unit_rebel_engineer_smg1',
-        2 : 'unit_dog',
+        1 : 'unit_dog',
         8 : 'cancel',
     } 
     idleactivity = 'ACT_IDLE'

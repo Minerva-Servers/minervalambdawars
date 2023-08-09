@@ -68,12 +68,16 @@ class MuntionDepotInfo(WarsBuildingInfo):
     buildtime = 50.0
     techrequirements = ['build_reb_barracks']
     abilities = {
+        #1: 'rebel_upgrade_tier_mid',
+        #1: 'combine_mine_unlock',
+        #1: 'c4explosive_unlock',
+        #2: 'rebel_mine_unlock',
+        #0: 'grenade_unlock',
         0: 'weaponsg_unlock',
         1: 'weaponar2_unlock',
         2: 'rebel_hp_upgrade',
         4: 'c4explosive_unlock',
         5: 'rebel_mine_unlock',
-        6: 'floor_turret_rebel_unlock',
         #4: 'dog_unlock',
         8: 'cancel',
         #10: 'rebel_rpg_unlock',

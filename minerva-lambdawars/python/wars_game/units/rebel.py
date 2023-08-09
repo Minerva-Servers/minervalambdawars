@@ -78,8 +78,6 @@ if isserver:
 
 @entity('unit_rebel', networked=True)
 class UnitRebel(UnitCitizen):
-    cantakecover = True
-    canshootmove = True
     if isserver:
         def Precache(self):
             super().Precache()
@@ -93,9 +91,7 @@ class UnitRebel(UnitCitizen):
         return super().OnTakeDamage(dmginfo)
 @entity('unit_rebel_csm', networked=True)
 class UnitRebelCSM(UnitRebel):
-    cantakecover = True
     canshootmove = True
-    sai_hint = set(['sai_unit_combat'])
 
 # Rebel engineer
 @entity('unit_rebel_engineer', networked=True)
@@ -109,8 +105,6 @@ class UnitRebelEngineer(UnitRebel):
     activitylist.extend([
         'ACT_BUILDING',
     ])
-    cantakecover = True
-    canshootmove = True
 
 
 @entity('mission_unit_rebel_engineer', networked=True)
@@ -124,8 +118,6 @@ class MissionUnitRebelEngineer(UnitRebelEngineer):
     activitylist.extend([
         'ACT_BUILDING',
     ])
-    cantakecover = True
-    canshootmove = True
 
 
 #@entity('unit_rebel_flamer', networked=True)
@@ -229,8 +221,6 @@ class UnitRebelMedic(UnitRebel):
     maxenergy = UpgradeField(abilityname='medic_maxenergy_upgrade', cppimplemented=True)
     maxhealth = UpgradeField(abilityname='rebel_hp_upgrade', cppimplemented=True)
     health = UpgradeField(abilityname='rebel_hp_upgrade', cppimplemented=True)
-    cantakecover = True
-    canshootmove = True
 
 
 class RebelShared(UnitInfo):
@@ -260,7 +250,6 @@ class RebelShared(UnitInfo):
     sound_flamer_ignited = 'unit_rebel_flamer_ignited'
     sound_hurt = 'unit_rebel_hurt'
     cantakecover = True
-    canshootmove = True
     sai_hint = set(['sai_unit_combat'])
 
 class RebelScoutInfo(RebelShared):
@@ -268,9 +257,9 @@ class RebelScoutInfo(RebelShared):
     displayname = '#RebScout_Name'
     description = '#RebScout_Description'
     cls_name = 'unit_rebel'
-    health = 50
-    maxspeed = 240.0
-    buildtime = 13.0
+    health = 35
+    maxspeed = 282.0
+    buildtime = 14.0
     unitenergy = 50
     unitenergy_initial = 5
     population = 1
@@ -294,21 +283,6 @@ class RebelScoutInfo(RebelShared):
     viewdistance = 1280
     scrapdropchance = 0.0
 
-class UnarmedRebelScoutInfo(RebelScoutInfo):
-    name = 'unit_rebel_scout_unarmed'
-    displayname = 'Unarmed Scout'
-    description = 'An Unarmed Rebel Scout, he ist way faster, although unarmed.'
-    maxspeed = 298.0
-    buildtime = 9.0
-    costs = [('requisition', 7)]
-    weapons = []
-
-    class AttackMelee(RebelScoutInfo.AttackMelee):
-        maxrange = 55.0
-        damage = 3
-        #damagetype = DMG_SLASH
-        attackspeed = 1.5
-    attacks = 'AttackMelee'
 
 class RebelSaboteurInfo(RebelShared):
     name = 'unit_rebel_saboteur'
@@ -339,7 +313,7 @@ class RebelSaboteurInfo(RebelShared):
         -1: 'garrison',
     }
     weapons = ['weapon_pistol']
-    sai_hint = set(['sai_unit_scout'])
+    sai_hint = set([])
 
 
 @entity('unit_rebel_partisan', networked=True)
@@ -360,14 +334,14 @@ class RebelPartisanInfo(RebelShared):
     displayname = '#RebPartisan_Name'
     description = '#RebPartisan_Description'
     buildtime = 12.0
-    health = 100
+    health = 75
     population = 1
     maxspeed = 224.0
     viewdistance = 768
     scrapdropchance = 0.0
     #tier = 1
     modellist = GenerateModelList('DEFAULT')
-    costs = [[('requisition', 15)], [('kills', 1)]]
+    costs = [[('requisition', 10)], [('kills', 1)]]
     image_name = 'vgui/rebels/units/unit_rebel_partisan'
     attributes = ['light']
     abilities = {
@@ -379,33 +353,6 @@ class RebelPartisanInfo(RebelShared):
         -1: 'garrison',
     }
     weapons = ['weapon_smg1']
-    accuracy = 0.5
-    #accuracy = 'low'
-
-class PistolRebelPartisanInfo(RebelPartisanInfo):
-    name = 'unit_rebel_partisan_pistol'
-    displayname = 'Pistol Partisan'
-    description = 'A Refugee armed with a 9mm pistol.'
-    buildtime = 8.0
-    health = 100
-    population = 1
-    maxspeed = 232.0
-    viewdistance = 812
-    scrapdropchance = 0.0
-    #tier = 1
-    modellist = GenerateModelList('DEFAULT')
-    costs = [[('requisition', 5)], [('kills', 1)]]
-    image_name = 'vgui/rebels/units/unit_rebel_partisan'
-    attributes = ['light']
-    abilities = {
-        0: 'revolutionaryfervor',
-        7: 'mountturret',
-        8: 'attackmove',
-        9: 'holdposition',
-        10: 'patrol',
-        -1: 'garrison',
-    }
-    weapons = ['weapon_pistol']
     accuracy = 0.5
     #accuracy = 'low'
 
@@ -423,7 +370,7 @@ class RebelPartisanMolotovInfo(RebelPartisanInfo):
     cls_name = 'unit_rebel_partisan_molotov'
     displayname = '#RebPartisanMolotov_Name'
     description = '#RebPartisanMolotov_Description'
-    costs = [[('requisition', 5)], [('kills', 1)]]
+    costs = [[('requisition', 10)], [('kills', 1)]]
     image_name = 'vgui/rebels/units/unit_rebel_partisan_molotov'
     buildtime = 14.0
     health = 75
@@ -512,8 +459,6 @@ class RebelInfo(RebelShared):
         -1: 'garrison',
     }
 
-    canshootmove = True
-
 
 class DestroyHQRebelInfo(RebelInfo):
     name = 'unit_rebel_destroyhq'
@@ -523,25 +468,6 @@ class DestroyHQRebelInfo(RebelInfo):
 class TutorialRebelInfo(RebelInfo):
     name = 'tutorial_rebel'
     techrequirements = []  
-
-
-class PistolRebelInfo(RebelInfo):
-    name = 'unit_rebel_pistol'
-    buildtime = 14.0
-    costs = [[('requisition', 10)], [('kills', 1)]]
-    weapons = ['weapon_pistol']
-    displayname = 'Pistol Rebel'
-    description = 'A Rebel armed with a 9mm pistol.'
-    abilities = {
-        0: 'grenade',
-        5: 'rebel_transform_smg1',
-        7: 'mountturret',
-        8: 'attackmove',
-        9: 'holdposition',
-        10: 'patrol',
-        -1: 'garrison',
-    }
-    canshootmove = True
 
 
 class RebelW1886Info(RebelInfo):
@@ -569,7 +495,6 @@ class RebelW1886Info(RebelInfo):
     viewdistance = 1024
     sensedistance = 1280
     population = 1
-    canshootmove = True
 
 class RebelSGInfo(RebelInfo):
     name = 'unit_rebel_sg'
@@ -583,7 +508,7 @@ class RebelSGInfo(RebelInfo):
     weapons = ['weapon_shotgun']
     abilities = {
         0: 'grenade',
-        5: 'rebel_transform_smg1',
+        #1: 'rebel_grenade_upgrade',
         7: 'mountturret',
         8: 'attackmove',
         9: 'holdposition',
@@ -595,7 +520,6 @@ class RebelSGInfo(RebelInfo):
     image_name = 'vgui/rebels/units/unit_rebel_sg'
     maxspeed = 260.0
     viewdistance = 768
-    canshootmove = True
 
 
 class DestroyHQRebelSGInfo(RebelSGInfo):
@@ -617,7 +541,7 @@ class RebelAR2Info(RebelInfo):
     weapons = ['weapon_ar2']
     abilities = {
         0: 'grenade',
-        5: 'rebel_transform_smg1',
+        #1: 'rebel_grenade_upgrade',
         7: 'mountturret',
         8: 'attackmove',
         9: 'holdposition',
@@ -627,36 +551,6 @@ class RebelAR2Info(RebelInfo):
     sensedistance = 1024.0
     attributes = ['medium']
     image_name = 'vgui/rebels/units/unit_rebel_ar2'
-    canshootmove = True
-
-class RebelTacticalInfo(RebelInfo):
-    name = 'unit_rebel_tactical'
-    displayname = 'Tactical Rebel'
-    description = ''
-    buildtime = 27.0
-    maxspeed = 238
-    health = 280
-    viewdistance = 1024
-    costs = [[('requisition', 25), ('scrap', 15)], [('kills', 2)]]
-    techrequirements = ['build_reb_techcenter','weaponar2_unlock']
-    accuracy = 0.756
-    population = 1
-    selectionpriority = 4
-    modelname = 'models/humans/minervawars/tactical_rebel.mdl'
-    weapons = ['weapon_ar2']
-    abilities = {
-        0: 'grenade',
-        1: 'stungrenade',
-        7: 'mountturret',
-        8: 'attackmove',
-        9: 'holdposition',
-        10: 'patrol',
-        -1: 'garrison',
-    }
-    sensedistance = 1128.0
-    attributes = ['medium']
-    image_name = 'vgui/rebels/units/unit_rebel_ar2'
-    canshootmove = True
     
 class RebelTauInfo(RebelInfo):
     name = 'unit_rebel_tau'
@@ -670,7 +564,7 @@ class RebelTauInfo(RebelInfo):
     scale = 1.0
     costs = [[('requisition', 50), ('scrap', 40)], [('kills', 2)]]
     #accuracy = 5.0
-    population = 1
+    population = 2
     modelname = 'models/rebel_tau.mdl'
     #techrequirements = ['build_reb_techcenter']
     selectionpriority = 4
@@ -687,7 +581,6 @@ class RebelTauInfo(RebelInfo):
     attributes = ['heavy']
     image_name = 'vgui/rebels/units/unit_rebel_tau'
     infest_zombietype = ''
-    canshootmove = True
     
 class RebelHeavyInfo(RebelInfo):
     name = 'unit_rebel_heavy'
@@ -696,12 +589,12 @@ class RebelHeavyInfo(RebelInfo):
     cls_name = 'unit_rebel'
     buildtime = 28.0
     maxspeed = 170
-    health = 300
+    health = 320
     viewdistance = 896
     scale = 1.10
     costs = [[('requisition', 60), ('scrap', 25)], [('kills', 2)]]
     #accuracy = 0.625
-    population = 1
+    population = 2
     modelname = 'models/rebel_heavy.mdl'
     techrequirements = ['build_reb_techcenter']
     weapons = ['weapon_rebel_heavy_gun']
@@ -718,7 +611,6 @@ class RebelHeavyInfo(RebelInfo):
     attributes = ['heavy']
     image_name = 'vgui/rebels/units/unit_rebel_heavy'
     infest_zombietype = ''
-    canshootmove = True
 
 
 class DestroyHQRebelAR2Info(RebelAR2Info):
@@ -773,14 +665,14 @@ class RebelEngineerInfo(RebelShared):
     name = 'unit_rebel_engineer'
     cls_name = 'unit_rebel_engineer'
     modelname = 'models/Humans/Group03/male_05_worker.mdl'
-    buildtime = 16.0
-    health = 125
+    buildtime = 15.0
+    health = 50
     population = 1
     costs = [[('requisition', 15)], [('kills', 1)]]
     resource_category = 'economy'
     engagedistance = 500.0
     scrapdropchance = 0.0
-    maxspeed = 232
+    maxspeed = 180
     displayname = '#RebEngineer_Name'
     description = '#RebEngineer_Description'
     image_name = 'vgui/rebels/units/unit_rebel_engineer'
@@ -812,20 +704,12 @@ class RebelEngineerInfo(RebelShared):
                         4: 'build_reb_aidstation',
                         5: 'build_reb_detectiontower',
                         6: 'build_reb_teleporter',
-                        7: 'floor_turret_rebel',
                         11: 'menuup',
                 }),
         7: SubMenu(name='engie_menu', displayname='#RebMenu_Name', description='#RebMenu_Description',
                 image_name='vgui/abilities/building_menu.vmt', abilities={
-                        0: SubMenu(name='engie_convertedmenu',
-                                displayname='Converted Combine Structures', description='Be able to create converted combine structures.',
-                                image_name='vgui/abilities/building_defence_menu.vmt',
-                                abilities={
-                                        0: 'build_reb_powergenerator_scrap',
-                                        1: 'floor_turret_rebel',
-                                        11: 'menuup',
-                                }),
-                        1: 'build_reb_hq',
+                        0: 'build_reb_hq',
+                        1: 'build_reb_billet',
                         2: 'build_reb_junkyard',
                         4: 'build_reb_barracks',
                         5: 'build_reb_specialops',
@@ -833,26 +717,11 @@ class RebelEngineerInfo(RebelShared):
                         7: 'build_reb_munitiondepot',
                         8: 'build_reb_triagecenter',
                         9: 'build_reb_techcenter',
-                        10: 'build_reb_billet',
                         11: 'menuup',
                 })
     }
     weapons = ['weapon_hammer', 'weapon_pistol']
     sai_hint = set(['sai_unit_builder', 'sai_unit_salvager'])
-
-
-class SMGRebelEngineerInfo(RebelEngineerInfo):
-    name = 'unit_rebel_engineer_smg1'
-    buildtime = 22.0
-    costs = [[('requisition', 20)], [('kills', 1)]]
-    scrapdropchance = 0.3
-    maxspeed = 174
-    displayname = 'SMG Engineer'
-    description = 'An Engineer armed with a MP7 Submachine gun.'
-    techrequirements = ['build_reb_barracks']
-    viewdistance = 758
-    maxspeed = 224
-    weapons = ['weapon_hammer', 'weapon_smg1']
 
 
 class DestroyHQRebelEngineerInfo(RebelEngineerInfo):
@@ -883,7 +752,8 @@ class DestroyHQRebelEngineerInfo(RebelEngineerInfo):
                 }),
         7: SubMenu(name='engie_menu_destroyhq', displayname='#RebMenu_Name', description='#RebMenu_Description',
                 image_name='vgui/abilities/building_menu.vmt', abilities={
-                        1: 'build_reb_hq_destroyhq',
+                        0: 'build_reb_hq_destroyhq',
+                        1: 'build_reb_billet_destroyhq',
                         2: 'build_reb_junkyard_destroyhq',
                         4: 'build_reb_barracks_destroyhq',
                         5: 'build_reb_specialops_destroyhq',
@@ -924,13 +794,14 @@ class TutorialRebelEngineerInfo(RebelEngineerInfo):
                 }),
         7: SubMenu(name='engie_menu_tutorial', displayname='#RebMenu_Name', description='#RebMenu_Description',
                 image_name='vgui/abilities/building_menu.vmt', abilities={
-                        1: 'build_reb_hq',
+                        0: 'build_reb_hq',
+                        1: 'build_reb_billet',
                         2: 'build_reb_junkyard_tutorial',
                         4: 'build_reb_barracks_tutorial',
                         5: 'build_reb_munitiondepot',
                         6: 'build_reb_specialops',
                         8: 'build_reb_triagecenter',
-                        9: 'build_reb_billet',
+                        9: '	',
                         11: 'menuup',
                 })
     }
@@ -966,9 +837,8 @@ class RebelRPGInfo(RebelShared):
     weapons = ['weapon_rpg']
     sensedistance = 1408.0
     techrequirements = ['build_reb_techcenter']
-    population = 1
+    population = 2
     attributes = ['medium', 'rpg']
-    canshootmove = False
 
 
 class RebelVeteranUnlock(AbilityUpgrade):
@@ -982,7 +852,7 @@ class RebelVeteranUnlock(AbilityUpgrade):
 
 @entity ('unit_rebel_veteran', networked=True)
 class UnitCitizenBase(UnitCitizen):
-    canshootmove = True
+    canshootmove = False
     insteadyposition = BooleanField(value=False, networked=True)
 
     def OnInCoverChanged(self):
@@ -1014,7 +884,6 @@ class RebelVeteran(RebelShared):
     buildtime = 40.0
     health = 180
     maxspeed = 216.0
-    sensedistance = 1664.0
     viewdistance = 896
     attributes = ['medium']
     costs = [[('requisition', 50), ('scrap', 35)], [('kills', 4)]]
@@ -1039,11 +908,11 @@ class RebelVeteran(RebelShared):
     }
     #weapons = ['weapon_shotgun', 'weapon_ar2']
     weapons = ['weapon_crossbow']
+    sensedistance = 1536.0
     #techrequirements = ['rebel_veteran_unlock']
     #accuracy = 'high'
-    population = 1
+    population = 2
     cantakecover = True
-    canshootmove = False
 
 
 class DestroyHQRebelVeteran(RebelVeteran):
@@ -1093,19 +962,6 @@ class RebelFlamer(RebelShared):
 
 
 # Transform abilities Rebel soldier
-class TransformToRebelSMG1(AbilityTransformUnit):
-    name = 'rebel_transform_smg1'
-    displayname = '#CombTransMPSMG1_Name'
-    description = '#Equip the rebel with an MP7 submachine gun.'
-    transform_type = 'unit_rebel'
-    transform_time = 3
-    replaceweapons = True
-    techrequirements = ['build_reb_munitiondepot']
-    costs = [('scrap', 5)]
-    image_name = 'vgui/combine/abilities/combine_transform_smg'
-    activatesoundscript = 'ability_combine_smg1_upgrade'
-
-# Transform abilities Rebel soldier
 class TransformToRebelSG(AbilityTransformUnit):
     name = 'rebel_transform_sg'
     displayname = '#RebTransSG_Name'
@@ -1146,9 +1002,9 @@ class RebelHPUpgrade(AbilityUpgradeValue):
     name = 'rebel_hp_upgrade'
     displayname = '#RebHpUpgrade_Name'
     description = '#RebHpUpgrade_Description'
-    buildtime = 120.0
-    costs = [[('requisition', 100), ('scrap', 80)], [('kills', 50)]]
-    upgradevalue = 240
+    buildtime = 90.0
+    costs = [[('requisition', 30), ('scrap', 30)], [('kills', 50)]]
+    upgradevalue = 180
     image_name = 'vgui/rebels/abilities/rebel_hp_upgrade'
 
 
@@ -2040,3 +1896,262 @@ class UnitRebelTest(RebelInfo): # just a test for the new weapon for Squad Wars
                                 # TODO: find where weapon data file is located
     name = 'unit_rebel_test'
     weapons = ['weapon_smg1_sw']
+
+
+class MinervaWarsRebelShared(RebelShared):
+    name = 'minervawars_unit_reb_mp7'
+    buildtime = 20.0
+    costs = [[('requisition', 20)]]
+    maxspeed = 220.0
+    engagedistance = 800
+    viewdistance = 800
+    health = 150
+    displayname = 'MP7 Rebel'
+    description = ''
+    image_name = 'vgui/rebels/units/unit_rebel'
+    weapons = ['weapon_smg1']
+    attributes = ['medium']
+    techrequirements = ['minervawars_build_reb_armory']
+    population = 1
+    abilities = {
+        0: 'grenade',
+        #5: 'rebel_transform_sg',
+        #6: 'rebel_transform_ar2',
+        7: 'mountturret',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
+        -1: 'garrison',
+    }
+    canshootmove = True
+    cantakecover = True
+
+class MinervaWarsRebelUSP(MinervaWarsRebelShared):
+    name = 'minervawars_unit_reb_usp'
+    buildtime = 19.0
+    costs = [[('requisition', 15)]]
+    maxspeed = 230.0
+    displayname = 'USP Match Pistol Rebel'
+    image_name = 'vgui/rebels/units/unit_rebel'
+    weapons = ['weapon_pistol']
+    techrequirements = ['minervawars_build_reb_armory']
+
+class MinervaWarsRebelSPAS12(MinervaWarsRebelShared):
+    name = 'minervawars_unit_reb_spas12'
+    buildtime = 21.0
+    costs = [[('requisition', 20)], [('scrap', 5)]]
+    maxspeed = 215.0
+    displayname = 'SPAS-12 Rebel'
+    image_name = 'vgui/rebels/units/unit_rebel_shotgun'
+    weapons = ['weapon_shotgun']
+    techrequirements = ['minervawars_build_reb_armory']
+
+class MinervaWarsRebelAR2(MinervaWarsRebelShared):
+    name = 'minervawars_unit_reb_ar2'
+    buildtime = 22.0
+    costs = [[('requisition', 20)], [('scrap', 10)]]
+    maxspeed = 210.0
+    displayname = 'AR2 Rebel'
+    image_name = 'vgui/rebels/units/unit_rebel_ar2'
+    weapons = ['weapon_ar2']
+    techrequirements = ['minervawars_build_reb_armory']
+
+class MinervaWarsRefugeeMolotovInfo(RebelPartisanMolotovInfo):
+    name = 'minervawars_unit_reb_refugee_molotov'
+    displayname = 'Molotov Refugee'
+    description = ''
+    costs = [[('requisition', 10)]]
+    buildtime = 10.0
+    health = 75
+    maxspeed = 250.0
+    sai_hint = set(['sai_unit_combat'])
+    canshootmove = True
+    cantakecover = True
+
+class MinervaWarsRefugeePistolInfo(MinervaWarsRebelShared):
+    name = 'minervawars_unit_reb_refugee_usp'
+    displayname = 'USP Match Pistol Refugee'
+    description = ''
+    buildtime = 12.0
+    health = 75
+    population = 1
+    maxspeed = 245.0
+    engagedistance = 800
+    viewdistance = 800
+    scrapdropchance = 0.0
+    modellist = GenerateModelList('DEFAULT')
+    costs = [[('requisition', 10)]]
+    image_name = 'vgui/rebels/units/unit_rebel_partisan'
+    attributes = ['light']
+    techrequirements = []
+    abilities = {
+        0: 'revolutionaryfervor',
+        7: 'mountturret',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
+        -1: 'garrison',
+    }
+    weapons = ['weapon_pistol']
+
+class MinervaWarsRefugeeMP7Info(MinervaWarsRefugeePistolInfo):
+    name = 'minervawars_unit_reb_refugee_mp7'
+    displayname = 'MP7 Refugee'
+    description = ''
+    buildtime = 14.0
+    health = 75
+    population = 1
+    maxspeed = 240.0
+    engagedistance = 800
+    viewdistance = 800
+    scrapdropchance = 0.0
+    modellist = GenerateModelList('DEFAULT')
+    costs = [[('requisition', 15)]]
+    image_name = 'vgui/rebels/units/unit_rebel_partisan'
+    attributes = ['light']
+    weapons = ['weapon_smg1']
+
+class MinervaWarsCombineEngineer(RebelEngineerInfo):
+    name = 'minervawars_unit_reb_engineer'
+    buildtime = 15.0
+    health = 150
+    population = 1
+    costs = [[('requisition', 15)]]
+    resource_category = 'economy'
+    engagedistance = 800
+    scrapdropchance = 0.15
+    maxspeed = 220
+    displayname = 'Rebel Engineer'
+    description = ''
+    image_name = 'vgui/rebels/units/unit_rebel_engineer'
+    accuracy = 1
+    viewdistance = 800
+    abilities = {
+        0: 'repair_dog',
+        1: 'noattack',
+        2: 'allowattack',
+        5: 'salvage',
+        6: 'mountturret',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
+        11: 'construct',
+        -1: 'garrison',
+        3: SubMenu(name='minervawars_rebel_defenses',
+                displayname='Rebel Defenses', description='',
+                image_name='vgui/abilities/building_defence_menu.vmt',
+                abilities={
+            0: 'build_reb_barricade',
+            11: 'menuup',
+        }),
+        7: SubMenu(name='minervawars_rebel_structures', displayname='Rebel Structures', description='',
+                image_name='vgui/abilities/building_menu.vmt', abilities={
+            0: 'minervawars_build_reb_hq',
+            1: 'minervawars_build_reb_garrison',
+            11: 'menuup',
+        })
+    }
+    weapons = ['weapon_hammer', 'weapon_pistol']
+    sai_hint = set(['sai_unit_builder', 'sai_unit_salvager'])
+
+    canshootmove = True
+    cantakecover = True
+
+class MinervaWarsRebelScout(RebelScoutInfo):
+    name = 'minervawars_unit_reb_scout'
+    displayname = 'Rebel Scout'
+    description = ''
+    health = 125
+    maxspeed = 260.0
+    buildtime = 12
+    unitenergy = 100
+    unitenergy_initial = 0
+    costs = [('requisition', 10)]
+    accuracy = 1
+    abilities = {
+        0: 'infiltrate_reb_scout',
+        1: 'noattack',
+        2: 'allowattack',
+        7: 'mountturret',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
+        -1: 'garrison',
+    }
+    weapons = ['weapon_pistol']
+    sai_hint = set(['sai_unit_scout'])
+    viewdistance = 1000
+
+    canshootmove = True
+    cantakecover = True
+
+class MinervaWarsRebelScoutUnarmed(MinervaWarsRebelScout):
+    name = 'minervawars_unit_reb_scout_unarmed'
+    displayname = 'Unarmed Rebel Scout'
+    maxspeed = 270.0
+    buildtime = 8
+    costs = [('requisition', 7)]
+    accuracy = 1
+    weapons = []
+
+    class AttackMelee(MinervaWarsRebelScout.AttackMelee):
+        maxrange = 55.0
+        damage = 3
+        #damagetype = DMG_SLASH
+        attackspeed = 1.5
+    attacks = 'AttackMelee'
+
+class MinervaWarsCombineEngineer(RebelEngineerInfo):
+    name = 'minervawars_unit_comb_engineer'
+    modellist = GenerateModelList('COMBINE')
+    buildtime = 13
+    health = 100
+    population = 1
+    costs = [[('requisition', 15)]]
+    resource_category = 'economy'
+    engagedistance = 800
+    scrapdropchance = 0.0
+    maxspeed = 230
+    displayname = 'Combine Engineer'
+    description = ''
+    image_name = 'vgui/combine/units/unit_combine_citizen.vmt'
+    accuracy = 1
+    viewdistance = 800
+    attributes = ['light']
+    abilities = {
+        0: 'repair_dog',
+        1: 'noattack',
+        2: 'allowattack',
+        5: 'salvage',
+        6: 'mountturret',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
+        11: 'construct',
+        -1: 'garrison',
+        3: SubMenu(name='minervawars_combine_defenses',
+                displayname='Combine Defenses', description='',
+                image_name='vgui/abilities/building_defence_menu.vmt',
+                abilities={
+            0: 'build_comb_barricade',
+            11: 'menuup',
+        }),
+        7: SubMenu(name='minervawars_combine_structures', displayname='Combine Structures', description='',
+                image_name='vgui/abilities/building_menu.vmt', abilities={
+            0: 'minervawars_build_comb_hq',
+            1: 'minervawars_build_comb_garrison',
+            11: 'menuup',
+        })
+    }
+    weapons = ['weapon_hammer']
+    sai_hint = set(['sai_unit_builder', 'sai_unit_salvager'])
+
+    class AttackMelee(RebelEngineerInfo.AttackMelee):
+        maxrange = 55.0
+        damage = 3
+        #damagetype = DMG_SLASH
+        attackspeed = 1.5
+    attacks = 'AttackMelee'
+
+    canshootmove = True
+    cantakecover = True

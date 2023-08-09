@@ -1137,8 +1137,8 @@ class ManhackInfo(UnitInfo):
     health = 40
     maxspeed = 328.0
     viewdistance = 896
-    displayname = 'Combine Viscerator'
-    description = '' 
+    displayname = '#CombManhack_Name'
+    description = '#CombManhack_Description' 
     image_name = 'vgui/combine/units/unit_manhack'
     modelname = 'models/manhack.mdl'
     attributes = ['mechanic', 'slash']

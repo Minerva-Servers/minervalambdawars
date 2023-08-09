@@ -105,14 +105,12 @@ class AbilityGrenade(AbilityTarget):
     description = "#AbilityGrenade_Description"
     techrequirements = ['build_reb_munitiondepot']
     activatesoundscript = '#grenade'
-    damageradius = FloatField(value=256.0)
-    damage = FloatField(value=50)
-    throwrange = FloatField(value=820.0)
-    throw_anim_speed = 1.5
+    damageradius = FloatField(value=192.0)
+    damage = FloatField(value=100)
+    throwrange = FloatField(value=768.0)
+    throw_anim_speed = FloatField(value=1.35)
     grenadeclsname = StringField(value='grenade_frag')
     sai_hint = AbilityTarget.sai_hint | set(['sai_grenade'])
-    predict_target_position = True
-    defaultautocast = True
     
     # Ability
     def UpdateParticleEffects(self, inst, targetpos):
@@ -140,13 +138,19 @@ class AbilityGrenade(AbilityTarget):
                 DispatchSpawn(grenade)
                 self.SetupGrenade(grenade)
                 grenade.SetVelocity( vecShootDir * 10000.0, Vector(0, 0, 0) )
-                grenade.SetTimer( 3.0, 3.0 - grenade.FRAG_GRENADE_WARN_TIME )
+                grenade.SetTimer( 2.0, 2.0 - grenade.FRAG_GRENADE_WARN_TIME )
                 self.Completed()
                 return
 
             pos = data.groundendpos
             target = data.ent
             self.throwtargetpos = pos
+            #if target and not target.IsWorld():
+            #    self.throwtarget = target
+            
+            if not self.TakeResources(refundoncancel=True):
+                self.Cancel(cancelmsg='#Ability_NotEnoughResources', debugmsg='not enough resources')
+                return
 
             self.unit.AbilityOrder(position=pos,
                         target=target,
@@ -156,14 +160,6 @@ class AbilityGrenade(AbilityTarget):
             """ Applies settings from ability to grenade.
                 This allows customization per different ability.
             """
-
-            #if self.player.grenadeBoostUnlocked:
-                #grenade.damageradius = self.damageradius * 2
-                #grenade.damage = self.damage * 2
-            #else:
-                #grenade.damageradius = self.damageradius
-                #grenade.damage = self.damage
-            
             grenade.damageradius = self.damageradius
             grenade.damage = self.damage
             
@@ -176,11 +172,13 @@ class AbilityGrenade(AbilityTarget):
         behaviorgeneric_action = ActionThrowGrenade
         #damage = UpgradeField(cppimplemented=True, abilityname='army_tier2')
         
+    '''
     # Silly test
     defaultautocast = True
     autocastcheckonenemy = True
     @classmethod
     def CheckAutoCast(info, unit):
+        print 'checking grenade autocast'
         if info.CanDoAbility(None, unit=unit):
             enemy = unit.enemy
             from entities import MouseTraceData
@@ -191,6 +189,7 @@ class AbilityGrenade(AbilityTarget):
             unit.DoAbility(info.name, mouse_inputs=[('leftpressed', leftpressed)])
             return True
         return False
+    '''
         
     infoparticles = ['pg_grenade_radius']
     
@@ -244,7 +243,7 @@ class AbilitySmokeGrenade(AbilityGrenade):
     rechargetime = 20.0
     smokeduration = 10.0
     throwrange = 768.0
-    throw_anim_speed = FloatField(value=1.15)
+    throw_anim_speed = FloatField(value=1.75)
     
     def SetupGrenade(self, grenade):
         """ Applies settings from ability to grenade.
@@ -261,7 +260,7 @@ class AbilityStunGrenade(AbilityGrenade):
     displayname = "#AbilityStunGrenade_Name"
     description = "#AbilityStunGrenade_Description"
     throwrange = 640.0
-    throw_anim_speed = FloatField(value=1.35)
+    throw_anim_speed = FloatField(value=1.5)
     costs = [[('requisition', 10)], [('kills', 1)]]
 class OverrunAbilityStunGrenade(AbilityStunGrenade):
     name = 'overrun_stungrenade'

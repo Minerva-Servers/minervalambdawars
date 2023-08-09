@@ -43,8 +43,8 @@ class WeaponShotgun(WarsWeaponBase):
 
     class AttackPrimary(WarsWeaponBase.AttackRange):
         maxrange = 512.0
-        attackspeed = 0.75
-        damage = 35
+        attackspeed = 0.65
+        damage = 25
         cone = WarsWeaponBase.AttackRange.DOT_6DEGREE
         #attributes = ['bullet']
         attributes = ['bullet', 'buckshot']

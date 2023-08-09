@@ -76,7 +76,7 @@ class Molotov(BaseClass):
         self.Extinguish()
 
         # Try merge with nearby dropped molotovs to reduce clutter
-        targets = UTIL_EntitiesInSphere(384, self.GetAbsOrigin(), 16.0, 0)
+        targets = UTIL_EntitiesInSphere(320, self.GetAbsOrigin(), 16.0, 0)
         for target in targets:
             if target and target != self and target.GetClassname() == self.GetClassname() and target.is_burning_on_ground:
                 # Increase burn time
@@ -127,7 +127,7 @@ class Molotov(BaseClass):
         for attr in MolotovAttack.attributes:
             attributes[attr.name] = attr(attacker)
 
-        targets = UTIL_EntitiesInSphere(384, self.GetAbsOrigin(), 64.0, 0)
+        targets = UTIL_EntitiesInSphere(320, self.GetAbsOrigin(), 64.0, 0)
         for target in targets:
             if not target or not target.IsUnit():
                 continue
@@ -175,7 +175,7 @@ class Molotov(BaseClass):
     __last_molotov_ignite_sound = 0
     __last_molotov_extinguish_sound = 0
 
-    burn_time = 5.0;
+    burn_time = 3.0;
     molotov_particle = None
     molotov_particle_name = 'particle_molotov_BASE'
     damagecontroller = None

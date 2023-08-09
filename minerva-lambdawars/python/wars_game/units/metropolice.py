@@ -452,7 +452,6 @@ class UnitMetroPolice(BaseClass):
         return super().OnTakeDamage(dmginfo)
         
     cantakecover = True
-    canshootmove = True
     shield = EHandleField(value=None, networked=True, clientchangecallback='OnShieldChanged')
     defensive_mode = BooleanField(value=False, networked=True, helpstring='indicates the police has it\'s shield up',
                                   clientchangecallback='OnDefensiveModeChanged')
@@ -656,13 +655,13 @@ class MetroPoliceInfo(UnitInfo):
     name = 'unit_metropolice'
     cls_name = 'unit_metropolice'
     hulltype = 'HULL_HUMAN'
-    displayname = 'Civil Protection Force Officer'
-    description = ''
+    displayname = '#CombMetroPolice_Name'
+    description = '#CombMetroPolice_Description'
     image_name = 'vgui/combine/units/unit_metropolice'
     portrait = 'resource/portraits/combineSMG.bik'
     costs = [[('requisition', 10)], [('kills', 1)]]
     buildtime = 9.0
-    health = 120
+    health = 150
     maxspeed = 232
     viewdistance = 768
     scrapdropchance = 0.0
@@ -688,13 +687,12 @@ class MetroPoliceInfo(UnitInfo):
     weapons = ['weapon_pistol']
     useshield = False
     cantakecover = True
-    sai_hint = set(['sai_unit_scout'])
 
 
 class MetroPoliceSMG1Info(MetroPoliceInfo):
     name = 'unit_metropolice_smg1'
-    displayname = 'Civil Protection Force Enforcement Operative'
-    description = ''
+    displayname = '#CombMetroPoliceSMG1_Name'
+    description = '#CombMetroPoliceSMG1_Description'
     image_name = 'vgui/combine/units/unit_metropolice_smg'
     weapons = ['weapon_smg1']
     costs = [[('requisition', 15)], [('kills', 1)]]
@@ -715,11 +713,38 @@ class MetroPoliceSMG1Info(MetroPoliceInfo):
         10: 'patrol',
     }
 
+class MinervaWarsCPFUSPInfo(MetroPoliceSMG1Info):
+    name = 'minervawars_unit_comb_cpf_usp'
+    displayname = 'Civil Protection Force Enforcement Operative'
+    description = ''
+    weapons = ['weapon_pistol']
+    costs = [[('requisition', 12)]]
+    buildtime = 13.0
+    maxspeed = 250
+    health = 100
+    engagedistance = 800
+    viewdistance = 800
+    scrapdropchance = 0.05
+    accuracy = 1
+
+class MinervaWarsCPFMP7Info(MetroPoliceSMG1Info):
+    name = 'minervawars_unit_comb_cpf_mp7'
+    displayname = 'Civil Protection Force Officer'
+    description = ''
+    weapons = ['weapon_smg1']
+    costs = [[('requisition', 17)]]
+    buildtime = 15.0
+    maxspeed = 250
+    health = 100
+    engagedistance = 800
+    viewdistance = 800
+    scrapdropchance = 0.05
+    accuracy = 1
 
 class MetroPoliceRiotInfo(MetroPoliceInfo):
     name = 'unit_metropolice_riot'
-    displayname = 'Civil Protection Force Riot Control Team'
-    description = ''
+    displayname = '#CombMetroPoliceRiot_Name'
+    description = '#CombMetroPoliceRiot_Description'
     image_name = 'vgui/combine/units/unit_riot_police'
     modelname = 'models/police_extended.mdl'
     #weapons = ['weapon_pistol', 'weapon_stunstick']
@@ -727,7 +752,7 @@ class MetroPoliceRiotInfo(MetroPoliceInfo):
     costs = [[('requisition', 10)], [('kills', 1)]]
     buildtime = 15.0
     maxspeed = 248
-    health = 160
+    health = 200
     viewdistance = 768
     scrapdropchance = 0.0
     abilities = {
@@ -742,6 +767,35 @@ class MetroPoliceRiotInfo(MetroPoliceInfo):
     }
     useshield = True
     cantakecover = False
+
+class MinervaWarsCPFStunstickInfo(MetroPoliceRiotInfo):
+    name = 'minervawars_unit_comb_cpf_stunstick'
+    displayname = 'Civil Protection Force Cadet'
+    description = ''
+    weapons = ['weapon_stunstick']
+    costs = [[('requisition', 10)]]
+    buildtime = 9.0
+    maxspeed = 250
+    health = 100
+    engagedistance = 800
+    viewdistance = 800
+    scrapdropchance = 0.05
+    useshield = False
+    cantakecover = True
+
+class MinervaWarsCPFRiotInfo(MetroPoliceRiotInfo):
+    name = 'minervawars_unit_comb_cpf_riot'
+    displayname = 'Civil Protection Force Riot Control'
+    description = ''
+    weapons = ['weapon_stunstick']
+    costs = [[('requisition', 20)]]
+    buildtime = 12.0
+    maxspeed = 240
+    health = 100
+    engagedistance = 800
+    viewdistance = 800
+    scrapdropchance = 0.15
+    cantakecover = True
 
 
 class OverrunMetroPoliceInfo(MetroPoliceInfo):

@@ -564,12 +564,9 @@ class UnitCombineDropship(BaseClass):
             if gamerules.info.name == 'overrun':
                 for i in range(0, random.randint(2,8)):
                     CreateUnitFancy(random.choice(self.overrun_unitlist), deploypos, angles=deployangle, owner_number=self.GetOwnerNumber())
-            elif self.metrocops:
-                for i in range(0, random.randint(3,7)):
-                    CreateUnitFancy(random.choice(self.annihilation_metrocopunitlist), deploypos, angles=deployangle, owner_number=self.GetOwnerNumber())
             else:
-                for i in range(0, random.randint(3,7)):
-                    CreateUnitFancy(random.choice(self.annihilation_unitlist), deploypos, angles=deployangle, owner_number=self.GetOwnerNumber())
+                for i in range(0, 5):
+                    CreateUnitFancy('unit_combine', deploypos, angles=deployangle, owner_number=self.GetOwnerNumber())
     
     def PreCombineSpawn(self, unit):
         #if self.GetOwnerNumber() == OWNER_ENEMY:
@@ -585,9 +582,6 @@ class UnitCombineDropship(BaseClass):
                         'overrun_unit_rollermine', 'overrun_unit_combine_heavy', 'overrun_unit_combine_elite', 'overrun_unit_combine_sniper',
                         'overrun_unit_hunter', 'overrun_unit_mortar_synth']
 
-    annihilation_unitlist = ['unit_combine', 'unit_combine_sg', 'unit_combine_ar2', 'unit_combine_elite']
-    annihilation_metrocopunitlist = ['unit_metropolice_riot', 'unit_metropolice', 'unit_metropolice_smg1']
-
     lifetime = FloatField(value=0)
     enginethrust = 1.0
     summoned = False
@@ -600,7 +594,6 @@ class UnitCombineDropship(BaseClass):
     container = None
     lasttrooptoleave = None
     t3units = False
-    metrocops = False
     
     attachmenttroopdeploy = -1
     attachmentdeploystart = -1
@@ -633,23 +626,21 @@ class UnitCombineDropship(BaseClass):
 class CombineDropshipInfo(UnitInfo):
     name = 'unit_combinedropship'
     cls_name = 'unit_combinedropship'
-    displayname = 'Combine Dropship Synth'
-    description = ''
+    displayname = '#CombDropship_Name'
+    description = '#CombDropship_Description'
     #image_name = 'vgui/combine/units/unit_combinedropship'
-    costs = [('requisition', 100), ('power', 80)]
+    costs = [('requisition', 150), ('power', 180)]
     buildtime = 120.0
-    zoffset = 96.0
-    scale = 1
+    zoffset = 128.0
+    scale = 0.75
     modelname = 'models/combine_dropship.mdl'
     hulltype = 'HULL_LARGE_CENTERED'
-    health = 2500
-    population = 1
-    turnspeed = 15
+    health = 800
+    population = 5
+    turnspeed = 10
     maxspeed = 450
-    viewdistance = 896
-    sensedistance = 1024
+    viewdistance = 0
     attributes = ['synth', 'pulse']
-    sai_hint = set(['sai_unit_scout'])
     abilities = {
         8 : 'attackmove',
         9 : 'holdposition',

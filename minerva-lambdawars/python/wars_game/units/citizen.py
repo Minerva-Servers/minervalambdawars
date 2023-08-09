@@ -548,40 +548,40 @@ class UnitCitizen(BaseClass):
     STRIDER_STOMP_RANGE = 128.0
 
 randomheads = [
+    "female_01.mdl",
+    "female_02.mdl",
+    "female_03.mdl",
+    "female_04.mdl",
+    "female_06.mdl",
+    "female_07.mdl",
     "male_01.mdl",
     "male_02.mdl",
-    "female_01.mdl",
     "male_03.mdl",
-    "female_02.mdl",
     "male_04.mdl",
-    "female_03.mdl",
     "male_05.mdl",
-    "female_04.mdl",
     "male_06.mdl",
-    "female_06.mdl",
     "male_07.mdl",
-    "female_07.mdl",
     "male_08.mdl",
     "male_09.mdl",
 ]
 
 randomheads_scout = [
-    "male_01.mdl",
     "female_01.mdl",
+    "male_01.mdl",
 ]
 
 randomheads_veteran = [
-    "male_01.mdl",
     "female_01.mdl",
+    "male_01.mdl",
 ]
 
 modellocs = {
+    'COMBINE': 'Group01_combine',
     'DEFAULT': 'Group01',
     'DOWNTRODDEN': 'Group01',
-    'REFUGEE': 'Group02',
-    'REBEL': 'Group03',
     'MEDIC': 'Group03m',
-    'COMBINE': 'Group01_combine',
+    'REBEL': 'Group03',
+    'REFUGEE': 'Group02',
     'SCOUT': 'scouts',
     'VETERAN': 'veterans',
 }
@@ -623,8 +623,7 @@ class CitizenInfo(UnitInfo):
     }
     viewdistance = 800
     scrapdropchance = 0.0
-    cantakecover = True
-    canshootmove = True
+    cantakecover = False
 
     sound_select_f = ''
     sound_move_f = ''
@@ -643,10 +642,10 @@ class CombineCitizenInfo(CitizenInfo):
     attributes = ['light']
     costs = [[('requisition', 5)], [('kills', 1)]]
     buildtime = 7.0
-    health = 35
+    health = 50
     modellist = GenerateModelList('COMBINE')
     viewdistance = 768
-    maxspeed = 250
+    maxspeed = 240
     sai_hint = set(['sai_unit_scout'])
     weapons = []
     sound_attack = "unit_combine_citizen_attack"
@@ -665,28 +664,16 @@ class CombineCitizenInfo(CitizenInfo):
         attackspeed = 1.5
     attacks = 'AttackMelee'
 
-class ArmedCombineCitizenInfo(CitizenInfo):
-    name = 'unit_combine_citizen_armed'
-    displayname = 'Armed Loyalist'
-    description = 'A Loyalist trusted with a 9mm pistol.'
-    image_name = 'VGUI/combine/units/unit_combine_citizen.vmt'
-    attributes = ['light']
-    costs = [[('requisition', 15)], [('kills', 1)]]
-    buildtime = 12.0
-    health = 35
-    modellist = GenerateModelList('COMBINE')
-    viewdistance = 828
-    maxspeed = 236
-    sai_hint = set(['sai_unit_scout'])
-    weapons = ['weapon_pistol']
-    sound_attack = "unit_combine_citizen_attack"
-    sound_attack_f = "unit_combine_citizen_f_attack"
-    sound_move = "unit_combine_citizen_move"
-    sound_move_f = "unit_combine_citizen_f_move"
-    sound_select = "unit_combine_citizen_select"
-    sound_select_f = "unit_combine_citizen_f_select"
-    sound_death = 'unit_rebel_death'
-    sound_death_f = 'unit_rebel_f_death'
+class MinervaWarsCombineLoyalistInfo(CombineCitizenInfo):
+    name = 'minervawars_unit_comb_loyalist'
+    displayname = 'Combine Loyalist'
+    description = ''
+    costs = [[('requisition', 5)]]
+    buildtime = 7
+    health = 100
+    engagedistance = 800
+    viewdistance = 800
+    maxspeed = 240
 
 class MissionTransformToRebelSMG(AbilityTransformUnit):
     name = 'rebel_mission_transform_smg'

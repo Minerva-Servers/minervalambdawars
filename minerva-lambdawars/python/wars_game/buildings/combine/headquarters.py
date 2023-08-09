@@ -86,13 +86,11 @@ class CombineHQInfo(WarsBuildingInfo):
     abilities = {
         0: 'unit_stalker',
         1: 'unit_combine_citizen',
-        2: 'unit_combine_citizen_armed',
         3: SubMenu(name='combine_faction_abilities',
                    displayname='#AbilityHQCombineFactionMenu_Name',
                    description='#AbilityHQCombineFactionMenu_Description',
                    image_name="VGUI/combine/abilities/combine_faction_abilities",
                    abilities={0: 'dropsoldiers',
-                              1: 'dropsoldiers_metrocops',
                               11: 'menuup',
                               }),
         8: 'cancel',
@@ -100,7 +98,7 @@ class CombineHQInfo(WarsBuildingInfo):
     }
     population = 0
     providespopulation = 9
-    generateresources = {'type' : 'requisition', 'amount' : 1.0, 'interval' : 0.5}
+    generateresources = {'type' : 'requisition', 'amount' : 1.0, 'interval' : 1.0}
     sound_select = 'build_comb_hq'
     sound_death = 'build_comb_hq_destroy'
     explodeparticleeffect = 'pg_combine_HQ_explosion'
@@ -112,13 +110,31 @@ class CombineHQInfo(WarsBuildingInfo):
         {'unittype' : 'scrap_marker_small', 'radius' : 180.0},
     ]
 
+class MinervaWarsCombineHQInfo(CombineHQInfo):
+    name = 'minervawars_build_comb_hq'
+    displayname = 'Combine Mini-Citadel'
+    description = ''
+    costs = [('requisition', 500)]
+    health = 3000
+    buildtime = 100.0
+    abilities = {
+        0: 'minervawars_unit_comb_stalker',
+        1: 'minervawars_unit_comb_engineer',
+        2: 'minervawars_unit_comb_loyalist',
+        8: 'cancel',
+    }
+    population = 0
+    providespopulation = 100
+    generateresources = {'type' : 'requisition', 'amount' : 1.0, 'interval' : 1.0}
+    sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_hq'])
+
 class CombPopUpgrade1(AbilityUpgradePopCap):
     name = 'comb_popupgrade1'
     displayname = '#CombPopUpgr1_Name'
     description = '#CombPopUpgr1_Description'
     image_name = 'vgui/combine/abilities/comb_popupgrade1'
     successorability = 'comb_popupgrade2'
-    buildtime = 9.0
+    buildtime = 0.0
     providespopulation = 11
     costs = [('requisition', 40)]
 
@@ -128,7 +144,7 @@ class CombPopUpgrade2(AbilityUpgradePopCap):
     description = '#CombPopUpgr2_Description'
     image_name = 'vgui/combine/abilities/comb_popupgrade2'
     successorability = 'comb_popupgrade3'
-    buildtime = 17.0
+    buildtime = 0.0
     providespopulation = 20
     costs = [('requisition', 70)]
 
@@ -138,7 +154,7 @@ class CombPopUpgrade3(AbilityUpgradePopCap):
     description = '#CombPopUpgr3_Description'
     image_name = 'vgui/combine/abilities/comb_popupgrade3'
     successorability = 'comb_popupgrade4'
-    buildtime = 22.0
+    buildtime = 0.0
     providespopulation = 30
     costs = [('requisition', 125)]
 
@@ -147,7 +163,7 @@ class CombPopUpgrade4(AbilityUpgradePopCap):
     displayname = '#CombPopUpgr4_Name'
     description = '#CombPopUpgr4_Description'
     image_name = 'vgui/combine/abilities/comb_popupgrade4'
-    buildtime = 28.0
+    buildtime = 0.0
     providespopulation = 30
     costs = [('requisition', 125)]
     

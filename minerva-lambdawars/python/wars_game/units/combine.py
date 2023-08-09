@@ -11,7 +11,7 @@ if isserver:
     from unit_helper import BaseAnimEventHandler, TossGrenadeAnimEventHandler
 
 @entity('unit_combine', networked=True)
-class UnitCombine(BaseClass):
+class UnitCombine(BaseClass):    
     """ Combine soldier. """
     if isserver:
         def DeathSound(self):
@@ -105,7 +105,6 @@ class UnitCombine(BaseClass):
     attackrange1act = Activity.ACT_RANGE_ATTACK_SMG1
     
     grenadeability = None
-    canshootmove = True
     
     #test = UpgradeField(abilityname='testupgrade')
     
@@ -339,8 +338,8 @@ class CombineHPUpgrade(AbilityUpgradeValue):
     name = 'combine_hp_upgrade'
     displayname = '#CombineHPUpgrade_Name'
     description = '#CombineHPUpgrade_Description'
-    buildtime = 120.0
-    costs = [[('requisition', 100), ('power', 80)], [('kills', 50)]]
+    buildtime = 90.0
+    costs = [[('requisition', 30), ('power', 30)], [('kills', 50)]]
     upgradevalue = 240
     image_name = 'vgui/combine/abilities/combine_hp_upgrade'
 
@@ -370,14 +369,14 @@ class UnitCombineGrenadeUpgradeShared(UnitCombine):
 class CombineInfo(CombineSharedInfo):
     name = 'unit_combine'
     cls_name = 'unit_combine_grenade_upgrade' # adds grenade unlock per unit this also needs the rebel_grenade_upgrade ability
-    displayname = 'Combine Standard Soldier'
-    description = ''
+    displayname = '#CombSMG_Name'
+    description = '#CombSMG_Description'
     image_name = 'vgui/combine/units/unit_combine'
     portrait = 'resource/portraits/combineSMG.bik'
     costs = [[('requisition', 25)], [('kills', 1)]]
     techrequirements = ['build_comb_armory']
     buildtime = 24.0
-    health = 150
+    health = 200
     maxspeed = 216.0
     viewdistance = 768
     attributes = ['medium']
@@ -408,15 +407,15 @@ class UnlockCombTierMiddle(AbilityUpgrade):
 
 class CombineSGInfo(CombineInfo):
     name = 'unit_combine_sg'
-    displayname = 'Combine Shotgunner Soldier'
-    description = ''
+    displayname = '#CombSG_Name'
+    description = '#CombSG_Description'
     image_name = 'vgui/combine/units/unit_combine_sg'
     portrait = 'resource/portraits/combineShotgun.bik'
     costs = [[('requisition', 25), ('power', 5)], [('kills', 1)]]
     techrequirements = ['build_comb_armory','weaponsg_comb_unlock']
     attributes = ['medium']
     buildtime = 24.0
-    health = 150
+    health = 200
     maxspeed = 256.0
     viewdistance = 768
     sound_select = 'unit_combine_sg_select'
@@ -437,15 +436,15 @@ class CombineSGInfo(CombineInfo):
 
 class CombineAR2Info(CombineInfo):
     name = 'unit_combine_ar2'
-    displayname = 'Combine Amplified Soldier'
-    description = ''
+    displayname = '#CombAR2_Name'
+    description = '#CombAR2_Description'
     image_name = 'vgui/combine/units/unit_combine_ar2'
     portrait = 'resource/portraits/combineAR2.bik'
     costs = [[('requisition', 25), ('power', 10)], [('kills', 2)]]
     techrequirements = ['build_comb_armory','weaponar2_comb_unlock']
     #techrequirements = ['build_comb_armory']
     buildtime = 28.0
-    health = 150
+    health = 200
     maxspeed = 184
     sensedistance = 1024.0
     viewdistance = 832
@@ -469,21 +468,21 @@ class CombineAR2Info(CombineInfo):
 
 class CombineEliteUnlock(AbilityUpgrade):
     name = 'combine_elite_unlock'
-    displayname = 'Combine Elite Soldier Unlock'
-    description = ''
+    displayname = '#CombEliteUnlock_Name'
+    description = '#CombEliteUnlock_Description'
     image_name = "vgui/combine/abilities/combine_elite_unlock"
     buildtime = 95.0
     costs = [[('requisition', 50)], [('kills', 5)]]
 
 class CombineEliteInfo(CombineSharedInfo):
     name = 'unit_combine_elite'
-    displayname = 'Combine Elite Soldier'
-    description = ''
+    displayname = '#CombElite_Name'
+    description = '#CombElite_Description'
     image_name = 'vgui/combine/units/unit_combine_elite'
     portrait = 'resource/portraits/combineAR2.bik'
     costs = [[('requisition', 60), ('power', 40)], [('kills', 4)]]
     buildtime = 36.0
-    health = 250
+    health = 350
     maxspeed = 208
     sensedistance = 1024.0
     viewdistance = 896
@@ -507,17 +506,17 @@ class CombineEliteInfo(CombineSharedInfo):
     }
     weapons = ['weapon_shotgun', 'weapon_ar2']
     #accuracy = 'medium'
-    population = 1
+    population = 2
 
 class CombineHeavyInfo(CombineSharedInfo):
     name = 'unit_combine_heavy'
     cls_name = 'unit_combineheavy'
-    displayname = 'Combine Wallhammer Soldier'
-    description = ''
+    displayname = '#CombHeavy_Name'
+    description = '#CombHeavy_Description'
     image_name = 'vgui/combine/units/unit_combine_heavy'
     costs = [[('requisition', 55), ('power', 30)], [('kills', 4)]]
     buildtime = 32.0
-    health = 300
+    health = 350
     maxspeed = 224
     sensedistance = 896.0
     viewdistance = 768
@@ -544,12 +543,12 @@ class CombineHeavyInfo(CombineSharedInfo):
     }
     weapons = ['weapon_pulse_shotgun']
     #accuracy = 'medium'
-    population = 1	
+    population = 2	
 
 
 class CombineSniperUnlock(AbilityUpgrade):
     name = 'combine_sniper_unlock'
-    displayname = 'Combine Sniper Soldier Unlock'
+    displayname = '#CombSniperUnlock_Name'
     description = '#CombSniperUnlock_Description'
     image_name = 'vgui/combine/abilities/combine_sniper_unlock'
     buildtime = 95.0
@@ -558,8 +557,8 @@ class CombineSniperUnlock(AbilityUpgrade):
 class CombineSniperInfo(CombineSharedInfo):
     name = 'unit_combine_sniper'
     cls_name = 'unit_combinesniper'
-    displayname = 'Combine Sniper Soldier'
-    description = ''
+    displayname = '#CombSniper_Name'
+    description = '#CombSniper_Description'
     image_name = 'vgui/combine/units/unit_combine_sniper'
     portrait = 'resource/portraits/combineSMG.bik'
     costs = [[('requisition', 50), ('power', 20)], [('kills', 4)]]
@@ -589,7 +588,7 @@ class CombineSniperInfo(CombineSharedInfo):
     }
     weapons = ['weapon_sniperrifle']
     #accuracy = 'high'
-    population = 1
+    population = 2
     cantakecover = True
     sniperenemy = False
 
@@ -646,7 +645,7 @@ class OverrunCombineHeavyInfo(CombineHeavyInfo):
     name = 'overrun_unit_combine_heavy'
     costs = [('kills', 12)]
     techrequirements = ['or_tier3_research']
-    #population = 1
+    #population = 3
     abilities = {
         0: 'overrun_stungrenade',
         7: 'mountturret',

@@ -29,5 +29,5 @@ class WeaponRebelHeavyGun(WarsWeaponMachineGun):
     
     class AttackPrimary(WarsWeaponMachineGun.AttackPrimary):
         maxrange = 768.0
-        attackspeed = 0.07
+        attackspeed = 0.075
         attributes = ['ar1']

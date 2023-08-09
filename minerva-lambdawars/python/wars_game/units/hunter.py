@@ -943,7 +943,7 @@ class AbilityHunterJump(AbilityJumpGroup):
     hidden = True
     jumpgravity = 0.5
     jump_start_anim_speed = 5.0
-    maxrange = 1024
+    maxrange = 768
     jump_homing = True
     only_direct = False
     only_navmesh = True
@@ -957,14 +957,14 @@ class AbilityHunterJump(AbilityJumpGroup):
 class CombineHunterInfo(UnitInfo):
     name = 'unit_hunter'
     cls_name = 'unit_hunter'
-    displayname = 'Combine Hunter'
-    description = ''
+    displayname = '#CombHunter_Name'
+    description = '#CombHunter_Description'
     image_name = 'vgui/combine/units/unit_hunter'
     costs = [('requisition', 75), ('power', 60)]
     buildtime = 45.0
     health = 500
     maxspeed = 380.0
-    population = 1
+    population = 3
     viewdistance = 896
     attributes = ['synth', 'flechette']
     modelname = 'models/hunter.mdl'
@@ -983,20 +983,20 @@ class CombineHunterInfo(UnitInfo):
     }
     
     class AttackMelee(UnitInfo.AttackMelee):
-        damage = 125
+        damage = 100
         damagetype = DMG_SLASH
-        attackspeed = 1
+        attackspeed = 1.5
     
     class AttackRange(UnitInfo.AttackRange):
-        damage = 20
+        damage = 16
         cone = 0.99
         minrange = 64.0
         maxrange = 512.0
         attackspeed = 0.1
         usesbursts = True
         minburst = 10
-        maxburst = 20
-        minresttime = 0.5
+        maxburst = 10
+        minresttime = 1.0
         maxresttime = 1.0
     attacks = ['AttackMelee', 'AttackRange']
     infest_zombietype = None # Prevent zombiefying headcrab_infest ability

@@ -60,7 +60,7 @@ class StinkBomb(BaseClass):
             return
 
         # Try merge with nearby dropped stinkbombs to reduce clutter
-        targets = UTIL_EntitiesInSphere(384, self.GetAbsOrigin(), 32.0, 0)
+        targets = UTIL_EntitiesInSphere(320, self.GetAbsOrigin(), 32.0, 0)
         for target in targets:
             if target and target != self and target.GetClassname() == self.GetClassname() and target.is_stinking_on_ground:
                 # Increase stink time
@@ -102,7 +102,7 @@ class StinkBomb(BaseClass):
         for attr in StinkBombAttack.attributes:
             attributes[attr.name] = attr(attacker)
 
-        targets = UTIL_EntitiesInSphere(384, self.GetAbsOrigin(), self.stinkbomb_radius, 0)
+        targets = UTIL_EntitiesInSphere(320, self.GetAbsOrigin(), self.stinkbomb_radius, 0)
         for target in targets:
             if not target or not target.IsUnit():
                 continue
@@ -144,5 +144,5 @@ class StinkBomb(BaseClass):
     stinkbomb_particle = None
     stinkbomb_particle_name = 'pg_stink_bomb'
     is_stinking_on_ground = BooleanField(value=False, networked=True, clientchangecallback='OnIsStinkingOnGround')
-    stinkbomb_radius = FloatField(value=384.0)
-    stinbomb_duration = FloatField(value=5.0)
+    stinkbomb_radius = FloatField(value=220.0)
+    stinbomb_duration = FloatField(value=3.0)

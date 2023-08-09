@@ -233,8 +233,8 @@ class UnitCrabSynth(BaseClass):
 class CrabSynthInfo(UnitInfo):
     name = 'unit_crab_synth'
     cls_name = 'unit_crab_synth'
-    displayname = 'Combine Crab Synth'
-    description = ''
+    displayname = '#CombCrabSynth_Name'
+    description = '#CombCrabSynth_Description'
     image_name = 'vgui/combine/units/unit_crab_synth' 
     modelname = 'models/synth_crab.mdl'
     hulltype = 'HULL_LARGE'
@@ -248,7 +248,7 @@ class CrabSynthInfo(UnitInfo):
     viewdistance = 896
     sensedistance = 1024
     techrequirements = ['build_comb_tech_center']
-    population = 1
+    population = 5
     regeneration = True
     regenerationamount = 20
     regenerationtime = 1.0

@@ -128,9 +128,6 @@ class PowerGeneratorBuilding(BaseClass):
             
             for powergen in unitlistpertype[ownernumber]['build_comb_powergenerator']:
                 powergen.EnablePowerOverlay()
-            
-            for powergen in unitlistpertype[ownernumber]['build_comb_powergenerator_big']:
-                powergen.EnablePowerOverlay()
                 
         @staticmethod
         def DisableAllPowerOverlays(ownernumber):
@@ -139,9 +136,6 @@ class PowerGeneratorBuilding(BaseClass):
                 return
 
             for powergen in unitlistpertype[ownernumber]['build_comb_powergenerator']:
-                powergen.DisablePowerOverlay()
-
-            for powergen in unitlistpertype[ownernumber]['build_comb_powergenerator_big']:
                 powergen.DisablePowerOverlay()
             
         def OnSelected(self, player):
@@ -171,13 +165,12 @@ class PoweredGeneratorInfo(WarsBuildingInfo):
     idleactivity = 'ACT_IDLE'
     explodeactivity = 'ACT_EXPLODE'
     constructionactivity = 'ACT_CONSTRUCTION'
-    costs = [('requisition', 20)]
+    costs = [('requisition', 15)]
     resource_category = 'economy'
     health = 250
     buildtime = 10.0
-    generateresources = {'type' : 'power', 'amount' : 0.5, 'interval' : 2.0}
-    powerrange = 1024.0
-    attackpriority = -1
+    generateresources = {'type' : 'power', 'amount' : 1, 'interval' : 20}
+    powerrange = 768.0
     infoparticles = ['power_radius']
     particleradius = powerrange
     particleoffset = Vector(0, 0, 16.0)
@@ -190,18 +183,30 @@ class PoweredGeneratorInfo(WarsBuildingInfo):
     sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_powergen'])
     requirerotation = False
     
+class MinervaWarsPoweredGeneratorInfo(PoweredGeneratorInfo):
+    name = 'minervawars_build_comb_powergenerator'
+    displayname = 'Combine Power Generator'
+    description = ''
+    generateresources = {'type' : 'power', 'amount' : 1, 'interval' : 10}
+    health = 500
+    buildtime = 20.0
+    powerrange = 1024.0
+    particleradius = powerrange
+    costs = [('requisition', 20)]
+    
 class PoweredGeneratorBigInfo(PoweredGeneratorInfo):
     name = 'build_comb_powergenerator_big'
     displayname = '#BuildCombPowGenBig_Name'
     description = '#BuildCombPowGenBig_Description'
-    generateresources = {'type' : 'power', 'amount' : 1.0, 'interval' : 1.0}
-    health = 450
-    scale = 2
-    buildtime = 35.0
-    powerrange = 2048.0
-    costs = [('requisition', 40), ('power', 20)]
+    generateresources = {'type' : 'power', 'amount' : 5.0, 'interval' : 1.5}
+    health = 350
+    scale = 1.5
+    buildtime = 45.0
+    powerrange = 1024.0
+    particleradius = powerrange
+    costs = [('requisition', 40), ('power', 40)]
     techrequirements = ['build_comb_armory']
-    sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_powergen'])
+    sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_powergen_big'])
     
 class PoweredGeneratorScrapInfo(WarsBuildingInfo):
     name = 'build_comb_powergenerator_scrap'
@@ -212,7 +217,7 @@ class PoweredGeneratorScrapInfo(WarsBuildingInfo):
     modelname = 'models/pg_props/pg_buildings/combine/pg_scrap_power_generator.mdl'
     explodemodel = 'models/pg_props/pg_buildings/combine/pg_scrap_power_generator_des.mdl'
     scale = 1.0
-    generateresources = {'type' : 'power', 'amount' : 1.0, 'interval' : 1.0}
+    generateresources = {'type' : 'power', 'amount' : 1.0, 'interval' : 2.0}
     splitgenerateresources = True
     idleactivity = 'ACT_IDLE'
     constructionactivity = 'ACT_CONSTRUCTION'
@@ -297,15 +302,6 @@ class PoweredGeneratorScrapInfo(WarsBuildingInfo):
         if object:
             object.ClaimScrapMarker(self.lastbuildtarget)
         return object
-
-class RebelPoweredGeneratorScrapInfo(PoweredGeneratorScrapInfo):
-    name = 'build_reb_powergenerator_scrap'
-    displayname = 'Automated Scrap Collector'
-    description = 'A grimy but efficient scrap collector. Scrapped from remaining combine structures.'
-    generateresources = {'type' : 'scrap', 'amount' : 1.0, 'interval' : 1.0}
-    costs = [('requisition', 40), ('scrap', 40)]
-    techrequirements = ['build_reb_munitionsdepot']
-    sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_powergen_big'])
     
 # Base building for powered buildings
 class BasePoweredBuilding(object):
@@ -387,15 +383,6 @@ class PoweredBuildingInfo(WarsBuildingInfo):
         # Check nearby a power generator
         inrange = False
         for p in unitlistpertype[ownernumber]['build_comb_powergenerator']:
-            if p.constructionstate != p.BS_CONSTRUCTED or p.IsMarkedForDeletion():
-                continue
-            if not p.IsAlive():
-                continue
-            if p.GetAbsOrigin().DistTo(pos) < PoweredGeneratorInfo.powerrange:
-                inrange = True
-                break
-            
-        for p in unitlistpertype[ownernumber]['build_comb_powergenerator_big']:
             if p.constructionstate != p.BS_CONSTRUCTED or p.IsMarkedForDeletion():
                 continue
             if not p.IsAlive():

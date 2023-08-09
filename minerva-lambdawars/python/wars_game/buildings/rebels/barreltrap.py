@@ -266,7 +266,6 @@ class BarrelTrapInfo(WarsBuildingInfo):
     viewdistance = 896
     buildtime = 20.0
     scale = 0.9
-    attackpriority = -1
 
     barreldmg = 400
     barrelradius = 192

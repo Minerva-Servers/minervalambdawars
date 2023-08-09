@@ -17,7 +17,7 @@ class RebelBunker(UnitBaseGarrisonableBuilding):
     #customeyeoffset = Vector(0,0,150)
     rallylineenabled = False
     playerowned = False
-    maxpopulation = 16
+    maxpopulation = 8
 
     units_dmg_modifier = 0.35
     sense_distance = 1408
@@ -37,7 +37,7 @@ class RebelBunkerInfo(BunkerInfo):
     constructionactivity = 'ACT_CONSTRUCTION'
     explodeactivity = 'ACT_EXPLODE'
     
-    health = 1500
+    health = 1200
     garrisoned_attributes = ['bunker']
     attributes = ['defence']
     buildtime = 35.0
@@ -47,6 +47,7 @@ class RebelBunkerInfo(BunkerInfo):
     sound_select = 'build_reb_bunker'
     sound_death = 'build_generic_explode1'
     explodeparticleeffect = 'building_explosion'
+    #sense_distance = 2000
     explodeshake = (2, 10, 2, 128) # Amplitude, frequence, duration, radius
 
 class DestroyHQRebelBunkerInfo(RebelBunkerInfo):

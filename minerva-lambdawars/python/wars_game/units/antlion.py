@@ -1,6 +1,5 @@
 from srcbase import *
 from vmath import *
-from core.abilities import SubMenu
 from core.units import UnitInfo, UnitBaseCombat as BaseClass, EventHandlerAnimation
 import random
 import math
@@ -252,15 +251,6 @@ class UnitAntlion(BaseClass):
         
     def IsSuicider(self):
         return self.unitinfo.name == 'unit_antlionsuicider'
-        
-    def Event_Killed(self, info):
-        super().Event_Killed(info)
-        
-        # Kill scrap, if carrying anything
-        if self.carryingscrap:
-            self.carryingscrap.AttachTo(None)
-            self.carryingscrap.Event_Gibbed(info)
-            self.carryingscrap = None
             
     # Server only function, called when the sequence changes
     def OnSequenceSet(self, oldsequence):
@@ -768,14 +758,12 @@ class UnitAntlion(BaseClass):
     savedjump = Vector(vec3_origin)
     lastjumpattempt = Vector(vec3_origin)
     
-    viewdistance = 704
     burrowtexture = None
     burrowed = BooleanField(value=False, networked=True, clientchangecallback='OnBurrowedChanged', keyname='burrowed')
     
     # Default vars
     assignedgrub = None
     carryinggrub = None
-    carryingscrap = None
     
     # Spawn flags
     spawnflags = FlagsField(keyname='spawnflags', flags=
@@ -909,7 +897,6 @@ class UnitAntlion(BaseClass):
                         outer.DoAnimation(self.outer.ANIM_STARTBURROW)
                         outer.burrowed = True
                     outer.aimoving = True
-                    outer.viewdistance = 0
                     outer.AddSolidFlags(FSOLID_NOT_SOLID)
                     outer.SetCanBeSeen(False)
             
@@ -923,7 +910,6 @@ class UnitAntlion(BaseClass):
                     outer.takedamage = DAMAGE_YES
                     outer.aimoving = False
                     outer.burrowed = False
-                    outer.viewdistance = 704
                     #outer.RemoveEffects(EF_NODRAW)
                     outer.SetCanBeSeen(True)
                     
@@ -978,19 +964,20 @@ class AntlionInfoShared(UnitInfo):
     regenerationtime = 2
     regeneration = False
 
-    maxspeed = 350
-    turnspeed = 50
+
+    maxspeed = 354.90
+    turnspeed = 300.0
     
     scrapdropchance=0.0
     
     # Antlion melee attack
     class AttackMelee(UnitInfo.AttackMelee):
-        damage = 20
+        damage = 25
         damagetype = DMG_SLASH
         attackspeed = 1.5
 
     class AttackSlash(AttackMelee):
-        damage = 20
+        damage = 25
         damagetype = DMG_SLASH
         attackspeed = 1.0
 
@@ -998,17 +985,17 @@ class AntlionInfoShared(UnitInfo):
     class AttackRange(UnitInfo.AttackRange):
         damage = 20
         damagetype = DMG_ACID
-        attackspeed = 2
-        maxrange = 1024
+        attackspeed = 1.6
+        maxrange = 704.0
         
     # Antlion jump attack
     class AttackLeap(UnitInfo.AttackBase):
-        cone = 0.8
-        damage = 20
+        cone = 0.7
+        damage = 25
         damagetype = DMG_SLASH
-        attackspeed = 1.0
-        minrange = 384.0
-        maxrange = 1024.0
+        attackspeed = 2.0
+        minrange = 256.0
+        maxrange = 720.0
         requiresmovement = True
         
         nextattacktime = 0.0
@@ -1023,15 +1010,15 @@ class AntlionInfoShared(UnitInfo):
             return unit.CanRangeAttack(enemy)
 
         def Attack(self, enemy, action):
-            self.nextattacktime = gpGlobals.curtime + 5.0
+            self.nextattacktime = gpGlobals.curtime + 6.0
             return self.unit.StartLeapAttack()
         
     attacks = ['AttackMelee']
 
     class AttackFly(AttackLeap):
-        damage = 20
-        minrange = 384
-        maxrange = 1024
+        damage = 25
+        minrange = 64.0
+        maxrange = 768.0
 
 class AntlionInfo(AntlionInfoShared):
     name = 'unit_antlion'
@@ -1039,21 +1026,19 @@ class AntlionInfo(AntlionInfoShared):
     abilities = {
         0 : 'burrow',
         1 : 'unburrow',
-        5 : 'salvage',
         8 : 'attackmove',
         9 : 'holdposition',
     }
-    image_name  = "vgui/minervawars/antlions/units/unit_antlion.vmt"
-    costs = [('requisition', 20)]
-    buildtime = 8
-    health = 150
+    image_name = 'vgui/antlions/units/unit_ant_antlion.vmt'
+    portrait = 'resource/portraits/antlionPortrait.bik'
+    costs = [[('requisition', 10)], [('grubs', 1)]]
+    buildtime = 5.0
+    health = 80
     displayname = '#Antlion_Name'
     description = '#Antlion_Description'
     modelname = 'models/antlion.mdl'
     attacks = ['AttackMelee', 'AttackLeap']
-    population = 1
-    sai_hint = set(['sai_unit_combat'])
-    regeneration = True
+    population = 0
 
 class AntlionWorkerInfo(AntlionInfoShared):
     name = 'unit_antlionworker'
@@ -1061,33 +1046,22 @@ class AntlionWorkerInfo(AntlionInfoShared):
     abilities = {
         0 : 'burrow',
         1 : 'unburrow',
-        3 : SubMenu(name='antlion_menu',
-                displayname='Antlion Structures', description='',
-                image_name='vgui/abilities/building_menu.vmt',
-                abilities={
-                        0 : 'build_ant_colony',
-                        1 : 'build_ant_minicolony',
-                        2 : 'build_ant_hive',
-                        3 : 'build_ant_minihive',
-                        4 : 'build_ant_cave',
-                        11 : 'menuup',
-                }),
+        2 : 'harvest',
         8 : 'attackmove',
         9 : 'holdposition',
         10 : 'construct',
-        11 : 'salvage',
+        11 : 'build_ant_minihive',
     }
-    image_name  = "vgui/minervawars/antlions/units/unit_antlionworker.vmt"
-    costs = [('requisition', 25), ('grubs', 1)]
-    population = 1
-    buildtime = 12
-    health = 80
+    image_name = 'vgui/units/unit_antlion_worker.vmt'
+    image_dis_name = 'vgui/units/unit_antlion_worker_dis.vmt'
+    portrait = 'resource/portraits/antlionWorkerPortrait.bik'
+    costs = [('grubs', 1)]
+    buildtime = 35.0
+    health = 120
     displayname = '#AntlionWorker_Name'
     description = '#AntlionWorker_Description' 
     modelname = 'models/antlion_worker.mdl'
     attacks = ['AttackMelee', 'AttackRange']
-    sai_hint = set(['sai_unit_builder', 'sai_unit_salvager', 'sai_unit_combat'])
-    regeneration = True
     
 class AntlionSuiciderInfo(AntlionInfoShared):
     name = 'unit_antlionsuicider'
@@ -1103,12 +1077,12 @@ class AntlionSuiciderInfo(AntlionInfoShared):
     image_dis_name = 'vgui/units/unit_antlion_worker_dis.vmt'
     portrait = 'resource/portraits/antlionWorkerPortrait.bik'
     costs = [('grubs', 1)]
+    viewdistance = 704
     buildtime = 22.0
     scale = 1.0
     health = 90
     maxspeed = 432
-    techrequirements = ['tier2_research']
-    population = 1
+    techrequirements = ['tier2_research']   
     displayname = '#AntlionSuicider_Name'
     description = '#AntlionSuicider_Description' 
     modelname = 'models/antlion_worker.mdl'
@@ -1123,24 +1097,26 @@ class SmallAntlion(AntlionInfoShared):
         8 : 'attackmove',
         9 : 'holdposition',
     }
-    image_name  = "vgui/minervawars/antlions/units/unit_antlion.vmt"
+    image_name = 'vgui/antlions/units/unit_ant_antlion.vmt'
+    portrait = 'resource/portraits/antlionPortrait.bik'
     scrapdropchance = 0.0
-    health = 50
-    scale = 0.8
-    buildtime = 8
-    displayname = 'Small Antlion'
-    description = 'A Smaller variant of the regular Antlion.'
+    health = 90
+    viewdistance = 576
+    sensedistance = 1200
+    scale = 0.75
+    displayname = '#Antlion_Name'
+    description = '#Antlion_Description'
     modelname = 'models/antlion.mdl'
-    attacks = ['AttackSlash']
-    population = 1
+    attacks = ['AttackSlash', 'AttackFly']
+    population = 0
     #tier = 1
     regeneration = True
-    sai_hint = set(['sai_unit_scout'])
 
 class MissionAntlionWorker(AntlionWorkerInfo):
     name = 'mission_unit_antlionworker'
     hidden = True
     scrapdropchance = 0.0
+    viewdistance = 704
     engagedistance = 700
     health = 70
 

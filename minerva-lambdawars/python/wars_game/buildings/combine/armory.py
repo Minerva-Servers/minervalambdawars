@@ -81,7 +81,7 @@ class ArmoryInfo(WarsBuildingInfo):
         1 : 'combinemine_upgrade',
         2 : 'mortarsynth_upgrade',
         #3 : 'combineball_upgrade',
-        3 : 'strider_unlock',
+        3 : 'strider_maxenergy_upgrade',
         8 : 'cancel',
     } 
     sound_work = 'combine_armory_working'

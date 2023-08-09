@@ -29,18 +29,41 @@ class GarrisonInfo(PoweredBuildingInfo):
     health = 700
     buildtime = 40.0
     abilities = {
-		0: "unit_metropolice_riot",
-		1: "unit_metropolice",
-		2: "unit_metropolice_smg1",
-		4: "unit_combine",
-		5: "unit_combine_sg",
-		6: "unit_combine_ar2",
-		
-		11: 'cancel',
+    0: "unit_metropolice_riot",
+    1: "unit_metropolice",
+    2: "unit_metropolice_smg1",
+    4: "unit_combine",
+    5: "unit_combine_sg",
+    6: "unit_combine_ar2",
+    8: "unit_combine_heavy",
+    
+    11: 'cancel',
     } 
     sound_work = 'combine_garrison_working'
     sound_select = 'build_comb_garrison'
     sound_death = 'build_generic_explode1'
     explodeparticleeffect = 'building_explosion'
     explodeshake = (2, 10, 2, 512) # Amplitude, frequence, duration, radius
+    sai_hint = PoweredBuildingInfo.sai_hint | set(['sai_building_barracks'])
+
+class MinervaWarsGarrisonInfo(GarrisonInfo):
+    name = 'minervawars_build_comb_garrison'
+    displayname = 'Combine Garrison'
+    description = ''
+    techrequirements = ['minervawars_build_comb_hq']
+    costs = [('requisition', 50)]
+    health = 750
+    buildtime = 50.0
+    abilities = {
+        0: "minervawars_unit_comb_cpf_stunstick",
+        1: "minervawars_unit_comb_cpf_riot",
+        2: "minervawars_unit_comb_cpf_usp",
+        3: "minervawars_unit_comb_cpf_mp7",
+
+        4: "minervawars_unit_comb_ta_mp7",
+        5: "minervawars_unit_comb_ta_spas12",
+        6: "minervawars_unit_comb_ta_ar2",
+        
+        11: 'cancel',
+    } 
     sai_hint = PoweredBuildingInfo.sai_hint | set(['sai_building_barracks'])

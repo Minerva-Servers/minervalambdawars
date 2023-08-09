@@ -124,7 +124,6 @@ class EnergyCellInfo(WarsBuildingInfo):
     explodeactivity = 'ACT_EXPLODE'
     health = 250
     buildtime = 20.0
-    attackpriority = -1
     abilities   = {
         8 : 'cancel',
     }

@@ -8,7 +8,7 @@ import random
 class AbilityThrowStinkBomb(AbilityThrowObject):
     # Info
     name = "throwstinkbomb"
-    rechargetime = 8
+    rechargetime = 6
     #energy = 35.0
     displayname = "#RebThrowStinkbomb_Name"
     description = "#RebThrowStinkbomb_Description"

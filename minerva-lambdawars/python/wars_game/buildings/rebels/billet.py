@@ -31,9 +31,8 @@ class BilletInfo(WarsBuildingInfo):
     health = 200
     buildtime = 20.0
     population = 0 # Billet itself does not take population
-    providespopulation = 8
+    providespopulation = 5
     viewdistance = 896
-    attackpriority = -1
     abilities   = {
         8 : 'cancel',
     }

@@ -211,6 +211,7 @@ class FloorTurretInfo(WarsTurretInfo):
     rechargetime = 36.0
     viewdistance = 768.0
     sensedistance = 768.0
+    techrequirements = ['comb_tier2_research']
     modelname   = 'models/combine_turrets/floor_turret.mdl'
     displayname = "#FloorTurret_Name"
     description = "#FloorTurret_Description"
@@ -240,14 +241,6 @@ class FloorTurretInfo(WarsTurretInfo):
         attackspeed = 0.1
     attacks = 'AttackTurret'
 
-class RebelFloorTurretInfo(FloorTurretInfo):
-    name = 'floor_turret_rebel'
-    displayname = "Converted Floor Turret"
-    description = "#FloorTurret_Description"
-    costs = [[('requisition', 5), ('scrap', 10)], [('kills', 3)]]
-    techrequirements = ['floor_turret_rebel_unlock']
-    autoconstruct = True
-
 class FloorTurretCharInfo(FloorTurretInfo):
     name = 'char_floor_turret'
     costs = []
@@ -262,9 +255,6 @@ class AbilityFloorTurretUnlock(AbilityUpgrade):
     buildtime = 25.0
     costs = [[('kills', 5)], [('requisition', 5), ('power', 5)]]
 
-class AbilityRebelFloorTurretUnlock(AbilityFloorTurretUnlock):
-    name = 'floor_turret_rebel_unlock'
-    costs = [[('kills', 5)], [('requisition', 5), ('scrap', 5)]]
 
 class OverrunFloorTurretInfo(FloorTurretInfo):
     name = "overrun_floor_turret"
@@ -273,6 +263,7 @@ class OverrunFloorTurretInfo(FloorTurretInfo):
     costs = [('kills', 3)]
     #rechargetime = 22.0
     #health = 150
+
 
 class AbilityConstructFloorTurret(AbilityConstruct):
     name = 'construct_floorturret'

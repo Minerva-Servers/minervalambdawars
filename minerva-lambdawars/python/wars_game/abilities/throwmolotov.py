@@ -8,7 +8,7 @@ import random
 class AbilityThrowMolotov(AbilityThrowObject):
     # Info
     name = "throwmolotov"
-    rechargetime = 4
+    rechargetime = 2.5
     #energy = 35.0
     displayname = "#RebThrowMolotov_Name"
     description = "#RebThrowMolotov_Description"

@@ -91,16 +91,17 @@ class RebelHQInfo(WarsBuildingInfo):
     buildtime = 100.0
     health = 2000
     abilities = {
+        #0: 'unit_vortigaunt',
+        #1: 'unit_dog',
         0: 'unit_rebel_engineer',
-        1: 'unit_rebel_engineer_smg1',
-        2: 'unit_rebel_scout_unarmed',
-        3: 'unit_rebel_scout',
-        4: 'reinforcement',
+        1: 'unit_rebel_scout',
+        3: 'reinforcement',
+        #2: 'unit_rebel_partisan',
         8: 'cancel',
     }
     population = 0
     providespopulation = 7
-    generateresources = {'type' : 'requisition', 'amount' : 1.0, 'interval' : 0.5}
+    generateresources = {'type' : 'requisition', 'amount' : 1.0, 'interval' : 1.0}
     sound_select = 'build_reb_hq'
     sound_death = 'build_reb_hq_destroy'
     #explodeparticleeffect = 'building_explosion'
@@ -127,6 +128,24 @@ class DestroyHQRebelHQInfo(RebelHQInfo):
     population = 0
     providespopulation = 7
     #generateresources = {'type' : 'requisition', 'amount' : 1.0, 'interval' : 1.0}
+
+class MinervaWarsRebelHQInfo(RebelHQInfo):
+    name = 'minervawars_build_reb_hq'
+    displayname = 'Rebel Headquarters'
+    description = ''
+    costs = [('requisition', 500)]
+    health = 3000
+    buildtime = 100.0
+    abilities = {
+        0: 'minervawars_unit_reb_engineer',
+        1: 'minervawars_unit_reb_scout',
+        2: 'minervawars_unit_reb_scout_unarmed',
+        8: 'cancel',
+    }
+    population = 0
+    providespopulation = 100
+    generateresources = {'type' : 'requisition', 'amount' : 1.0, 'interval' : 1.0}
+    sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_hq'])
     
 # OVERRUN version
 class OverrunRebelHQInfo(RebelHQInfo):

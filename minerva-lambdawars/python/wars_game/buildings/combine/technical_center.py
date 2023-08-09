@@ -75,14 +75,13 @@ class TechCenterInfo(PoweredBuildingInfo):
     techrequirements = ['build_comb_synthfactory']
     costs = [('requisition', 50), ('power', 50)]
     resource_category = 'technology'
-    health = 1000
-    buildtime = 72.0
+    health = 900
+    buildtime = 64.0
     abilities = {
         0 : 'strider_maxenergy_upgrade',
         1 : 'combinemine_upgrade',
         2 : 'mortarsynth_upgrade',
-        3 : 'stridercannon_unlock',
-        4 : 'combine_grenade_upgrade',
+        #4 : 'weaponsg_comb_unlock',
         #5 : 'weaponar2_comb_unlock',
         #6 : 'combineball_unlock',
         8 : 'cancel',
