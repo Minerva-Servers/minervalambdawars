@@ -603,7 +603,7 @@ class StalkerMinervaWarsInfo(StalkerShared):
                      displayname='Combine Structures', description='', image_name = 'vgui/abilities/building_menu.vmt', 
                      abilities={
             0: 'minervawars_build_comb_hq',
-            1: 'minervawars_build_comb_powergenerator',
+            1: 'build_comb_powergenerator', # TODO: fix it please
             2: 'minervawars_build_comb_garrison',
             11: 'menuup',
         } ),

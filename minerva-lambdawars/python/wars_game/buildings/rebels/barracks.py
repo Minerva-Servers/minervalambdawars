@@ -169,10 +169,11 @@ class MinervaWarsRebelBarInfo(RebelBarInfo):
         1: 'minervawars_unit_reb_refugee_usp',
         2: 'minervawars_unit_reb_refugee_mp7',
         
-        4: 'minervawars_unit_reb_usp',
-        5: 'minervawars_unit_reb_mp7',
-        6: 'minervawars_unit_reb_spas12',
-        7: 'minervawars_unit_reb_ar2',
+        # Disable for now...
+        #4: 'minervawars_unit_reb_usp',
+        #5: 'minervawars_unit_reb_mp7',
+        #6: 'minervawars_unit_reb_spas12',
+        #7: 'minervawars_unit_reb_ar2',
 
         11: 'cancel',
     }

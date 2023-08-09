@@ -59,10 +59,11 @@ class MinervaWarsGarrisonInfo(GarrisonInfo):
         1: "minervawars_unit_comb_cpf_riot",
         2: "minervawars_unit_comb_cpf_usp",
         3: "minervawars_unit_comb_cpf_mp7",
-
-        4: "minervawars_unit_comb_ta_mp7",
-        5: "minervawars_unit_comb_ta_spas12",
-        6: "minervawars_unit_comb_ta_ar2",
+        
+        # Disable for now...
+        #4: "minervawars_unit_comb_ta_mp7",
+        #5: "minervawars_unit_comb_ta_spas12",
+        #6: "minervawars_unit_comb_ta_ar2",
         
         11: 'cancel',
     } 
