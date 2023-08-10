@@ -593,13 +593,13 @@ class StalkerMinervaWarsInfo(StalkerShared):
         9: 'holdposition',
         10: 'patrol',
         11: 'construct',
-        3: SubMenu(name='stalker_defensemenu',
+        3: SubMenu(name='minervawars_combine_defenses_stalker',
 					displayname='Combine Defenses', description='', image_name = 'vgui/abilities/building_defence_menu.vmt', 
 					abilities={
 			0: 'build_comb_barricade',
             11: 'menuup',
         }),
-        7: SubMenu(name='stalker_menu',
+        7: SubMenu(name='minervawars_combine_structures_stalker',
                      displayname='Combine Structures', description='', image_name = 'vgui/abilities/building_menu.vmt', 
                      abilities={
             0: 'minervawars_build_comb_hq',
