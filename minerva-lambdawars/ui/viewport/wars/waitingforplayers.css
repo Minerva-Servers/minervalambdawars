@@ -1,0 +1,81 @@
+#wars_waitingforplayers_container {
+  font-family: 'Arial', sans-serif;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  color: #FFFFFF;
+  width: 80%;
+  max-width: 605px;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#wars_waitingforplayers_title {
+  font-family: 'Roboto', 'Open Sans', Arial;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 10px 20px;
+  background: rgba(39, 39, 39, 0.8);
+  border-bottom: 4px solid rgba(255, 255, 255, 0.2);
+  color: #cf880d;
+  text-transform: uppercase;
+}
+
+#wars_waitingforplayers_lobbyname {
+  color: #fff;
+}
+
+#wars_waitingforplayers_countdown {
+  font-size: 24px;
+  color: #fff;
+  margin-top: 10px;
+}
+
+#wars_waitingforplayers_playerlist {
+  list-style-type: none;
+  margin: 10px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#wars_waitingforplayers_playerlist li {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 5px 0;
+}
+
+#wars_waitingforplayers_playerlist li span {
+  color: #cf880d;
+  font-weight: normal;
+}
+
+#wars_waitingforplayers_motd {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Button styles (similar to the post-game button) */
+.btn {
+  background: #007BFF;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background: #0056b3;
+}

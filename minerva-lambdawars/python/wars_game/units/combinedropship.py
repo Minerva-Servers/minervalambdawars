@@ -638,7 +638,7 @@ class CombineDropshipInfo(UnitInfo):
     #image_name = 'vgui/combine/units/unit_combinedropship'
     costs = [('requisition', 100), ('power', 80)]
     buildtime = 120.0
-    zoffset = 96.0
+    zoffset = 64.0
     scale = 1
     modelname = 'models/combine_dropship.mdl'
     hulltype = 'HULL_LARGE_CENTERED'
@@ -646,11 +646,12 @@ class CombineDropshipInfo(UnitInfo):
     population = 1
     turnspeed = 15
     maxspeed = 450
-    viewdistance = 896
+    viewdistance = 512
     sensedistance = 1024
     attributes = ['synth', 'pulse']
     sai_hint = set(['sai_unit_scout'])
     abilities = {
-        8 : 'attackmove',
-        9 : 'holdposition',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
     }

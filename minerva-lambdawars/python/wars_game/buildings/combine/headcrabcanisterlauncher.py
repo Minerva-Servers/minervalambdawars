@@ -102,7 +102,7 @@ class OverrunHeadcrabCanisterLauncherInfo(WarsBuildingInfo):
     costs = [('requisition', 150), ('power', 150)]
     health = 200
     buildtime = 120
-    scale = 2
+    scale = 1
     abilities = {
         0: 'overrun_launch_headcrabcanister',
         1: 'overrun_launch_headcrabcanister_fasttype',
@@ -129,10 +129,10 @@ class HeadcrabCanisterLauncherInfo(PoweredBuildingInfo):
     workactivity = 'ACT_WORK'
     explodeactivity = 'ACT_EXPLODE'
     techrequirements = ['build_comb_armory', 'build_comb_mech_factory', 'build_comb_synthfactory']
-    costs = [('requisition', 150), ('power', 150)]
+    costs = [('requisition', 300), ('power', 300)]
     health = 200
-    buildtime = 120
-    scale = 2
+    buildtime = 180
+    scale = 1
     abilities = {
         0: 'launch_headcrabcanister',
         1: 'launch_headcrabcanister_fasttype',

@@ -305,7 +305,7 @@ class RebelPoweredGeneratorScrapInfo(PoweredGeneratorScrapInfo):
     generateresources = {'type' : 'scrap', 'amount' : 1.0, 'interval' : 1.0}
     costs = [('requisition', 40), ('scrap', 40)]
     techrequirements = ['build_reb_munitionsdepot']
-    sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_powergen_big'])
+    sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_powergenscrap','sai_scrap_collection'])
     
 # Base building for powered buildings
 class BasePoweredBuilding(object):

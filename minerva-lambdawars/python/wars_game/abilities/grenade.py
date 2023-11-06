@@ -3,6 +3,8 @@ from core.abilities import AbilityTarget, AbilityUpgrade, AbilityUpgradeValue
 from fields import FloatField, StringField, UpgradeField
 from entities import entity
 
+import random
+
 if isserver:
     from entities import CreateEntityByName, DispatchSpawn
     from utils import UTIL_PrecacheOther
@@ -111,8 +113,7 @@ class AbilityGrenade(AbilityTarget):
     throw_anim_speed = 1.5
     grenadeclsname = StringField(value='grenade_frag')
     sai_hint = AbilityTarget.sai_hint | set(['sai_grenade'])
-    predict_target_position = True
-    defaultautocast = True
+    predict_target_position = False
     
     # Ability
     def UpdateParticleEffects(self, inst, targetpos):
@@ -188,7 +189,8 @@ class AbilityGrenade(AbilityTarget):
             leftpressed.endpos = enemy.GetAbsOrigin()
             leftpressed.groundendpos = enemy.GetAbsOrigin()
             leftpressed.ent = enemy
-            unit.DoAbility(info.name, mouse_inputs=[('leftpressed', leftpressed)])
+            if random.uniform(0, 100) < 25:  # 25% chance
+                unit.DoAbility(info.name, mouse_inputs=[('leftpressed', leftpressed)])
             return True
         return False
         

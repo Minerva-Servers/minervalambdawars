@@ -347,7 +347,7 @@ class CombineShieldGenerator(BaseClass):
             
             super().HideBars()
 
-    maxgenrange = FloatField(value=1024.0)
+    maxgenrange = FloatField(value=2048.0)
     shield = GenericField(value=None, networked=True)
     link_target = 'build_comb_shieldgen'
     powered_1 = False

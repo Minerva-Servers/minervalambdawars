@@ -1042,6 +1042,7 @@ class AntlionInfo(AntlionInfoShared):
         5 : 'salvage',
         8 : 'attackmove',
         9 : 'holdposition',
+        10: 'patrol',
     }
     image_name  = "vgui/minervawars/antlions/units/unit_antlion.vmt"
     costs = [('requisition', 20)]
@@ -1072,10 +1073,11 @@ class AntlionWorkerInfo(AntlionInfoShared):
                         4 : 'build_ant_cave',
                         11 : 'menuup',
                 }),
+        5 : 'salvage',
         8 : 'attackmove',
         9 : 'holdposition',
-        10 : 'construct',
-        11 : 'salvage',
+        10: 'patrol',
+        11 : 'construct',
     }
     image_name  = "vgui/minervawars/antlions/units/unit_antlionworker.vmt"
     costs = [('requisition', 25), ('grubs', 1)]
@@ -1098,6 +1100,7 @@ class AntlionSuiciderInfo(AntlionInfoShared):
         1 : 'unburrow',
         8 : 'attackmove',
         9 : 'holdposition',
+        10: 'patrol',
     }
     image_name = 'vgui/units/unit_antlion_worker.vmt'
     image_dis_name = 'vgui/units/unit_antlion_worker_dis.vmt'
@@ -1122,6 +1125,7 @@ class SmallAntlion(AntlionInfoShared):
         1 : 'unburrow',
         8 : 'attackmove',
         9 : 'holdposition',
+        10: 'patrol',
     }
     image_name  = "vgui/minervawars/antlions/units/unit_antlion.vmt"
     scrapdropchance = 0.0

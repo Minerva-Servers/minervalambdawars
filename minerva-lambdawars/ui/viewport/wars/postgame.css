@@ -1,0 +1,45 @@
+#wars_postgame_container {
+  font-family: 'Arial', sans-serif;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#wars_postgame_title {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+#wars_postgame_winners {
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+#wars_postgame_losers {
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background: #007BFF;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background: #0056b3;
+}

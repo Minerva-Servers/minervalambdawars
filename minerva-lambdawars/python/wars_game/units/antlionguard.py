@@ -650,6 +650,7 @@ class AntlionGuardSharedInfo(UnitInfo):
         0 : 'charge',
         8 : 'attackmove',
         9 : 'holdposition',
+        10: 'patrol',
     }
     sound_select = 'unit_antlionguard_select'
     sound_move = 'unit_antlionguard_move'
@@ -679,6 +680,7 @@ class AntlionGuardInfo(AntlionGuardSharedInfo):
         0 : 'charge',
         8 : 'attackmove',
         9 : 'holdposition',
+        10: 'patrol',
     }
     selectionpriority = 1
     displayname = '#AntlionGuard_Name'
