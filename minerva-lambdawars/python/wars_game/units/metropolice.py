@@ -511,6 +511,24 @@ class UnitMetroPolice(BaseClass):
             Activity.ACT_RUN_CROUCH_AIM: Activity.ACT_RUN_AIM,
             Activity.ACT_CROUCHIDLE_AIM_STIMULATED: Activity.ACT_RANGE_AIM_SMG1_LOW,
         },
+        'weapon_smg2': {
+            Activity.ACT_IDLE: Activity.ACT_IDLE_SMG1,
+            Activity.ACT_WALK: Activity.ACT_WALK_RIFLE,
+            Activity.ACT_RUN: Activity.ACT_RUN_RIFLE,
+            
+            Activity.ACT_RANGE_ATTACK1: Activity.ACT_RANGE_ATTACK_SMG1,
+            Activity.ACT_IDLE_AIM_AGITATED: Activity.ACT_RANGE_ATTACK_SMG1,
+            Activity.ACT_WALK_AIM: Activity.ACT_WALK_AIM_RIFLE,
+            Activity.ACT_RUN_AIM: Activity.ACT_RUN_AIM_RIFLE,
+            
+            Activity.ACT_MP_JUMP: Activity.ACT_JUMP,
+            Activity.ACT_CROUCH: Activity.ACT_COVER_SMG1_LOW,
+            Activity.ACT_MP_JUMP_FLOAT: Activity.ACT_GLIDE,
+            Activity.ACT_RUN_CROUCH: Activity.ACT_RUN,
+            Activity.ACT_WALK_CROUCH_AIM: Activity.ACT_WALK_AIM,
+            Activity.ACT_RUN_CROUCH_AIM: Activity.ACT_RUN_AIM,
+            Activity.ACT_CROUCHIDLE_AIM_STIMULATED: Activity.ACT_RANGE_AIM_SMG1_LOW,
+        },
         'weapon_stunstick': {
             Activity.ACT_MELEE_ATTACK1 : Activity.ACT_MELEE_ATTACK_SWING,
             Activity.ACT_RANGE_ATTACK1: Activity.ACT_MELEE_ATTACK_SWING,
@@ -697,9 +715,34 @@ class MetroPoliceSMG1Info(MetroPoliceInfo):
     description = ''
     image_name = 'vgui/combine/units/unit_metropolice_smg'
     weapons = ['weapon_smg1']
-    costs = [[('requisition', 15)], [('kills', 1)]]
+    costs = [[('requisition', 20)], [('kills', 1)]]
     buildtime = 23.0
     maxspeed = 224
+    viewdistance = 768
+    scrapdropchance = 0.0
+    accuracy = 0.5
+    #techrequirements = ['build_comb_armory']
+    abilities = {
+        -2: 'garrison',
+        -1: 'construct_floorturret',
+        0: 'deploymanhack',
+        1: 'floor_turret',
+        7: 'mountturret',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
+    }
+
+
+class MetroPoliceSMG2Info(MetroPoliceInfo):
+    name = 'unit_metropolice_smg2'
+    displayname = 'Civil Protection Force Breacher'
+    description = ''
+    image_name = 'vgui/combine/units/unit_metropolice_smg'
+    weapons = ['weapon_smg2']
+    costs = [[('requisition', 15)], [('kills', 1)]]
+    buildtime = 19.0
+    maxspeed = 229
     viewdistance = 768
     scrapdropchance = 0.0
     accuracy = 0.5

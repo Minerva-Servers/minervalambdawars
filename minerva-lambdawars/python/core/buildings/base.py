@@ -17,7 +17,8 @@ from core.units.info import UnitInfoMetaClass
 from core.abilities import GetTechNode, BaseTechNode
 from core.signals import navmeshloaded
 from core.decorators import serveronly_assert
-
+from core.notifications import (DoNotificationEntAbi, DoNotificationEnt,  GetNotifcationFilterForOwner,
+                                NotificationAbilityCompleted, NotificationNotEnoughPopulation)
 from particles import PrecacheParticleSystem, PATTACH_ABSORIGIN_FOLLOW, DispatchParticleEffect
 from gamerules import gamerules
 from entities import (entity, FOWFLAG_BUILDINGS_MASK, Activity, DENSITY_GAUSSIAN, DENSITY_NONE, D_LI, CTakeDamageInfo,
@@ -1190,10 +1191,14 @@ class UnitBaseBuilding(UnitBaseBuildingShared, BaseClass):
             self.UpdateResourceThink()
             self.UpdateEnergyThink()
             self.CheckTech()
+            self.DoNotificationEntCompleted(self, self.unitinfo.name)
             
             self.onconstructed.FireOutput(self, self)
         
         self.CreateCoverSpots()
+    
+    def DoNotificationEntCompleted(self, ent, name):
+        DoNotificationEntAbi(NotificationAbilityCompleted.name, ent, name, filter=GetNotifcationFilterForOwner(self.GetOwnerNumber()))
 
     def CheckTech(self):
         if not isserver:

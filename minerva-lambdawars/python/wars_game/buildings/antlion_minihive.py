@@ -18,7 +18,7 @@ class AntlionHiveInfo(WarsBuildingInfo):
     abilities   = {                      
         0 : 'unit_antlion_small',
         1 : 'unit_antlion',
-        8 : 'cancel',
+        11 : 'cancel',
     }
     health = 1250
     modelname = 'models/props_wasteland/rockcliff_cluster02c.mdl'
@@ -35,7 +35,7 @@ class AntlionMiniHiveInfo(AntlionHiveInfo):
     image_name  = "vgui/minervawars/antlions/buildings/build_ant_minihive.vmt"  
     abilities   = {                      
         0 : 'unit_antlion_small',
-        8 : 'cancel',
+        11 : 'cancel',
     }
     health = 1000
     modelname = 'models/props_wasteland/rockcliff_cluster03b.mdl'
@@ -53,7 +53,7 @@ class AntlionCaveInfo(AntlionMiniHiveInfo):
         0 : 'unit_antlion_small',
         1 : 'unit_antlion',
         2 : 'unit_antlionguard',
-        8 : 'cancel',
+        11 : 'cancel',
     }
     health = 900
     modelname = 'models/pg_props/pg_buildings/rebels/pg_reb_vortigauntden.mdl'

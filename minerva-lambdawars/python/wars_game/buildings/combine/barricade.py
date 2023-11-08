@@ -21,7 +21,7 @@ class CombineBarricadeInfo(BaseBarricadeInfo):
     viewdistance = 192
     attributes = ['defence']
     abilities   = {
-        8: 'cancel',
+        11: 'cancel',
     } 
     cover_spots = [
         CoverSpot(offset=Vector(-40, -24, 0)),

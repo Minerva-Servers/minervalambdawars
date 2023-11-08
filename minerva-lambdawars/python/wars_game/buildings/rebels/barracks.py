@@ -72,7 +72,8 @@ class RebelBarInfo(WarsBuildingInfo):
     abilities = {
         0: 'unit_rebel_partisan_molotov',
         1: 'unit_rebel_partisan_pistol',
-        2: 'unit_rebel_partisan',
+        2: 'unit_rebel_partisan_smg2',
+        3: 'unit_rebel_partisan',
         4: 'unit_rebel_pistol',
         5: 'unit_rebel',
         6: 'unit_rebel_sg',

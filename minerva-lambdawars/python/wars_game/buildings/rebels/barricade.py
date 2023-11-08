@@ -35,7 +35,7 @@ class RebelsBarricadeInfo(BaseBarricadeInfo):
     attributes = ['defence']
     viewdistance = 192
     abilities = {
-        8: 'cancel',
+        11: 'cancel',
     } 
     cover_spots = [
         CoverSpot(offset=Vector(-50, -48, 24)),

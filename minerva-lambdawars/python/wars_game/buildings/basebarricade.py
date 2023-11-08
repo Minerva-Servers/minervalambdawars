@@ -25,7 +25,7 @@ class BaseBarricade(BaseClass):
 class BaseBarricadeInfo(WarsBuildingInfo):
     cls_name = 'build_barricade'
     abilities = {
-        8: 'cancel',
+        11: 'cancel',
     }
     resource_category = 'defense'
     population = 0

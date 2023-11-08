@@ -71,7 +71,7 @@ class TriageCenterInfo(WarsBuildingInfo):
         1 : 'medic_regenerate_upgrade',
         2 : 'medic_maxenergy_upgrade',
         3 : 'medic_smg1_upgrade',
-        8 : 'cancel',
+        11 : 'cancel',
     }
     idleactivity = 'ACT_IDLE'
     # workactivity = 'ACT_WORK'

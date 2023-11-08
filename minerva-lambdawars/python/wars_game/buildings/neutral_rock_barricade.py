@@ -21,7 +21,7 @@ class RockBarricadeInfo(NeutralBarricadeInfo):
     population = 0 
     providespopulation = 0
     abilities   = {
-        8 : 'cancel',
+        11 : 'cancel',
     }
     sound_select = 'build_neutral_rock_barricade'
     sound_death = 'build_generic_explode1'

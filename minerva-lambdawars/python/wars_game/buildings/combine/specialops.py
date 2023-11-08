@@ -30,7 +30,8 @@ class SpecialOpsInfo(PoweredBuildingInfo):
 		0 : 'unit_combine_elite',
 		1 : 'unit_combine_sniper',
 		2 : 'unit_combine_heavy',
-		8 : 'cancel',
+		3 : 'unit_combine_rpg',
+		11 : 'cancel',
     } 
     sound_select = 'build_comb_specialops'
     sound_work = 'combine_special_ops_working'

@@ -330,6 +330,25 @@ class UnitCitizen(BaseClass):
             Activity.ACT_WALK_AIM: Activity.ACT_WALK_AIM_RIFLE,
             Activity.ACT_RUN_AIM: Activity.ACT_RUN_AIM_RIFLE,
         },
+        'weapon_smg2': {
+            Activity.ACT_IDLE: 'ACT_IDLE_SMG1_RELAXED',
+            Activity.ACT_WALK: Activity.ACT_WALK_RIFLE,
+            Activity.ACT_RUN: Activity.ACT_RUN_RIFLE,
+            Activity.ACT_RANGE_ATTACK1: Activity.ACT_RANGE_ATTACK_SMG1,
+            Activity.ACT_MP_JUMP_START: Activity.ACT_JUMP,
+            Activity.ACT_MP_JUMP_FLOAT: Activity.ACT_GLIDE,
+            Activity.ACT_MP_JUMP_LAND: Activity.ACT_LAND,
+            
+            Activity.ACT_CROUCH: Activity.ACT_COVER_LOW,
+            Activity.ACT_RUN_CROUCH: Activity.ACT_RUN_CROUCH_RIFLE,
+            Activity.ACT_WALK_CROUCH_AIM: Activity.ACT_RUN_CROUCH_AIM_RIFLE,
+            Activity.ACT_RUN_CROUCH_AIM: Activity.ACT_RUN_CROUCH_AIM_RIFLE,
+            Activity.ACT_CROUCHIDLE_AIM_STIMULATED: Activity.ACT_RANGE_AIM_SMG1_LOW,
+            
+            Activity.ACT_IDLE_AIM_AGITATED: Activity.ACT_RANGE_ATTACK_SMG1,
+            Activity.ACT_WALK_AIM: Activity.ACT_WALK_AIM_RIFLE,
+            Activity.ACT_RUN_AIM: Activity.ACT_RUN_AIM_RIFLE,
+        },
         'weapon_shotgun': {
             Activity.ACT_IDLE: 'ACT_IDLE_SHOTGUN_RELAXED',
             Activity.ACT_WALK: Activity.ACT_WALK_RIFLE,

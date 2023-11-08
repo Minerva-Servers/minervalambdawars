@@ -104,7 +104,7 @@ class CombineRegenerationPostInfo(WarsBuildingInfo):
     techrequirements = ['build_comb_armory']
     viewdistance = 640
     abilities   = {
-        8 : 'cancel',
+        11 : 'cancel',
     } 
     sound_death = 'build_generic_explode1'
     explodeparticleeffect = 'building_explosion'

@@ -16,17 +16,17 @@ class RebelShackInfo(WarsBuildingInfo):
     displayname = "#BuildShack_Name"
     description = "#BuildShack_Description"
     cls_name    = "build_reb_shack"
-    image_name  = 'vgui/rebels/buildings/build_reb_billet'
     modelname = 'models/structures/resistance/shack.mdl'
     techrequirements = []
-    costs = [('requisition', 40)]
-    health = 400
-    buildtime = 15.0
-    providespopulation = 50
+    costs = [[('requisition', 45), ('scrap', 15)], [('kills', 5)]]
+    health = 550
+    buildtime = 30.0
     abilities   = {
-        0 : 'unit_citizen_barricade',
-        1 : 'unit_rebel_partisan',
-        8: 'cancel',
+        0: 'unit_rebel_partisan_molotov',
+        1: 'unit_rebel_partisan_pistol',
+        2: 'unit_rebel_partisan_smg2',
+        3: 'unit_rebel_partisan',
+        11: 'cancel',
     } 
     sound_select = 'build_reb_billet'
     sound_death = 'build_generic_explode1'

@@ -374,10 +374,10 @@ class AbilityPlaceBuildingRuleRandom(AbilityRuleBase):
                         continue
 
                     # Test position. Bloat it so CPU Player does not build buildings too cloes to each other
-                    if ability.placeatmins:
-                        testpos.z += -ability.mins.z
-                    ability.mins = ability.mins - Vector(32.0, 32.0, 0)
-                    ability.maxs = ability.maxs + Vector(32.0, 32.0, 0)
+                    #if ability.placeatmins:
+                        #testpos.z += -ability.mins.z
+                    #ability.mins = ability.mins - Vector(32.0, 32.0, 0)
+                    #ability.maxs = ability.maxs + Vector(32.0, 32.0, 0)
                     if not ability.IsValidPosition(testpos):
                         # ndebugoverlay.Box(testpos, -Vector(32, 32, 32), Vector(32, 32, 32), 255, 0, 0, 255, 5.0)
                         # Only don't test again for a while if it failed!

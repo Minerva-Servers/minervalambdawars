@@ -256,7 +256,7 @@ class OverrunMortarInfo(WarsBuildingInfo):
     scale = 1.2
     abilities = {
         0: 'overrun_fire_mortar',
-        8: 'cancel',
+        11: 'cancel',
     }
     explodeparticleeffect = 'building_explosion'
     explodeshake = (2, 10, 2, 512) # Amplitude, frequence, duration, radius
@@ -289,7 +289,7 @@ class MortarInfo(PoweredBuildingInfo):
     attackpriority = -1
     abilities = {
         0: 'fire_mortar',
-        8: 'cancel',
+        11: 'cancel',
     }
     explodeparticleeffect = 'building_explosion'
     explodeshake = (2, 10, 2, 512) # Amplitude, frequence, duration, radius

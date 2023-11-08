@@ -77,8 +77,8 @@ class WeaponAR2(WarsWeaponMachineGun):
         maxrange = 768.0
         attackspeed = 0.09
         usesbursts = True
-        minburst = 30
+        minburst = 20
         maxburst = 30
-        minresttime = 1.30
-        maxresttime = 2.30
+        minresttime = 0.7
+        maxresttime = 1.3
         attributes = ['pulse']

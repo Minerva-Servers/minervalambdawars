@@ -19,7 +19,7 @@ class CefStatusPlayers(CefPanel):
         super().OnLoaded()
 
         self.UpdateAllPlayers()
-        self.RegisterTickSignal(0.5)
+        self.RegisterTickSignal(1)
         
     def OnRemove(self):
         super().OnRemove()

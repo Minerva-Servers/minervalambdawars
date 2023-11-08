@@ -66,8 +66,9 @@ class RebelRadioTowerInfo(WarsBuildingInfo):
     health = 600
     buildtime = 450.0
     abilities   = {
-        8 : 'cancel',
+        11 : 'cancel',
     }
+    scale = 2
     sound_select = 'build_reb_radiotower'
     sound_death = 'build_generic_explode1'
     explodeparticleeffect = 'building_explosion'
@@ -113,16 +114,16 @@ class RebelsDetectionTower(RebelsRadioTower):
 class RebelScanTowerInfo(RebelRadioTowerInfo):
     name = "build_reb_detectiontower"
     cls_name = 'build_reb_detectiontower'
-    costs = [('requisition', 25), ('scrap', 25)]
+    costs = [('requisition', 75), ('scrap', 75)]
     techrequirements = ['build_reb_barracks']
     unitenergy = 100
-    unitenergy_initial = 50
+    unitenergy_initial = 0
     buildtime = 30.0
     sensedistance = 256.0
     viewdistance = 1280
     abilities   = {
         0 : 'scan',
-        8 : 'cancel',
+        11 : 'cancel',
     }
     
 class DestroyHQRebelScanTowerInfo(RebelScanTowerInfo):

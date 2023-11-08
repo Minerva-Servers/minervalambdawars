@@ -399,7 +399,7 @@ class OverrunCombineShieldGenInfo(WarsBuildingInfo):
     abilities = {
         0 : 'genconnect',
         1 : 'gendestroylinks',
-        8 : 'cancel',
+        11 : 'cancel',
     }
     sound_death = 'build_comb_mturret_explode'
     sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_shieldgen'])
@@ -423,7 +423,7 @@ class CombineShieldGenInfo(PoweredBuildingInfo):
     abilities = {
         0 : 'genconnect_powered',
         1 : 'gendestroylinks',
-        8 : 'cancel',
+        11 : 'cancel',
     }
     sound_death = 'build_comb_mturret_explode'
     sai_hint = PoweredBuildingInfo.sai_hint | set(['sai_building_shieldgen'])

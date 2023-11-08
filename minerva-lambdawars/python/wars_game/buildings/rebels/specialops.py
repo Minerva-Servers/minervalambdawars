@@ -70,9 +70,14 @@ class SpecialOpsInfo(WarsBuildingInfo):
 		1 : 'unit_rebel_flamer',
 		2 : 'unit_rebel_heavy',
 		3 : 'unit_rebel_tau',
-		4 : 'unit_rebel_saboteur',
-		5 : 'unit_rebel_tactical',
-		8 : 'cancel',
+        
+        4 : 'unit_rebel_tactical_smg1',
+        5 : 'unit_rebel_tactical_smg2',
+        6 : 'unit_rebel_tactical_sg',
+        7 : 'unit_rebel_tactical_ar2',
+
+		8 : 'unit_rebel_saboteur',
+		11 : 'cancel',
     }
     idleactivity = 'ACT_IDLE'
     # workactivity = 'ACT_WORK'

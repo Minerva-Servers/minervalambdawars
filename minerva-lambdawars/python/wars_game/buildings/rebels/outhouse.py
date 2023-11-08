@@ -26,7 +26,7 @@ class RebelsAidStationInfo(GarrisonableBuildingInfo):
     techrequirements = ['build_reb_hq']
     abilities   = {
         0 : 'ungarrisonall',
-        8 : 'cancel',
+        11 : 'cancel',
     } 
     sound_death = 'build_generic_explode1'
     explodeparticleeffect = 'building_explosion'

@@ -31,7 +31,7 @@ class TechCenterInfo(WarsBuildingInfo):
         0: 'fireexplosivebolt_unlock',
         1: 'tau_alt_fire_unlock',
         #2: 'rebel_grenade_upgrade',
-        8: 'cancel',
+        11: 'cancel',
     } 
     idleactivity = 'ACT_IDLE'
     #workactivity = 'ACT_WORK'

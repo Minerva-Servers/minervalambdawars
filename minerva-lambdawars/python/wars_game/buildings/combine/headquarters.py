@@ -95,7 +95,7 @@ class CombineHQInfo(WarsBuildingInfo):
                               1: 'dropsoldiers_metrocops',
                               11: 'menuup',
                               }),
-        8: 'cancel',
+        11: 'cancel',
         11: 'comb_popupgrade1',
     }
     population = 0
@@ -111,6 +111,16 @@ class CombineHQInfo(WarsBuildingInfo):
         {'unittype' : 'scrap_marker', 'radius' : 180.0},
         {'unittype' : 'scrap_marker_small', 'radius' : 180.0},
     ]
+
+class RaceXHQInfo(CombineHQInfo):
+    name = 'build_racex_hq'
+    displayname = 'Race X Headquarters'
+    description = ''
+    providespopulation = 100
+    abilities = {
+        0: 'unit_shocktrooper',
+        11: 'cancel',
+    }
 
 class CombPopUpgrade1(AbilityUpgradePopCap):
     name = 'comb_popupgrade1'

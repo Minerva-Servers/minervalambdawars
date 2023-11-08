@@ -48,6 +48,7 @@ class RebelBunkerInfo(BunkerInfo):
     sound_death = 'build_generic_explode1'
     explodeparticleeffect = 'building_explosion'
     explodeshake = (2, 10, 2, 128) # Amplitude, frequence, duration, radius
+    sai_hint = set(['sai_defense'])
 
 class DestroyHQRebelBunkerInfo(RebelBunkerInfo):
     name = 'build_reb_bunker_destroyhq'

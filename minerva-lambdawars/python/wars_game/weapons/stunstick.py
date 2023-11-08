@@ -53,8 +53,8 @@ class WeaponStunStick(WarsWeaponMelee):
     
     class AttackPrimary(WarsWeaponMelee.AttackPrimary):
         damage = 15.0
-        maxrange = 55.0
-        attackspeed = 1
+        maxrange = 64.0
+        attackspeed = 0.88
         attributes = []
     
     def __init__(self):

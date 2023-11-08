@@ -82,7 +82,7 @@ class JunkyardInfo(WarsBuildingInfo):
         0 : 'unit_rebel_engineer',
         1 : 'unit_rebel_engineer_smg1',
         2 : 'unit_dog',
-        8 : 'cancel',
+        11 : 'cancel',
     } 
     idleactivity = 'ACT_IDLE'
     explodeactivity = 'ACT_EXPLODE'
@@ -105,7 +105,7 @@ class DestroyHQJunkyardInfo(JunkyardInfo):
     abilities   = {
         0 : 'destroyhq_unit_rebel_engineer',
         1: 'destroyhq_unit_dog',
-        8 : 'cancel',
+        11 : 'cancel',
     }
 
 class TutorialJunkyardInfo(JunkyardInfo):
@@ -113,5 +113,5 @@ class TutorialJunkyardInfo(JunkyardInfo):
     techrequirements = ['build_reb_hq_tutorial']
     abilities   = {
         0 : 'tutorial_rebel_engineer',
-        8 : 'cancel',
+        11 : 'cancel',
     }

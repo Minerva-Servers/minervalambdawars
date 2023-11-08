@@ -185,7 +185,7 @@ class PoweredGeneratorInfo(WarsBuildingInfo):
     sound_death = 'build_comb_gen_destroy'
     #explodeparticleeffect = 'pg_generator_ex'
     abilities = {
-        8 : 'cancel',
+        11 : 'cancel',
     }
     sai_hint = WarsBuildingInfo.sai_hint | set(['sai_building_powergen'])
     requirerotation = False
@@ -223,7 +223,7 @@ class PoweredGeneratorScrapInfo(WarsBuildingInfo):
     resource_category = 'economy'
     viewdistance = 896
     abilities = {
-        8: 'cancel',
+        11: 'cancel',
     }
     sound_work = 'combine_power_generator_working'
     sound_select = 'build_comb_energycell'

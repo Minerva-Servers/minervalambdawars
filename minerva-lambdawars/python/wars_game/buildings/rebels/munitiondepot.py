@@ -71,11 +71,14 @@ class MuntionDepotInfo(WarsBuildingInfo):
         0: 'weaponsg_unlock',
         1: 'weaponar2_unlock',
         2: 'rebel_hp_upgrade',
+        3: 'dog_hp_upgrade',
+
         4: 'c4explosive_unlock',
         5: 'rebel_mine_unlock',
         6: 'floor_turret_rebel_unlock',
-        #4: 'dog_unlock',
-        8: 'cancel',
+        7: 'dog_unlock',
+
+        11: 'cancel',
         #10: 'rebel_rpg_unlock',
         #11: 'rebel_veteran_unlock',
     } 
@@ -110,11 +113,9 @@ class OverrunMuntionDepotInfo(MuntionDepotInfo):
         2 : 'medic_maxenergy_upgrade',
         3 : 'medic_smg1_upgrade',
         4 : 'rebel_hp_upgrade',
-        5 : 'dog_hp_upgrade',
-        #4: 'dog_unlock',
-        8: 'cancel',
-        #10: 'rebel_rpg_unlock',
-        #11: 'rebel_veteran_unlock',
+        5 : 'dog_unlock',
+        6 : 'dog_hp_upgrade',
+        11: 'cancel',
     } 
 	
 # Mission version

@@ -85,7 +85,7 @@ class TechCenterInfo(PoweredBuildingInfo):
         #4 : 'combine_grenade_upgrade',
         #5 : 'weaponar2_comb_unlock',
         #6 : 'combineball_unlock',
-        8 : 'cancel',
+        11 : 'cancel',
     } 
     sound_work = 'combine_armory_working'
     sound_select = 'build_comb_tech_center'

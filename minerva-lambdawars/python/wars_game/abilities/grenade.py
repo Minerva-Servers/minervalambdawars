@@ -178,7 +178,7 @@ class AbilityGrenade(AbilityTarget):
         #damage = UpgradeField(cppimplemented=True, abilityname='army_tier2')
         
     # Silly test
-    defaultautocast = True
+    defaultautocast = False
     autocastcheckonenemy = True
     @classmethod
     def CheckAutoCast(info, unit):

@@ -41,7 +41,7 @@ class RebelsAidStationInfo(GarrisonableBuildingInfo):
     abilities   = {
         0 : 'ungarrisonall',
         1 : 'onhealedexit',
-        8 : 'cancel',
+        11 : 'cancel',
     } 
     sound_death = 'build_generic_explode1'
     explodeparticleeffect = 'building_explosion'

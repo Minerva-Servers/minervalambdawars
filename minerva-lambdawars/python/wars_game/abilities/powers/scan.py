@@ -46,7 +46,7 @@ class Scan(UnitBase):
         
         def ScanThink(self):
             self.senses.PerformSensing()
-            self.SetNextThink(gpGlobals.curtime + 0.1)
+            self.SetNextThink(gpGlobals.curtime + 1)
             
         def SetScanDuration(self, scanduration=10.0):
             self.SetThink(self.SUB_Remove, gpGlobals.curtime + scanduration, 'ScanDuration')

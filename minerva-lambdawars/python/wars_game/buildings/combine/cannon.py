@@ -215,7 +215,7 @@ class CombineCannonInfo(WarsTurretInfo):
         cone = 0.99862953475 
     attacks = 'AttackTurret'
     abilities = {
-        8: 'cancel',
+        11: 'cancel',
     }
     dummies = [
         CreateDummy(

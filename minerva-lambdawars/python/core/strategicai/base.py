@@ -71,11 +71,11 @@ class StrategicAIDefault(StrategicAIInfo):
         SAIMsg('SAI#%d Initialize' % (self.ownernumber))
     
         # Use think rates as an indirect way to slow down decision making
-        thinkrate = 0.8
+        thinkrate = 2
         if self.difficulty <= self.difficulty_easy:
-            thinkrate = 1.5
+            thinkrate = 4
         elif self.difficulty >= self.difficulty_hard:
-            thinkrate = 0.1
+            thinkrate = 1
         RegisterTickMethod(self.Update, thinkrate)
         
         buildingstarted.connect(self.OnBuildingStarted)

@@ -274,7 +274,7 @@ class BarrelTrapInfo(WarsBuildingInfo):
 
     abilities   = {
         0 : 'release_barrels',
-        8 : 'cancel',
+        11 : 'cancel',
     }
     sound_select = 'build_reb_barreltrap'
     sound_death = 'build_reb_barreltrap_destruction'

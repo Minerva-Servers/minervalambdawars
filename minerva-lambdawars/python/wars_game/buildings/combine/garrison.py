@@ -31,10 +31,12 @@ class GarrisonInfo(PoweredBuildingInfo):
     abilities = {
 		0: "unit_metropolice_riot",
 		1: "unit_metropolice",
-		2: "unit_metropolice_smg1",
-		4: "unit_combine",
-		5: "unit_combine_sg",
-		6: "unit_combine_ar2",
+		2: "unit_metropolice_smg2",
+		3: "unit_metropolice_smg1",
+		4: "unit_combine_smg2",
+		5: "unit_combine",
+		6: "unit_combine_sg",
+		7: "unit_combine_ar2",
 		
 		11: 'cancel',
     } 

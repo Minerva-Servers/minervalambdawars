@@ -43,7 +43,12 @@ class WeaponShotgun(WarsWeaponBase):
 
     class AttackPrimary(WarsWeaponBase.AttackRange):
         maxrange = 512.0
-        attackspeed = 0.75
+        attackspeed = 0.5
+        usesbursts = True
+        minburst = 1
+        maxburst = 3
+        minresttime = 0.6
+        maxresttime = 1.8
         damage = 35
         cone = WarsWeaponBase.AttackRange.DOT_6DEGREE
         #attributes = ['bullet']

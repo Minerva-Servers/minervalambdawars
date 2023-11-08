@@ -125,7 +125,7 @@ class AbilityCombineBallUnlock(AbilityUpgrade):
     displayname = '#CombBallUnlock_DisplayName'
     description = '#CombBallUnlock_Description'
     image_name = "vgui/abilities/ability_ar2orb_upgrade"
-    techrequirements = ['build_comb_specialops']
+    techrequirements = ['build_comb_specialops', 'combine_elite_unlock']
     buildtime = 30.0
     costs = [[('kills', 5)], [('requisition', 25), ('power', 25)]]
 class AbilityCombineBallUpgrade(AbilityUpgradeValue):

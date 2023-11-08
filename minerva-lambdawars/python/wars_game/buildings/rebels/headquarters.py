@@ -96,7 +96,7 @@ class RebelHQInfo(WarsBuildingInfo):
         2: 'unit_rebel_scout_unarmed',
         3: 'unit_rebel_scout',
         4: 'reinforcement',
-        8: 'cancel',
+        11: 'cancel',
     }
     population = 0
     providespopulation = 7
@@ -122,7 +122,7 @@ class DestroyHQRebelHQInfo(RebelHQInfo):
     abilities = {
         0: 'destroyhq_unit_rebel_engineer',
         1: 'unit_rebel_scout',
-        8: 'cancel',
+        11: 'cancel',
     }
     population = 0
     providespopulation = 7

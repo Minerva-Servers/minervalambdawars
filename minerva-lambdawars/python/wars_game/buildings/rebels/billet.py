@@ -35,7 +35,7 @@ class BilletInfo(WarsBuildingInfo):
     viewdistance = 896
     attackpriority = -1
     abilities   = {
-        8 : 'cancel',
+        11 : 'cancel',
     }
     sound_select = 'build_reb_billet'
     sound_death = 'build_reb_billet_destruction'

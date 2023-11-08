@@ -126,7 +126,7 @@ class EnergyCellInfo(WarsBuildingInfo):
     buildtime = 20.0
     attackpriority = -1
     abilities   = {
-        8 : 'cancel',
+        11 : 'cancel',
     }
     sound_select = 'build_comb_energycell'
     sound_death = 'build_comb_battery_destroy'

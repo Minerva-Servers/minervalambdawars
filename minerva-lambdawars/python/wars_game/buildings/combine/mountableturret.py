@@ -64,7 +64,7 @@ class MountableTurretInfo(WarsDynMountTurretInfo):
     infoparticles = ['cone_of_fire']
     
     abilities = {
-        8 : 'cancel',
+        11 : 'cancel',
     }
     
     class AttackTurret(WarsDynMountTurretInfo.AttackTurret):

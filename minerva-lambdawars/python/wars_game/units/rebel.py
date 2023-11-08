@@ -357,8 +357,8 @@ class UnitRebelPartisanMolotov(UnitRebel):
 class RebelPartisanInfo(RebelShared):
     name = 'unit_rebel_partisan'
     cls_name = 'unit_rebel_partisan'
-    displayname = '#RebPartisan_Name'
-    description = '#RebPartisan_Description'
+    displayname = 'Submachine Partisan'
+    description = 'A Refugee armed with a MP7.'
     buildtime = 12.0
     health = 100
     population = 1
@@ -379,6 +379,33 @@ class RebelPartisanInfo(RebelShared):
         -1: 'garrison',
     }
     weapons = ['weapon_smg1']
+    accuracy = 0.5
+    #accuracy = 'low'
+
+class MP5KRebelPartisanInfo(RebelPartisanInfo):
+    name = 'unit_rebel_partisan_smg2'
+    displayname = 'Light Submachine Partisan'
+    description = 'A Refugee armed with a MP5K.'
+    buildtime = 10.0
+    health = 100
+    population = 1
+    maxspeed = 229.0
+    viewdistance = 812
+    scrapdropchance = 0.0
+    #tier = 1
+    modellist = GenerateModelList('DEFAULT')
+    costs = [[('requisition', 10)], [('kills', 1)]]
+    image_name = 'vgui/rebels/units/unit_rebel_partisan'
+    attributes = ['light']
+    abilities = {
+        0: 'revolutionaryfervor',
+        7: 'mountturret',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
+        -1: 'garrison',
+    }
+    weapons = ['weapon_smg2']
     accuracy = 0.5
     #accuracy = 'low'
 
@@ -555,7 +582,7 @@ class RebelW1886Info(RebelInfo):
     weapons = ['weapon_winchester1886']
     image_name = 'vgui/rebels/units/unit_rebel_winchester'
     abilities = {
-        #0: 'grenade',
+        0: 'grenade',
         #1: 'rebel_grenade_upgrade',
         0: 'winchester_alt_fire',
         7: 'mountturret',
@@ -629,21 +656,21 @@ class RebelAR2Info(RebelInfo):
     image_name = 'vgui/rebels/units/unit_rebel_ar2'
     canshootmove = True
 
-class RebelTacticalInfo(RebelInfo):
-    name = 'unit_rebel_tactical'
-    displayname = 'Tactical Rebel'
+class SMG1RebelTacticalInfo(RebelInfo):
+    name = 'unit_rebel_tactical_smg1'
+    displayname = 'Tactical Submachine Rebel'
     description = ''
-    buildtime = 27.0
+    buildtime = 22.0
     maxspeed = 238
     health = 280
     viewdistance = 1024
-    costs = [[('requisition', 25), ('scrap', 15)], [('kills', 2)]]
-    techrequirements = ['build_reb_techcenter','weaponar2_unlock']
-    accuracy = 0.756
+    costs = [[('requisition', 30), ('scrap', 5)], [('kills', 2)]]
+    techrequirements = ['build_reb_techcenter']
+    accuracy = 1.1
     population = 1
     selectionpriority = 4
     modelname = 'models/humans/minervawars/tactical_rebel.mdl'
-    weapons = ['weapon_ar2']
+    weapons = ['weapon_smg1']
     abilities = {
         0: 'grenade',
         1: 'stungrenade',
@@ -655,8 +682,53 @@ class RebelTacticalInfo(RebelInfo):
     }
     sensedistance = 1128.0
     attributes = ['medium']
-    image_name = 'vgui/rebels/units/unit_rebel_ar2'
+    image_name = 'vgui/rebels/units/unit_rebel'
     canshootmove = True
+
+class SMG2RebelTacticalInfo(SMG1RebelTacticalInfo):
+    name = 'unit_rebel_tactical_smg2'
+    displayname = 'Tactical Light Submachine Rebel'
+    buildtime = 20.0
+    maxspeed = 242
+    health = 280
+    viewdistance = 1024
+    costs = [[('requisition', 30), ('scrap', 5)], [('kills', 2)]]
+    techrequirements = ['build_reb_techcenter','weaponar2_unlock']
+    accuracy = 1.1
+    weapons = ['weapon_smg2']
+    sensedistance = 1128.0
+    attributes = ['medium']
+    image_name = 'vgui/rebels/units/unit_rebel'
+
+class AR2RebelTacticalInfo(SMG1RebelTacticalInfo):
+    name = 'unit_rebel_tactical_ar2'
+    displayname = 'Tactical AR2 Rebel'
+    buildtime = 26.0
+    maxspeed = 208
+    health = 280
+    viewdistance = 1024
+    costs = [[('requisition', 30), ('scrap', 5)], [('kills', 2)]]
+    techrequirements = ['build_reb_techcenter','weaponar2_unlock']
+    accuracy = 1.1
+    weapons = ['weapon_ar2']
+    sensedistance = 1128.0
+    attributes = ['medium']
+    image_name = 'vgui/rebels/units/unit_rebel_ar2'
+
+class SGRebelTacticalInfo(SMG1RebelTacticalInfo):
+    name = 'unit_rebel_tactical_sg'
+    displayname = 'Tactical Shotgun Rebel'
+    buildtime = 26.0
+    maxspeed = 248
+    health = 280
+    viewdistance = 1024
+    costs = [[('requisition', 30), ('scrap', 5)], [('kills', 2)]]
+    techrequirements = ['build_reb_techcenter','weaponsg_unlock']
+    accuracy = 1.1
+    weapons = ['weapon_ar2']
+    sensedistance = 1128.0
+    attributes = ['medium']
+    image_name = 'vgui/rebels/units/unit_rebel_sg'
     
 class RebelTauInfo(RebelInfo):
     name = 'unit_rebel_tau'
@@ -827,6 +899,7 @@ class RebelEngineerInfo(RebelShared):
                                 }),
                         1: 'build_reb_hq',
                         2: 'build_reb_junkyard',
+                        3: 'build_reb_shack',
                         4: 'build_reb_barracks',
                         5: 'build_reb_specialops',
                         6: 'build_reb_vortigauntden',
@@ -957,6 +1030,7 @@ class RebelRPGInfo(RebelShared):
     image_name = 'vgui/rebels/units/unit_rebel_rpg'
     #tier = 3
     abilities = {
+        0: 'grenade',
         7: 'mountturret',
         8: 'attackmove',
         9: 'holdposition',

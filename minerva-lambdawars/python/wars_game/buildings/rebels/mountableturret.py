@@ -71,7 +71,7 @@ class MountableTurretInfo(WarsDynMountTurretInfo):
     viewdistance = 384
 	
     abilities = {
-        8: 'cancel',
+        11: 'cancel',
     }
     # This controls the models positioning and highlighting
     dummies = [

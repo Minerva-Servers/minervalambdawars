@@ -389,7 +389,7 @@ class DogInfo(UnitInfo):
     displayname = '#Dog_Name'
     description = '#Dog_Description'
     image_name = 'vgui/rebels/units/unit_dog.vmt'
-    health = 3500
+    health = 2500
     maxspeed = 334
     viewdistance = 900
     turnspeed = 45.0
@@ -441,11 +441,11 @@ class DogHPUpgrade(AbilityUpgradeValue):
     name = 'dog_hp_upgrade'
     displayname = '#DogHPUpgrade_Name'
     description = '#DogHPUpgrade_Description'
-    buildtime = 180.0
-    costs = [[('requisition', 300), ('scrap', 300)], [('kills', 100)]]
-    upgradevalue = 3000
+    buildtime = 200.0
+    costs = [[('requisition', 400), ('scrap', 400)], [('kills', 100)]]
+    upgradevalue = 3500
     image_name = 'vgui/rebels/abilities/dog_hp_upgrade'
-    techrequirements = ['or_tier3_research']
+    techrequirements = ['build_reb_techcenter']
 
 class OverrunDogInfo(DogInfo):
     #Dog is very tanky in overrun. Having him in overrun isn't half-bad for that purpose. Goal: need to make him be spawnable with a cooldown. Ability that spawns dog as an output with cooldown?

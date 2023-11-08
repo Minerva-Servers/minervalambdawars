@@ -35,7 +35,7 @@ class MechFactoryInfo(PoweredBuildingInfo):
         0: 'unit_scanner',
         1: 'unit_manhack',
         2: 'unit_rollermine',
-        8: 'cancel',
+        11: 'cancel',
     } 
     sound_work = 'combine_mech_factory_working'
     sound_select = 'build_combine_mech_factory'

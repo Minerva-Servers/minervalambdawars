@@ -150,6 +150,23 @@ class UnitCombine(BaseClass):
             Activity.ACT_WALK_AIM : Activity.ACT_WALK_AIM_RIFLE,
             Activity.ACT_RUN_AIM : Activity.ACT_RUN_AIM_RIFLE,
         },
+        'weapon_smg2' : {
+            Activity.ACT_WALK : Activity.ACT_WALK_RIFLE,
+            Activity.ACT_RUN : Activity.ACT_RUN_RIFLE,
+            Activity.ACT_RANGE_ATTACK1 : Activity.ACT_RANGE_ATTACK_SMG1,
+            Activity.ACT_MP_JUMP : Activity.ACT_JUMP,
+            Activity.ACT_MP_JUMP_FLOAT : Activity.ACT_JUMP,
+            
+            Activity.ACT_CROUCH : Activity.ACT_COVER,
+            Activity.ACT_RUN_CROUCH : Activity.ACT_RUN_CROUCH_RIFLE,
+            Activity.ACT_WALK_CROUCH_AIM : Activity.ACT_RUN_CROUCH_RIFLE,
+            Activity.ACT_RUN_CROUCH_AIM : Activity.ACT_RUN_CROUCH_RIFLE,
+            Activity.ACT_CROUCHIDLE_AIM_STIMULATED : Activity.ACT_RANGE_ATTACK_SMG1_LOW, 
+            
+            Activity.ACT_IDLE_AIM_AGITATED : Activity.ACT_RANGE_ATTACK_SMG1,
+            Activity.ACT_WALK_AIM : Activity.ACT_WALK_AIM_RIFLE,
+            Activity.ACT_RUN_AIM : Activity.ACT_RUN_AIM_RIFLE,
+        },
         'weapon_shotgun' : {
             Activity.ACT_WALK : Activity.ACT_WALK_RIFLE,
             Activity.ACT_RUN : Activity.ACT_RUN_RIFLE,
@@ -185,6 +202,23 @@ class UnitCombine(BaseClass):
             Activity.ACT_RUN_AIM: Activity.ACT_RUN_AIM_SHOTGUN,
         },
         'weapon_ar2' : {
+            Activity.ACT_WALK : Activity.ACT_WALK_RIFLE,
+            Activity.ACT_RUN : Activity.ACT_RUN_RIFLE,
+            Activity.ACT_RANGE_ATTACK1 : Activity.ACT_RANGE_ATTACK_AR2,
+            Activity.ACT_MP_JUMP : Activity.ACT_JUMP,
+            Activity.ACT_MP_JUMP_FLOAT : Activity.ACT_JUMP,
+            
+            Activity.ACT_CROUCH : Activity.ACT_COVER,
+            Activity.ACT_RUN_CROUCH : Activity.ACT_RUN_CROUCH_RIFLE,
+            Activity.ACT_WALK_CROUCH_AIM : Activity.ACT_RUN_CROUCH_RIFLE,
+            Activity.ACT_RUN_CROUCH_AIM : Activity.ACT_RUN_CROUCH_RIFLE,
+            Activity.ACT_CROUCHIDLE_AIM_STIMULATED : Activity.ACT_RANGE_ATTACK_AR2_LOW, 
+            
+            Activity.ACT_IDLE_AIM_AGITATED : Activity.ACT_RANGE_ATTACK_AR2,
+            Activity.ACT_WALK_AIM : Activity.ACT_WALK_AIM_RIFLE,
+            Activity.ACT_RUN_AIM : Activity.ACT_RUN_AIM_RIFLE,
+        },
+        'weapon_rpg' : {
             Activity.ACT_WALK : Activity.ACT_WALK_RIFLE,
             Activity.ACT_RUN : Activity.ACT_RUN_RIFLE,
             Activity.ACT_RANGE_ATTACK1 : Activity.ACT_RANGE_ATTACK_AR2,
@@ -467,13 +501,75 @@ class CombineAR2Info(CombineInfo):
     }
     weapons = ['weapon_ar2']
 
+class CombineSMG2Info(CombineInfo):
+    name = 'unit_combine_smg2'
+    displayname = 'Combine Breaching Soldier'
+    description = ''
+    image_name = 'vgui/combine/units/unit_combine'
+    costs = [[('requisition', 25)], [('kills', 1)]]
+    techrequirements = ['build_comb_armory']
+    #techrequirements = ['build_comb_armory']
+    buildtime = 22.0
+    health = 150
+    maxspeed = 189
+    sensedistance = 1024.0
+    viewdistance = 832
+    #accuracy = 0.626
+    attributes = ['medium']
+    sound_select = 'unit_combine_ar2_select'
+    sound_move = 'unit_combine_ar2_move'
+    sound_attack = 'unit_combine_ar2_attack'
+    modelname = 'models/combine_soldier.mdl'
+   # tier = 2
+    abilities = {
+        0: 'grenade_combine',
+        #1: 'combine_grenade_upgrade',
+        7: 'mountturret',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
+        -1: 'garrison',
+    }
+    weapons = ['weapon_smg2']
+
+class CombineRPGInfo(CombineInfo):
+    name = 'unit_combine_rpg'
+    displayname = 'Combine Rocketier Soldier'
+    description = ''
+    image_name = 'vgui/combine/units/unit_combine'
+    portrait = 'resource/portraits/combineAR2.bik'
+    costs = [[('requisition', 60), ('power', 60)], [('kills', 3)]]
+    buildtime = 40.0
+    health = 150
+    maxspeed = 150
+    sensedistance = 1408.0
+    viewdistance = 896
+    #accuracy = 0.626
+    attributes = ['medium', 'rpg']
+    sound_select = 'unit_combine_ar2_select'
+    sound_move = 'unit_combine_ar2_move'
+    sound_attack = 'unit_combine_ar2_attack'
+    modelname = 'models/combine_soldier.mdl'
+    techrequirements = ['build_comb_specialops']
+   # tier = 2
+    abilities = {
+        0: 'grenade_combine',
+        #1: 'combine_grenade_upgrade',
+        7: 'mountturret',
+        8: 'attackmove',
+        9: 'holdposition',
+        10: 'patrol',
+        -1: 'garrison',
+    }
+    weapons = ['weapon_rpg']
+
 class CombineEliteUnlock(AbilityUpgrade):
     name = 'combine_elite_unlock'
     displayname = 'Combine Elite Soldier Unlock'
     description = ''
     image_name = "vgui/combine/abilities/combine_elite_unlock"
     buildtime = 95.0
-    costs = [[('requisition', 50)], [('kills', 5)]]
+    costs = [[('requisition', 50), ('power', 50)], [('kills', 2)]]
 
 class CombineEliteInfo(CombineSharedInfo):
     name = 'unit_combine_elite'
@@ -524,7 +620,7 @@ class CombineHeavyInfo(CombineSharedInfo):
     unitenergy = 350
     unitenergy_initial = -1
     attributes = ['heavy']
-    techrequirements = ['build_comb_specialops','weaponsg_comb_unlock']
+    techrequirements = ['weaponsg_comb_unlock']
     selectionpriority = 3
     sound_select = 'unit_combine_elite_select'
     sound_move = 'unit_combine_elite_move'

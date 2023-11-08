@@ -108,7 +108,7 @@ class OverrunHeadcrabCanisterLauncherInfo(WarsBuildingInfo):
         1: 'overrun_launch_headcrabcanister_fasttype',
         2: 'overrun_launch_headcrabcanister_poisontype',
         3: 'overrun_launch_headcrabcanister_emptytype',
-        8: 'cancel',
+        11: 'cancel',
     } 
     sound_select = 'build_comb_headcrabcanisterlauncher'
     sound_death = 'build_generic_explode1'
@@ -138,7 +138,7 @@ class HeadcrabCanisterLauncherInfo(PoweredBuildingInfo):
         1: 'launch_headcrabcanister_fasttype',
         2: 'launch_headcrabcanister_poisontype',
         3: 'launch_headcrabcanister_emptytype',
-        8: 'cancel',
+        11: 'cancel',
     } 
     sound_select = 'build_comb_headcrabcanisterlauncher'
     sound_death = 'build_generic_explode1'

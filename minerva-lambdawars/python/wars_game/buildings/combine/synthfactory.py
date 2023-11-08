@@ -82,7 +82,7 @@ class SynthFactoryInfo(PoweredBuildingInfo):
 		2 : 'unit_mortar_synth',
 		3 : 'unit_clawscanner',
 		4 : 'unit_crab_synth',
-		8 : 'cancel',
+		11 : 'cancel',
     } 
     sound_select = 'build_comb_synthfactory'
     sound_death = 'build_comb_synthfactory_destroy'

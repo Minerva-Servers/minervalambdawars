@@ -82,7 +82,7 @@ class ArmoryInfo(WarsBuildingInfo):
         2 : 'mortarsynth_upgrade',
         #3 : 'combineball_upgrade',
         3 : 'strider_unlock',
-        8 : 'cancel',
+        11 : 'cancel',
     } 
     sound_work = 'combine_armory_working'
     sound_select = 'build_comb_armory'
@@ -117,9 +117,9 @@ class ArmoryPoweredInfo(PoweredBuildingInfo):
         1 : 'weaponar2_comb_unlock',
         2 : 'combine_hp_upgrade',
         3 : 'floor_turret_unlock',
-        5 : 'combineball_upgrade',
-        #5 : 'combineball_unlock',
-        8 : 'cancel',
+        5 : 'combine_elite_unlock',
+        6 : 'combineball_upgrade',
+        11 : 'cancel',
     } 
     sound_work = 'combine_armory_working'
     sound_select = 'build_comb_armory'

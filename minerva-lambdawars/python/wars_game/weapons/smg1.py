@@ -31,9 +31,29 @@ class WeaponSmg1SW(WeaponSmg1):
     class AttackPrimary(WarsWeaponMachineGun.AttackPrimary):
         maxrange = 640.0
         usesbursts = True
-        minburst = 45
+        minburst = 40
         maxburst = 45
         attackspeed = 0.08
         minresettime = 1.8
         maxresettime = 2.4
+        attributes = ['bullet']
+
+@entity('weapon_smg2', networked=True)
+class WeaponSmg2(WarsWeaponMachineGun):
+    def __init__(self):
+        super().__init__()
+        
+        self.bulletspread = VECTOR_CONE_3DEGREES
+
+    clientclassname = 'weapon_smg2'
+    muzzleoptions = 'SMG1 MUZZLE'
+    
+    class AttackPrimary(WarsWeaponMachineGun.AttackPrimary):
+        maxrange = 640.0
+        attackspeed = 0.09 # Fire rate
+        usesbursts = True
+        minburst = 2
+        maxburst = 5
+        minresttime = 0.5
+        maxresttime = 1.2
         attributes = ['bullet']

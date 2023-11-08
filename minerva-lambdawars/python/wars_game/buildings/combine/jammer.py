@@ -104,7 +104,7 @@ class JammerInfo(PoweredBuildingInfo):
     buildtime = 20.0
     abilities = {
         0 : 'grenade_unlock',
-        8 : 'cancel',
+        11 : 'cancel',
     } 
     sound_select = 'build_comb_armory'
     sound_death = 'build_comb_armory_destroy'

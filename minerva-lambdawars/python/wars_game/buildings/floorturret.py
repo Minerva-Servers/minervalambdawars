@@ -221,7 +221,7 @@ class FloorTurretInfo(WarsTurretInfo):
     activatesoundscript = '#deployturret'
     
     abilities = {
-        8: 'cancel',
+        11: 'cancel',
     }
         
     def UpdateParticleEffects(self, inst, targetpos):

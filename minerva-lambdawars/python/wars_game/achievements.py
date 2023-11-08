@@ -105,7 +105,7 @@ if isserver:
         darkenergysuppressor_killcount[owner] += 1
         
         if not IsTickMethodRegistered(ProcessKilledByDarkEnergySupressor):
-            RegisterTickMethod(ProcessKilledByDarkEnergySupressor, 0.1, looped=False)
+            RegisterTickMethod(ProcessKilledByDarkEnergySupressor, 1, looped=False)
 
     def ProcessKilledByDarkEnergySupressor():
         global darkenergysuppressor_killcount
