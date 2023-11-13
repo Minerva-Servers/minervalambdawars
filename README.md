@@ -1,5 +1,5 @@
 # Minerva Lambda Wars
-Minerva Lambda Wars is a modded version of the original Lambda Wars which balances, removes and adds new features to the game. Allowing for longer matches and more fun matches. If you have any question regarding this mod, please feel free to contact me in Minerva Servers @ https://discord.gg/zDkjXrCDB2
+Minerva Lambda Wars is a modded version of the original Lambda Wars which balances, removes and adds new features to the game. Allowing for longer matches and more fun matches. If you have any question regarding this mod, please feel free to contact me in Minerva Servers @ [Minerva Servers Discord](https://discord.gg/bq6y5FuWfj)
 
 ## How to Install
 Download the github repository and navigate to the Lambda Wars Directory (Steam/steamapps/common/Lambda Wars/lambdawars), create an addon folder if there isn't. Open the repository files and drag the VPK file into the addons folder, keep in mind Lambda Wars must not be started during this procedure.
