@@ -117,8 +117,9 @@ class ArmoryPoweredInfo(PoweredBuildingInfo):
         1 : 'weaponar2_comb_unlock',
         2 : 'combine_hp_upgrade',
         3 : 'floor_turret_unlock',
-        5 : 'combine_elite_unlock',
-        6 : 'combineball_upgrade',
+        5 : 'combine_sniper_unlock',
+        6 : 'combine_elite_unlock',
+        7 : 'combineball_upgrade',
         11 : 'cancel',
     } 
     sound_work = 'combine_armory_working'

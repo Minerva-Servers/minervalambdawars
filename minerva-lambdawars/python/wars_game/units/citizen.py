@@ -643,7 +643,6 @@ class CitizenInfo(UnitInfo):
     viewdistance = 800
     scrapdropchance = 0.0
     cantakecover = True
-    canshootmove = True
 
     sound_select_f = ''
     sound_move_f = ''

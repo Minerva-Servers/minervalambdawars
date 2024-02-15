@@ -353,7 +353,6 @@ class UnitDog(BaseClass):
     jumpheight = 150.0
     isincombat = None
     barsoffsetz = 32.0
-    canshootmove = True
     
     #attackmelee1act = 'ACT_DOG_THROW'
     
@@ -389,15 +388,15 @@ class DogInfo(UnitInfo):
     displayname = '#Dog_Name'
     description = '#Dog_Description'
     image_name = 'vgui/rebels/units/unit_dog.vmt'
-    health = 2500
-    maxspeed = 334
+    health = 2000
+    maxspeed = 300
     viewdistance = 900
-    turnspeed = 45.0
-    buildtime = 96.0
+    turnspeed = 20.0
+    buildtime = 120.0
     population = 1
-    unitenergy = 200
+    unitenergy = 100
     unitenergy_initial = 50
-    costs = [('requisition', 150), ('scrap', 150)]
+    costs = [('requisition', 250), ('scrap', 250)]
     attributes = ['metal', 'large']
     modelname = 'models/dog_extended.mdl'
     hulltype = 'HULL_MEDIUM_TALL'
@@ -405,7 +404,7 @@ class DogInfo(UnitInfo):
     sound_move = 'unit_rebel_dog_move'
     sound_attack = 'unit_rebel_dog_attack'
     sound_death = "unit_rebel_dog_death"
-    techrequirements = ['build_reb_techcenter']
+    techrequirements = ['build_reb_techcenter', 'dog_unlock']
     #tier = 3
     overrunrepair = False
     abilities = {
@@ -443,7 +442,7 @@ class DogHPUpgrade(AbilityUpgradeValue):
     description = '#DogHPUpgrade_Description'
     buildtime = 200.0
     costs = [[('requisition', 400), ('scrap', 400)], [('kills', 100)]]
-    upgradevalue = 3500
+    upgradevalue = 3000
     image_name = 'vgui/rebels/abilities/dog_hp_upgrade'
     techrequirements = ['build_reb_techcenter']
 

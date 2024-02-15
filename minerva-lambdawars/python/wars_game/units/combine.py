@@ -105,7 +105,6 @@ class UnitCombine(BaseClass):
     attackrange1act = Activity.ACT_RANGE_ATTACK_SMG1
     
     grenadeability = None
-    canshootmove = True
     
     #test = UpgradeField(abilityname='testupgrade')
     
@@ -584,7 +583,7 @@ class CombineEliteInfo(CombineSharedInfo):
     sensedistance = 1024.0
     viewdistance = 896
     attributes = ['heavy']
-    techrequirements = ['weaponar2_comb_unlock']
+    techrequirements = ['weaponar2_comb_unlock', 'combine_elite_unlock']
     selectionpriority = 4
     sound_select = 'unit_combine_elite_select'
     sound_move = 'unit_combine_elite_move'
@@ -666,7 +665,7 @@ class CombineSniperInfo(CombineSharedInfo):
     viewdistance = 896
     unitenergy = 60
     unitenergy_initial = 30
-    #techrequirements = ['combine_sniper_unlock']
+    techrequirements = ['combine_sniper_unlock']
     attributes = ['medium']
     sound_select = 'unit_combine_select'
     sound_move = 'unit_combine_move'
@@ -833,7 +832,6 @@ class CharacterUnitCanShootMove(UnitCombine):
         return super().OnTakeDamage(dmginfo)
 
     # Settings
-    canshootmove = True
 
 
 @entity('character_unit', networked=True, )

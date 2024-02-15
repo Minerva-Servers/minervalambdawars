@@ -1053,7 +1053,6 @@ class UnitStrider(BaseClass):
     scaleprojectedtexture = 4
     selectionparticlename = 'unit_circle_ground'
     jumpheight = 0.0
-    canshootmove = True
     cancappcontrolpoint = False
 
     disable_bonefollowers = BooleanField(value=False, keyname='disablephysics')
@@ -1106,7 +1105,7 @@ class StriderInfo(UnitInfo):
     viewdistance = 1024
     modelname = 'models/combine_strider.mdl'
     hulltype = 'HULL_LARGE_CENTERED'
-    techrequirements = ['build_comb_tech_center']
+    techrequirements = ['build_comb_tech_center', 'strider_unlock']
     health = 5000
     maxspeed = 220.0
     turnspeed = 25.0

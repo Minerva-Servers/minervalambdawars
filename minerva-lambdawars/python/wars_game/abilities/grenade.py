@@ -181,16 +181,16 @@ class AbilityGrenade(AbilityTarget):
     defaultautocast = False
     autocastcheckonenemy = True
     @classmethod
+
     def CheckAutoCast(info, unit):
-        if info.CanDoAbility(None, unit=unit):
+        if random.random() < 0.25 and info.CanDoAbility(None, unit=unit):
             enemy = unit.enemy
             from entities import MouseTraceData
             leftpressed = MouseTraceData()
             leftpressed.endpos = enemy.GetAbsOrigin()
             leftpressed.groundendpos = enemy.GetAbsOrigin()
             leftpressed.ent = enemy
-            if random.uniform(0, 100) < 25:  # 25% chance
-                unit.DoAbility(info.name, mouse_inputs=[('leftpressed', leftpressed)])
+            unit.DoAbility(info.name, mouse_inputs=[('leftpressed', leftpressed)])
             return True
         return False
         

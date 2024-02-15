@@ -452,7 +452,6 @@ class UnitMetroPolice(BaseClass):
         return super().OnTakeDamage(dmginfo)
         
     cantakecover = True
-    canshootmove = True
     shield = EHandleField(value=None, networked=True, clientchangecallback='OnShieldChanged')
     defensive_mode = BooleanField(value=False, networked=True, helpstring='indicates the police has it\'s shield up',
                                   clientchangecallback='OnDefensiveModeChanged')

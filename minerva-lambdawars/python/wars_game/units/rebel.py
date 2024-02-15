@@ -79,7 +79,6 @@ if isserver:
 @entity('unit_rebel', networked=True)
 class UnitRebel(UnitCitizen):
     cantakecover = True
-    canshootmove = True
     if isserver:
         def Precache(self):
             super().Precache()
@@ -94,7 +93,6 @@ class UnitRebel(UnitCitizen):
 @entity('unit_rebel_csm', networked=True)
 class UnitRebelCSM(UnitRebel):
     cantakecover = True
-    canshootmove = True
     sai_hint = set(['sai_unit_combat'])
 
 # Rebel engineer
@@ -110,7 +108,6 @@ class UnitRebelEngineer(UnitRebel):
         'ACT_BUILDING',
     ])
     cantakecover = True
-    canshootmove = True
 
 
 @entity('mission_unit_rebel_engineer', networked=True)
@@ -125,7 +122,6 @@ class MissionUnitRebelEngineer(UnitRebelEngineer):
         'ACT_BUILDING',
     ])
     cantakecover = True
-    canshootmove = True
 
 
 #@entity('unit_rebel_flamer', networked=True)
@@ -230,7 +226,6 @@ class UnitRebelMedic(UnitRebel):
     maxhealth = UpgradeField(abilityname='rebel_hp_upgrade', cppimplemented=True)
     health = UpgradeField(abilityname='rebel_hp_upgrade', cppimplemented=True)
     cantakecover = True
-    canshootmove = True
 
 
 class RebelShared(UnitInfo):
@@ -260,7 +255,6 @@ class RebelShared(UnitInfo):
     sound_flamer_ignited = 'unit_rebel_flamer_ignited'
     sound_hurt = 'unit_rebel_hurt'
     cantakecover = True
-    canshootmove = True
     sai_hint = set(['sai_unit_combat'])
 
 class RebelScoutInfo(RebelShared):
@@ -539,7 +533,6 @@ class RebelInfo(RebelShared):
         -1: 'garrison',
     }
 
-    canshootmove = True
 
 
 class DestroyHQRebelInfo(RebelInfo):
@@ -568,7 +561,6 @@ class PistolRebelInfo(RebelInfo):
         10: 'patrol',
         -1: 'garrison',
     }
-    canshootmove = True
 
 
 class RebelW1886Info(RebelInfo):
@@ -596,7 +588,6 @@ class RebelW1886Info(RebelInfo):
     viewdistance = 1024
     sensedistance = 1280
     population = 1
-    canshootmove = True
 
 class RebelSGInfo(RebelInfo):
     name = 'unit_rebel_sg'
@@ -622,7 +613,6 @@ class RebelSGInfo(RebelInfo):
     image_name = 'vgui/rebels/units/unit_rebel_sg'
     maxspeed = 260.0
     viewdistance = 768
-    canshootmove = True
 
 
 class DestroyHQRebelSGInfo(RebelSGInfo):
@@ -654,7 +644,6 @@ class RebelAR2Info(RebelInfo):
     sensedistance = 1024.0
     attributes = ['medium']
     image_name = 'vgui/rebels/units/unit_rebel_ar2'
-    canshootmove = True
 
 class SMG1RebelTacticalInfo(RebelInfo):
     name = 'unit_rebel_tactical_smg1'
@@ -683,7 +672,6 @@ class SMG1RebelTacticalInfo(RebelInfo):
     sensedistance = 1128.0
     attributes = ['medium']
     image_name = 'vgui/rebels/units/unit_rebel'
-    canshootmove = True
 
 class SMG2RebelTacticalInfo(SMG1RebelTacticalInfo):
     name = 'unit_rebel_tactical_smg2'
@@ -759,7 +747,6 @@ class RebelTauInfo(RebelInfo):
     attributes = ['heavy']
     image_name = 'vgui/rebels/units/unit_rebel_tau'
     infest_zombietype = ''
-    canshootmove = True
     
 class RebelHeavyInfo(RebelInfo):
     name = 'unit_rebel_heavy'
@@ -790,7 +777,6 @@ class RebelHeavyInfo(RebelInfo):
     attributes = ['heavy']
     image_name = 'vgui/rebels/units/unit_rebel_heavy'
     infest_zombietype = ''
-    canshootmove = True
 
 
 class DestroyHQRebelAR2Info(RebelAR2Info):
@@ -1056,7 +1042,6 @@ class RebelVeteranUnlock(AbilityUpgrade):
 
 @entity ('unit_rebel_veteran', networked=True)
 class UnitCitizenBase(UnitCitizen):
-    canshootmove = True
     insteadyposition = BooleanField(value=False, networked=True)
 
     def OnInCoverChanged(self):
@@ -1719,7 +1704,6 @@ class CharacterUnitCanShootMove(UnitCitizen):
         return super().OnTakeDamage(dmginfo)
 
     # Settings
-    canshootmove = True
 
 
 @entity('char_rebel_medic', networked=True)

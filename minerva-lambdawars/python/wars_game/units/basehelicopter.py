@@ -148,7 +148,6 @@ class BaseHelicopter(BaseClass):
     scaleprojectedtexture = 3.5
     selectionparticlename = 'unit_circle_ground'
     jumpheight = 0.0
-    canshootmove = True
     
     flyheight = 350.0
     flynoiserate = 48.0

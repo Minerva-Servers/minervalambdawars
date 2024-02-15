@@ -1,28 +1,107 @@
-"announcer_combine_more_requisition_required"
+"announcer_combine_building_under_attack"
 {
 	"channel"		"CHAN_STATIC"
-	"volume"		"0.7"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"announcers/metropolice/baseunderattack.wav"
+		"wave"	"announcers/metropolice/baseunderattack2.wav"	
+	}
+}
+
+"announcer_combine_unit_under_attack"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"announcers/metropolice/unitsunderattack1.wav"
+		"wave"	"announcers/metropolice/unitsunderattack2.wav"
+	}
+}
+
+"announcer_combine_unit_complete"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"announcers/metropolice/unitready.wav"
+		"wave"	"announcers/metropolice/unitready2.wav"
+	}
+}
+
+"announcer_combine_researchcomplete"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"announcers/metropolice/researchcomplete.wav"
+		"wave"	"announcers/metropolice/research_complete2.wav"
+	}
+}
+
+"announcer_combine_more_population_required"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"announcers/metropolice/max_unit_cap.wav"
+		"wave"	"announcers/metropolice/max_unit_cap2.wav"
+		"wave"	"announcers/metropolice/max_unit_cap3.wav"
+	}
+}
+
+"announcer_combine_control_point_lost"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"VOL_NORM"
 	"pitch"			"PITCH_NORM"
 
 	"soundlevel"	"SNDLVL_90dB"
 
 	"rndwave"
 	{
-		"wave"	"announcers/combine/more requistion is required.wav"
+		"wave"	"announcers/metropolice/objective_point_lost.wav"
+		"wave"	"announcers/metropolice/objective_point_lost2.wav"
 	}
 }
 
 "announcer_combine_control_point_captured"
 {
 	"channel"		"CHAN_STATIC"
-	"volume"		"0.7"
+	"volume"		"VOL_NORM"
 	"pitch"			"PITCH_NORM"
 
 	"soundlevel"	"SNDLVL_90dB"
 
 	"rndwave"
 	{
-		"wave"	"announcers/combine/The objective point is secured.wav"
+		"wave"	"announcers/metropolice/Securingobj1.wav"
+		"wave"	"announcers/metropolice/Securingobj2.wav"
+		"wave"	"announcers/metropolice/Securingobj3.wav"
 	}
 }
 
@@ -36,93 +115,8 @@
 
 	"rndwave"
 	{
-		"wave"	"announcers/combine/objpoint_under_attack.wav"
-		"wave"	"announcers/combine/objpoint_under_attack2.wav"
-	}
-}
-
-"announcer_combine_control_point_lost"
-{
-	"channel"		"CHAN_STATIC"
-	"volume"		"0.7"
-	"pitch"			"PITCH_NORM"
-
-	"soundlevel"	"SNDLVL_90dB"
-
-	"rndwave"
-	{
-		"wave"	"announcers/combine/Objective point lost.wav"
-	}
-}
-
-"announcer_combine_unit_complete"
-{
-	"channel"		"CHAN_STATIC"
-	"volume"		"0.7"
-	"pitch"			"PITCH_NORM"
-
-	"soundlevel"	"SNDLVL_90dB"
-
-	"rndwave"
-	{
-		"wave"	"announcers/combine/Unit completed.wav"
-	}
-}
-
-"announcer_combine_more_population_required"
-{
-	"channel"		"CHAN_STATIC"
-	"volume"		"0.7"
-	"pitch"			"PITCH_NORM"
-
-	"soundlevel"	"SNDLVL_90dB"
-
-	"rndwave"
-	{
-		"wave"	"announcers/combine/max_unit_reached.wav"
-	}
-}
-
-"announcer_combine_more_resources_required"
-{
-	"channel"		"CHAN_STATIC"
-	"volume"		"0.7"
-	"pitch"			"PITCH_NORM"
-
-	"soundlevel"	"SNDLVL_90dB"
-
-	"rndwave"
-	{
-		"wave"	"announcers/combine/not enough resources.wav"
-	}
-}
-
-"announcer_combine_unit_under_attack"
-{
-	"channel"		"CHAN_STATIC"
-	"volume"		"0.7"
-	"pitch"			"PITCH_NORM"
-
-	"soundlevel"	"SNDLVL_90dB"
-
-	"rndwave"
-	{
-		"wave"	"announcers/combine/combine_unit_attack1i.wav"
-		"wave"	"announcers/combine/combine_unit_attack2i.wav"
-	}
-}
-
-"announcer_combine_building_under_attack"
-{
-	"channel"		"CHAN_STATIC"
-	"volume"		"0.7"
-	"pitch"			"PITCH_NORM"
-
-	"soundlevel"	"SNDLVL_90dB"
-
-	"rndwave"
-	{
-		"wave"	"announcers/combine/base_under_attack.wav"
+		"wave"	"announcers/metropolice/objective_point_under_attack.wav"
+		"wave"	"announcers/metropolice/objective_point_under_attack2.wav"
 	}
 }
 
@@ -136,8 +130,8 @@
 
 	"rndwave"
 	{
-		"wave"	"announcers/rebels/baseunderattack_rvc_1.wav"
-		"wave"	"announcers/rebels/baseunderattack2_rvc_1.wav"	
+		"wave"	"announcers/male07/baseunderattack.wav"
+		"wave"	"announcers/male07/baseunderattack2.wav"	
 	}
 }
 
@@ -151,8 +145,8 @@
 
 	"rndwave"
 	{
-		"wave"	"announcers/rebels/unitsunderattack1_rvc_1.wav"
-		"wave"	"announcers/rebels/unitsunderattack2_rvc_1.wav"
+		"wave"	"announcers/male07/unitsunderattack1.wav"
+		"wave"	"announcers/male07/unitsunderattack2.wav"
 	}
 }
 
@@ -166,8 +160,8 @@
 
 	"rndwave"
 	{
-		"wave"	"announcers/rebels/unitready_rvc_1.wav"
-		"wave"	"announcers/rebels/unitready2_rvc_1.wav"
+		"wave"	"announcers/male07/unitready.wav"
+		"wave"	"announcers/male07/unitready2.wav"
 	}
 }
 
@@ -181,8 +175,8 @@
 
 	"rndwave"
 	{
-		"wave"	"announcers/rebels/researchcomplete_rvc_1.wav"
-		"wave"	"announcers/rebels/research_complete2_rvc_1.wav"
+		"wave"	"announcers/male07/researchcomplete.wav"
+		"wave"	"announcers/male07/research_complete2.wav"
 	}
 }
 
@@ -196,9 +190,9 @@
 
 	"rndwave"
 	{
-		"wave"	"announcers/rebels/max_unit_cap_rvc_1.wav"
-		"wave"	"announcers/rebels/max_unit_cap2_rvc_1.wav"
-		"wave"	"announcers/rebels/max_unit_cap3_rvc_1.wav"
+		"wave"	"announcers/male07/max_unit_cap.wav"
+		"wave"	"announcers/male07/max_unit_cap2.wav"
+		"wave"	"announcers/male07/max_unit_cap3.wav"
 	}
 }
 
@@ -212,8 +206,8 @@
 
 	"rndwave"
 	{
-		"wave"	"announcers/rebels/objective_point_lost_rvc_1.wav"
-		"wave"	"announcers/rebels/objective_point_lost2_rvc_1.wav"
+		"wave"	"announcers/male07/objective_point_lost.wav"
+		"wave"	"announcers/male07/objective_point_lost2.wav"
 	}
 }
 
@@ -227,9 +221,9 @@
 
 	"rndwave"
 	{
-		"wave"	"announcers/rebels/Securingobj1_rvc_1.wav"
-		"wave"	"announcers/rebels/Securingobj2_rvc_1.wav"
-		"wave"	"announcers/rebels/Securingobj3_rvc_1.wav"
+		"wave"	"announcers/male07/Securingobj1.wav"
+		"wave"	"announcers/male07/Securingobj2.wav"
+		"wave"	"announcers/male07/Securingobj3.wav"
 	}
 }
 
@@ -243,7 +237,7 @@
 
 	"rndwave"
 	{
-		"wave"	"announcers/rebels/objective_point_under_attack_rvc_1.wav"
-		"wave"	"announcers/rebels/objective_point_under_attack2_rvc_1.wav"
+		"wave"	"announcers/male07/objective_point_under_attack.wav"
+		"wave"	"announcers/male07/objective_point_under_attack2.wav"
 	}
 }
